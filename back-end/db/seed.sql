@@ -1,4 +1,4 @@
-\c template_test_dev;
+\c pets_dev;
 
 INSERT INTO test (name) VALUES
 ('Monday'),
