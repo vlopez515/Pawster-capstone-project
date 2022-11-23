@@ -1,33 +1,23 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-// const API = process.env.REACT_APP_API_URL;
-
+import * as React from 'react';
+import StartIngScreen from './Pages/StartIngScreen';
+import {BrowserRouter as Router} from "react-router-dom";
+import ContactUs from './Pages/Starting Pages/ContactUs';
 
 function App() {
-  // const [days, setDays] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API}/test`)
-  //     .then(
-  //       (response) => {
-  //         setDays(response.data);
-  //       },
-  //       (error) => console.log("get", error)
-  //     )
-  //     .catch((c) => console.warn("catch", c));
-  // }, []);
-  // return (
-  //   <div>
-  //     <ul>
-  //       {days.map((day) => (
-  //         <li key={day.name}>{day.name}</li>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // );
   return (
-    <div>hello</div>
-  )
+    <div className="App">
+      <Router>
+       { true && 
+        <StartIngScreen 
+        />}
+        {/* Example of How to Switching Screen for User / Shelter */}
+        { false && 
+        <ContactUs 
+        />}
+        
+      </Router>
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,63 @@
+
+/* ------------------ Nav Bar Properties ------------------ */
+nav {
+    background-color: #0e8584;
+}
+
+main {
+    height: 100%;
+}
+   
+#basic-navbar-nav a {
+    color: white
+}
+
+#basic-navbar-nav a:active, #basic-navbar-nav a:hover{
+    color: black;
+}
+/* -------------------------------------------------------- */
+
+.padding {
+    padding: 80px 0;
+}
+.padding img{
+    width: 100%;
+}
+
+.carousel .carousel-item, .carousel-item img  {
+    max-height: 60vh;
+}
+
+.icon {
+    max-width: 200px;
+}
+
+.socialMedia {
+    text-decoration: none;
+    padding: 2%;
+    color: black;
+}
+
+/* Footer section */
+footer {
+    width: 100%;
+    background-color: #0e8584;
+    padding: 5% 5% 10% 5%;
+    color: white; /* text color */
+}
+
+a, div  a {
+    text-decoration: none;
+    all: unset;
+}
+
+
+/* Support Page Css */
+.support-container-div{
+    padding: 100px;
+}
+
+/* Contact Us Page Css */
+.contact-us-banner {
+   background-color: #f0f2f5;
+}
