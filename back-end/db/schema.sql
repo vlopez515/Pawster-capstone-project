@@ -10,11 +10,7 @@ CREATE TABLE user(
     name TEXT,
     income INT,
     age INT,
-<<<<<<< HEAD
-    gender TEXT,
-=======
     sex TEXT,
->>>>>>> 56fb162c5d34af7580ce6ba1692d9446386ca0e5
     household_size INT,
     residence_type TEXT, 
     free_time INT, 
@@ -28,10 +24,6 @@ CREATE TABLE user(
     email TEXT, 
     PRIMARY KEY(id)
 );
-<<<<<<< HEAD
-
-=======
->>>>>>> 56fb162c5d34af7580ce6ba1692d9446386ca0e5
 CREATE TABLE shelter(
     id SERIAL , 
     name TEXT, 
@@ -39,26 +31,15 @@ CREATE TABLE shelter(
     business_hours TEXT,
     phone_number INT, 
     email TEXT, 
-<<<<<<< HEAD
-    total_pets INT
-    PRIMARY KEY(id)
-);
-
-=======
     total_pet INT
     PRIMARY KEY(id)
 );
->>>>>>> 56fb162c5d34af7580ce6ba1692d9446386ca0e5
 CREATE TABLE pet_dog{
     id SERIAL , 
     name TEXT, 
     breed TEXT, 
     weight INT, 
-<<<<<<< HEAD
-    gender TEXT,
-=======
     sex TEXT,
->>>>>>> 56fb162c5d34af7580ce6ba1692d9446386ca0e5
     age INT,
     color TEXT, 
     hair_length TEXT, 
@@ -70,18 +51,6 @@ CREATE TABLE pet_dog{
     description TEXT, 
     shelter_id INT REFERENCES shelter(id) ON DELETE CASCADE
     PRIMARY KEY(id)
-<<<<<<< HEAD
-}
-
--- CREATE TABLE pet_cat{
---     id SERIAL , 
---     name TEXT, 
---     breeds TEXT, 
---     weight INT, 
---     gender TEXT,
---     age INT,
---     colors TEXT, 
-=======
 
 
 
@@ -153,7 +122,6 @@ CREATE TABLE pet_cat{
 --     sex TEXT,
 --     age INT,
 --     color TEXT, 
->>>>>>> 56fb162c5d34af7580ce6ba1692d9446386ca0e5
 --     hair_length TEXT, 
 --     size TEXT, 
 --     personality TEXT, 
@@ -161,14 +129,6 @@ CREATE TABLE pet_cat{
 --     neutered TEXT, 
 --     special_needs TEXT, 
 --     description TEXT, 
-<<<<<<< HEAD
---     shelter_id INT REFERENCES shelter(id) ON DELETE CASCADE
---     PRIMARY KEY(id)
--- }
-
-
-
-=======
 --     CONSTRAINT PK_Dog PRIMARY KEY(ID)
 
 
@@ -193,5 +153,4 @@ CREATE TABLE pet_cat{
 
 
 -- }
->>>>>>> 56fb162c5d34af7580ce6ba1692d9446386ca0e5
 
