@@ -8,7 +8,6 @@ const {
   updatePet
 } = require("../queries/Pets.js");
 
-
 Pets.get("/", async (req, res) => {
   const allPets = await getAllPets();
   if (allPets[0]) {
@@ -56,6 +55,6 @@ Pets.put("/:id", async (req, res) => {
   } else {
     res.status(404).json({error: "Pet not updated!"});
   }
-})
+});
 
 module.exports = Pets;
