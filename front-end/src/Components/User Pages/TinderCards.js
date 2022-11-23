@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCard.css";
+
 export default function TinderCards() {
   //list of the animal picture that user is gonna swip through.
   const [animals, setAnimals] = useState([//gonna be from the database/api - to show aniamals for us.
