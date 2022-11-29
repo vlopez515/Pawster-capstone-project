@@ -6,7 +6,7 @@ const {
   createShelter,
   deleteShelter,
   updateShelter
-} = require("../queries/Shelters.js");
+} = require("../queries/shelters.js");
 
 Shelters.get("/", async (req, res) => {
   const allShelters = await getAllShelters();

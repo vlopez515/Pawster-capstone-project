@@ -3,14 +3,22 @@ const express = require("express");
 const users = express.Router();
 
 const {
-  // getAllPetsForUser,
-  // addNewPetForUser,
   getAllUsers,
   getUser,
   deleteUser,
   updateUser,
   createUser,
 } = require("../queries/users.js");
+
+users.get("/", async (req, res) => {
+  const allUsers = await getAllUsers();
+  console.log(allUsers)
+  if (allUsers[0]) {
+    res.status(200).json(allUsers);
+  } else {
+    res.status(404).json({ error: "No Users" });
+  }
+});
 
 users.delete("/:id", async (req, res) => {
   const { id } = req.params;
@@ -22,15 +30,6 @@ users.delete("/:id", async (req, res) => {
   }
 });
 
-users.get("/", async (req, res) => {
-  const allUsers = await getAllUsers();
-  console.log(allUsers[0])
-  if (allUsers[0]) {
-    res.status(200).json(allUsers);
-  } else {
-    res.status(404).json({ error: "No Users" });
-  }
-});
 
 users.get("/:id", async (req, res) => {
   const { id } = req.params;
