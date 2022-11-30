@@ -25,57 +25,36 @@ CREATE TABLE users (
     PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS shelter;
+DROP TABLE IF EXISTS shelters;
 
-CREATE TABLE shelter (
+CREATE TABLE shelters (
     id SERIAL , 
     name TEXT, 
     address TEXT, 
     business_hours TEXT,
     phone_number INT, 
     email TEXT, 
-    total_pet INT,
     PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS pet_dog;
+DROP TABLE IF EXISTS pets ;
 
-CREATE TABLE pet_dog (
+CREATE TABLE pets (
     id SERIAL , 
     name TEXT, 
-    breed TEXT, 
-    weight INT, 
-    sex TEXT,
-    age INT,
-    color TEXT, 
-    hair_length TEXT, 
+    type TEXT,
+    breed TEXT,
     size TEXT, 
-    personality TEXT,
-    maintenance_level TEXT, 
-    neutered TEXT, 
-    special_needs TEXT, 
-    description TEXT, 
-    shelter_id INT REFERENCES shelter(id) ON DELETE CASCADE,
-    PRIMARY KEY(id)
-);
-
-DROP TABLE IF EXISTS pet_cat;
-
-CREATE TABLE pet_cat (
-    id SERIAL , 
-    name TEXT, 
-    breed TEXT, 
-    weight INT, 
-    sex TEXT,
-    age INT,
+    gender TEXT,
+    age TEXT,
     color TEXT, 
-    hair_length TEXT, 
-    size TEXT, 
-    personality TEXT, 
-    maintenance_level TEXT, 
-    neutered TEXT, 
-    special_needs TEXT, 
+    spayed_neutered BOOLEAN, 
+    house_trained BOOLEAN,
+    declawed BOOLEAN, 
+    special_needs BOOLEAN, 
+    shots_current BOOLEAN,
     description TEXT, 
-    shelter_id INT REFERENCES shelter(id) ON DELETE CASCADE,
+    status TEXT,
+    shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
     PRIMARY KEY(id)
 );
