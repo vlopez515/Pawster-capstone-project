@@ -2,8 +2,9 @@ import * as React from 'react';
 import StartIngScreen from './Pages/StartIngScreen';
 import {BrowserRouter as Router} from "react-router-dom";
 import ContactUs from './Pages/Starting Pages/ContactUs';
-// import { LoginPage } from "./Pages/LoginPage";
-// import { UserProvider } from "./Providers/UserProvider";
+import { LoginPage } from "./Pages/LoginPage";
+import { UserProvider } from "./Providers/UserProvider";
+import { LoggedInPage } from "./Pages/LoggedInPage";
 
 function App() {
   return (

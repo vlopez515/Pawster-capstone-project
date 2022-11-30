@@ -1,11 +1,11 @@
-// import React  from 'react'
-// import { Login } from '../Components/Login'
+import React  from 'react'
+import { Login } from '../Components/Login'
 // import Button from 'react-bootstrap/Button';
-// export const LoginPage = () => {
+export const LoginPage = () => {
 
-//     return (
-//         <div>
-//            <Login /> 
-//         </div>
-//     )
-// }
+    return (
+        <div>
+           <Login /> 
+        </div>
+    )
+}
