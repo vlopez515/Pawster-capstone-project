@@ -1,29 +1,26 @@
 import * as React from 'react';
 import StartingScreen from './Pages/StartingScreen';
-import { BrowserRouter as Router } from "react-router-dom";
-import UserStartingScreen from './Pages/UserStartingScreen';
-import ShowForm from './Pages/Form Pages/ShowForm';
-
-// const API = process.env.REACT_APP_API_URL;
+import {BrowserRouter as Router} from "react-router-dom";
+import ContactUs from './Pages/Starting Pages/ContactUs';
+import { LoginPage } from "./Pages/LoginPage";
+import { UserProvider } from "./Providers/UserProvider";
+import { LoggedInPage } from "./Pages/LoggedInPage";
 
 function App() {
   return (
     <div className="App">
-    <Router>
-     { false && 
-      <StartingScreen 
-      />}
-      {/* Example of How to Switching Screen for User / Shelter */}
-      { false && 
-      < UserStartingScreen 
-      />}
-      {
-        // Only Used to Make Sure Forms Show
-        false && 
-        <ShowForm/>
-      }
-      
-    </Router>
+      <Router>
+      <UserProvider>
+       { true && 
+        <StartingScreen 
+        />}
+        {/* Example of How to Switching Screen for User / Shelter */}
+        { false && 
+        <ContactUs 
+        />}
+        </UserProvider>
+      </Router>
+
     </div>
   );
 }
