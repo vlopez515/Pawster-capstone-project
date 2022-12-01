@@ -6,7 +6,7 @@ const {
   createPet,
   deletePet,
   updatePet
-} = require("../queries/Pets.js");
+} = require("../queries/pets.js");
 
 Pets.get("/", async (req, res) => {
   const allPets = await getAllPets();
