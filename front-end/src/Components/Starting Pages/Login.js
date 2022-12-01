@@ -1,8 +1,10 @@
 
 import React, { useContext, useEffect } from "react";
-import { UserContext } from "../Providers/UserProvider";
+// import { UserContext } from "../../Providers/UserProvider";
+import {UserContext} from "../../Providers/UserProvider"
 import { useNavigate } from "react-router-dom";
-import { signInWithGoogle, signOut } from "../Services/Firebase";
+
+import { signInWithGoogle, signOut } from "../../Services/Firebase";
 import Button from 'react-bootstrap/Button';
 import {GoogleButton} from 'react-google-button'
 
@@ -14,7 +16,7 @@ export const Login = () => {
   
   useEffect(() => {
     if (user) {
-      navigate.push("/loggedInPage");
+      navigate("/loggedInPage");
     } 
 
   }, [user, navigate]);
@@ -24,9 +26,9 @@ export const Login = () => {
       <section>
         <div>
           <div> <h3>Your  Login Information:</h3></div>
-          {/* <GoogleButton onClick={signInWithGoogle} /> */}
-          <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
-          <br></br>
+          <GoogleButton onClick={signInWithGoogle} />
+          {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
+          <br></br> */}
         
           <Button onClick={signOut}> sign out</Button>
           

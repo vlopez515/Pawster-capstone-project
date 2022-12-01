@@ -10,7 +10,8 @@ import About from "./Starting Pages/AboutPage";
 import Products from "./Starting Pages/Products";
 import Support from "./Starting Pages/Support";
 import Contact from "./Starting Pages/ContactUs";
-import Login from "../Components/Login";
+// import Login from "../Components/Starting_Pages/Login";
+import {Login} from "../Components/Starting Pages/Login";
 
 function StartIngScreen() {
     return (

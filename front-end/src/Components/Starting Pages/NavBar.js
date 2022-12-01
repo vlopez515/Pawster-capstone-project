@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {GoogleButton} from 'react-google-button'
-import { signInWithGoogle, signOut } from "../Services/Firebase";
+import { signInWithGoogle, signOut } from "../../Services/Firebase";
 
 export default function NavBarComponent() {
   return (

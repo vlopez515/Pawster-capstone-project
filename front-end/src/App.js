@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+      <UserProvider>
        { true && 
         <StartIngScreen 
         />}
@@ -17,7 +18,7 @@ function App() {
         { false && 
         <ContactUs 
         />}
-        
+        </UserProvider>
       </Router>
     </div>
   );

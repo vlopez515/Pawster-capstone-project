@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProvider";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "../Services/Firebase";
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+// import Form from 'react-bootstrap/Form';
+// import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 
 
@@ -16,8 +16,9 @@ export const LoggedInPage = () => {
   const user = useContext(UserContext)
   
   useEffect(() => { 
-    if(!user){
-     navigate.push("/")
+    if(user){
+
+     navigate("/")
       }
     }, [user, navigate]);
 
