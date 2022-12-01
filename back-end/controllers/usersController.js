@@ -1,10 +1,11 @@
 const express = require("express");
 
 const users = express.Router();
+
 const {
-  getAllPetsForUser,
+  // getAllPetsForUser,
+  // addNewPetForUser,
   getAllUsers,
-  addNewPetForUser,
   getUser,
   deleteUser,
   updateUser,
@@ -23,6 +24,7 @@ users.delete("/:id", async (req, res) => {
 
 users.get("/", async (req, res) => {
   const allUsers = await getAllUsers();
+  console.log(allUsers[0])
   if (allUsers[0]) {
     res.status(200).json(allUsers);
   } else {
@@ -59,21 +61,21 @@ users.put("/:id", async (req, res) => {
   }
 });
 
-users.get("/:id/pets", async (req, res) => {
-  const { id } = req.params;
-  const usersPets = await getAllPetsForUser(id);
-  res.json(usersPets);
-});
+// users.get("/:id/pets", async (req, res) => {
+//   const { id } = req.params;
+//   const usersPets = await getAllPetsForUser(id);
+//   res.json(usersPets);
+// });
 
-users.post("/:id/pets/:petId", async (req, res) => {
-  const { id, petId } = req.params;
-  const successfulAdd = await addNewPetForUser(id, petId);
-  if (successfulAdd) {
-    res.status(201).json({ message: "Pet liked!" })
-  } else {
-      res.status(422).json({ error: "Unprocessable entity" });
-    }
-});
+// users.post("/:id/pets/:petId", async (req, res) => {
+//   const { id, petId } = req.params;
+//   const successfulAdd = await addNewPetForUser(id, petId);
+//   if (successfulAdd) {
+//     res.status(201).json({ message: "Pet liked!" })
+//   } else {
+//       res.status(422).json({ error: "Unprocessable entity" });
+//     }
+// });
 
 
 module.exports = users;

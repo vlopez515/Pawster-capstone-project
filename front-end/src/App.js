@@ -1,5 +1,5 @@
 import * as React from 'react';
-import StartIngScreen from './Pages/StartIngScreen';
+import StartingScreen from './Pages/StartingScreen';
 import {BrowserRouter as Router} from "react-router-dom";
 import ContactUs from './Pages/Starting Pages/ContactUs';
 import { LoginPage } from "./Pages/LoginPage";
@@ -12,7 +12,7 @@ function App() {
       <Router>
       <UserProvider>
        { true && 
-        <StartIngScreen 
+        <StartingScreen 
         />}
         {/* Example of How to Switching Screen for User / Shelter */}
         { false && 

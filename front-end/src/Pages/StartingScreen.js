@@ -13,7 +13,7 @@ import Contact from "./Starting Pages/ContactUs";
 // import Login from "../Components/Starting_Pages/Login";
 import {Login} from "../Components/Starting Pages/Login";
 
-function StartIngScreen() {
+function StartingScreen() {
     return (
         <>
             <NavBarComponent />
@@ -34,4 +34,4 @@ function StartIngScreen() {
     )
 }
 
-export default StartIngScreen
+export default StartingScreen
