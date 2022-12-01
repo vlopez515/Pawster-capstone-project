@@ -10,7 +10,8 @@ import About from "./Starting Pages/AboutPage";
 import Products from "./Starting Pages/Products";
 import Support from "./Starting Pages/Support";
 import Contact from "./Starting Pages/ContactUs";
-import UserLogin from "./../Components/UserLogin";
+// import Login from "../Components/Starting_Pages/Login";
+import {Login} from "../Components/Starting Pages/Login";
 
 function StartingScreen() {
     return (
@@ -24,7 +25,7 @@ function StartingScreen() {
                     <Route path="/products" element={<Products />} />
                     <Route path="/support" element={<Support />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/login" element={<UserLogin />} />
+                    <Route path="/login" element={<Login />} />
                 </ Routes>
                 
             </main>

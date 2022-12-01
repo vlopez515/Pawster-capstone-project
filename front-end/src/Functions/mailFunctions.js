@@ -20,17 +20,17 @@ export function sendMail(event) {
   const templateID = "template_3ytz8si";
 
   // "emailjs function works but for some reason throws an error when the app is rendered. why?"
-  emailjs.send(serviceID, templateID, email)
-  .then((res) => {
-      event.target[0].value = "";
-      event.target[1].value = "";
-      event.target[2].value = "";
-      event.target[3].value = "";
-      console.log(res);
-      alert("Thank You! Your submission was sent.")
-  }
-  )
-  .catch((err) => console.log(err))
+  // emailjs.send(serviceID, templateID, email)
+//   .then((res) => {
+//       event.target[0].value = "";
+//       event.target[1].value = "";
+//       event.target[2].value = "";
+//       event.target[3].value = "";
+//       console.log(res);
+//       alert("Thank You! Your submission was sent.")
+//   }
+//   )
+//   .catch((err) => console.log(err))
 }
 
 // Modal not functional yet. Template only below.
