@@ -2,6 +2,7 @@ import * as React from 'react';
 import StartingScreen from './Pages/StartingScreen';
 import { BrowserRouter as Router } from "react-router-dom";
 import UserStartingScreen from './Pages/UserStartingScreen';
+import ShowForm from './Pages/Form Pages/ShowForm';
 
 // const API = process.env.REACT_APP_API_URL;
 
@@ -13,9 +14,14 @@ function App() {
       <StartingScreen 
       />}
       {/* Example of How to Switching Screen for User / Shelter */}
-      { true && 
+      { false && 
       < UserStartingScreen 
       />}
+      {
+        // Only Used to Make Sure Forms Show
+        false && 
+        <ShowForm/>
+      }
       
     </Router>
     </div>
