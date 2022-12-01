@@ -20,7 +20,7 @@ CREATE TABLE users (
     proof_of_residence TEXT, 
     photo_id TEXT, 
     proof_pets_allowed TEXT, 
-    phone_number INT, 
+    phone_number TEXT, 
     email TEXT, 
     PRIMARY KEY(id)
 );
@@ -37,7 +37,7 @@ CREATE TABLE shelters (
     PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS pets ;
+DROP TABLE IF EXISTS pets;
 
 CREATE TABLE pets (
     id SERIAL , 
@@ -57,4 +57,10 @@ CREATE TABLE pets (
     status TEXT,
     shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
     PRIMARY KEY(id)
+);
+
+CREATE TABLE users_pets (
+    pet_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    liked TIMESTAMP DEFAULT NOW()
 );
