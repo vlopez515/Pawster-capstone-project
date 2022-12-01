@@ -23,7 +23,7 @@ const createUser = async (user) => {
   const { name, income, age, sex, household_size, residence_type, free_time, preferences, pet_type, address, proof_of_residence, photo_id, proof_pets_allowed, phone_number, email } = user;
   try {
     const newUser = await db.one(
-      "INSERT INTO users (name, income, age, sex, household_size, residence_type, free_time, preferences, pet_type, address, proof_of_residence, photo_id, proof_pets_allowed, phone_number, email ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *",
+      "INSERT INTO users (name, income, age, sex, household_size, residence_type, free_time, preferences, pet_type, address, proof_of_residence, photo_id, proof_pets_allowed, phone_number, email) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *",
       [name, income, age, sex, household_size, residence_type, free_time, preferences, pet_type, address, proof_of_residence, photo_id, proof_pets_allowed, phone_number, email]
     );
     return newUser;
@@ -50,7 +50,33 @@ const updateUser = async (user, id) => {
   } catch (err) {
     return err;
   }
-}
+};
+
+// const getAllPetsForUser = async (id) => {
+//   try {
+//     const petsByUser = db.any(
+//       `SELECT 
+//                 pet_id, user_id, pets.name, pets.type
+//             FROM
+//                 users_pets
+//             JOIN
+//                 users
+//             ON
+//                 users.id = users_pets.user_id
+//             JOIN
+//                 pets
+//             ON
+//                 pets.id = users_pets.pet_id
+//             WHERE
+//                 users_pets.user_id = $1
+//             `,
+//       id
+//     );
+//     return petsByUser;
+//   } catch (err) {
+//     return err;
+//   }
+// };
 
 module.exports = { 
     getAllUsers, 

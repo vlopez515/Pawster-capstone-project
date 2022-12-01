@@ -20,6 +20,7 @@ function App() {
         />}
         </UserProvider>
       </Router>
+
     </div>
   );
 }
