@@ -5,7 +5,7 @@ import { twoColumnSection } from '../../Functions/mailFunctions';
 export default function HomePageContent() {
     return (
         <>
-            <div className='carousel-div'>
+            <div className='carousel-div mt-5'>
                 <Carousel />
             </div>
             {/* <!-- Paragraph Text with Image on the Left --> */}

@@ -9,18 +9,17 @@ import { LoggedInPage } from "./Pages/LoggedInPage";
 function App() {
   return (
     <div className="App">
-      <Router>
+    <Router>
       <UserProvider>
-       { true && 
-        <StartingScreen 
-        />}
-        {/* Example of How to Switching Screen for User / Shelter */}
-        { false && 
-        <ContactUs 
-        />}
+          { true && 
+            <StartingScreen 
+           />}
+            {/* Example of How to Switching Screen for User / Shelter */}
+          { false && 
+            <ContactUs 
+           />}
         </UserProvider>
-      </Router>
-
+     </Router>
     </div>
   );
 }

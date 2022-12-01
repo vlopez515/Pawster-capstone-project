@@ -1,7 +1,14 @@
-
+/* body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} */
 /* ------------------ Nav Bar Properties ------------------ */
 nav {
     background-color: #0e8584;
+}
+
+nav #navLogo {
+   /* width: 50px; */
+   width: 150px;
 }
 
 main {
@@ -29,7 +36,7 @@ main {
 }
 
 .icon {
-    max-width: 200px;
+    max-width: 70px;
 }
 
 .socialMedia {
