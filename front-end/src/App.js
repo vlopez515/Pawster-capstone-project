@@ -9,11 +9,11 @@ function App() {
   return (
     <div className="App">
     <Router>
-     { false && 
+     { true && 
       <StartingScreen 
       />}
       {/* Example of How to Switching Screen for User / Shelter */}
-      { true && 
+      { false && 
       < UserStartingScreen 
       />}
       

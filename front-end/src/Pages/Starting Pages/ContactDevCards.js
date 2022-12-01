@@ -42,9 +42,9 @@ export default function ContactDevCards() {
             <h3>Developers</h3>
             <p>If you'd like to reach out to the developers regarding app functionality and style, use the below icons to send an email or vist their respective links! </p>
             <Row xs={1} md={4} className="g-4">
-                {developers.map(per => (
+                {developers.map((per, indx) => (
                     <Col>
-                        <Card>
+                        <Card key={indx}>
                             <Card.Img variant="top" src={per.photo} />
                             <Card.Body className="text-center">
                                 <Card.Title>

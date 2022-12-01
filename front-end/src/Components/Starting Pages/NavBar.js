@@ -4,15 +4,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 
+const logoCut = require('../../assets/Pawster_cut.png')
+const logoSm = require('../../assets/Pawster_small.png')
+
 export default function NavBarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" fixed="top" >
       <Container>
         <Navbar.Brand href="/">
             <img 
-                src="#"
+                src={logoCut}
                 className="d-inline-block align-top"
-                alt="React Bootstrap logo"
+                id='navLogo'
+                alt="ogo"
             />
         </Navbar.Brand>
 
