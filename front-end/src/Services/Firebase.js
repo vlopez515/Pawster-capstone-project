@@ -1,5 +1,3 @@
-
-
 // import firebase from "firebase/app";
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth"
 const  { initializeApp }  = require("firebase/app");

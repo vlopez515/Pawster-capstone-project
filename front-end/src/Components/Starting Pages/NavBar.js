@@ -7,9 +7,9 @@ import {GoogleButton} from 'react-google-button'
 import { signInWithGoogle, signOut } from "../../Services/Firebase";
 
 const logoCut = require('../../assets/Pawster_cut.png')
-const logoSm = require('../../assets/Pawster_small.png')
 
 export default function NavBarComponent() {
+  console.log(signOut)
   return (
     <Navbar collapseOnSelect expand="lg" fixed="top" >
       <Container>
