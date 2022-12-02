@@ -8,8 +8,6 @@ import { signInWithGoogle, signOut } from "../../Services/Firebase";
 import Button from 'react-bootstrap/Button';
 import {GoogleButton} from 'react-google-button'
 
-
-
 export const Login = () => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
@@ -30,6 +28,7 @@ export const Login = () => {
           {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
           <br></br> */}
         
+        {/* commented out */}
           <Button onClick={signOut}> sign out</Button>
           
       </div>
