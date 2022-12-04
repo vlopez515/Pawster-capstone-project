@@ -19,11 +19,11 @@ const getPet = async (id) => {
 };
 
 const createPet = async (pet) => {
-  const { name, breed, weight, gender, age, color, hair_length, size, personality, maintenance_level, neutered, special_needs, description } = pet;
+  const { name, type, breed, size, gender, age, color, spray_neutered,house_trained,declawed,special_needs, shots_current, description, status } = pet;
   try {
     const newPet = await db.one(
-      "INSERT INTO pets (name, breed, weight, gender, age, color, hair_length, size, personality, maintenance_level, neutered, special_needs, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *",
-      [name, breed, weight, gender, age, color, hair_length, size, personality, maintenance_level, neutered, special_needs, description]
+      "INSERT INTO pets (name, type, breed, size, gender, age, color, spray_neutered,house_trained,declawed,special_needs, shots_current, description, status ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *",
+      [name, type, breed, size, gender, age, color, spray_neutered,house_trained,declawed,special_needs, shots_current, description, status ]
     );
     return newPet;
   } catch (error) {
@@ -41,10 +41,10 @@ const deletePet = async (id) => {
 };
 
 const updatePet = async (pet, id) => {
-  const { name, breed, weight, gender, age, color, hair_length, size, personality, maintenance_level, neutered, special_needs, description } = pet;
+  const { name, type, breed, size, gender, age, color, spray_neutered,house_trained,declawed,special_needs, shots_current, description, status } = pet;
   try {
-     const updatedPet = await db.one("UPDATE pets SET name = $1, breed = $2, weight = $3, gender = $4, age = $5, color = $6, hair_length = $7, size = $8, personality = $9, maintenence_level = $10, neutered = $11, special_needs = $12, description = $13 WHERE id = $14 RETURNING *",
-  [name, breed, weight, gender, age, color, hair_length, size, personality, maintenance_level, neutered, special_needs, description, id]);
+     const updatedPet = await db.one("UPDATE pets SET name = $1, type = $2, breed = $3, size = $4, gender = $5, age = $6, color = $7, spray_neutered = $8, house_trained = $9, declawed = $10, special_needs = $11, shots_current = $12, description = $13, status = $14 WHERE id = $15 RETURNING *",
+  [name, type, breed, size, gender, age, color, spray_neutered,house_trained,declawed,special_needs, shots_current, description, status ]);
     return updatedPet;
   } catch (err) {
     return err;
