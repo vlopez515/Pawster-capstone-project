@@ -32,7 +32,7 @@ CREATE TABLE shelters (
     name TEXT, 
     address TEXT, 
     business_hours TEXT,
-    phone_number TEXT, 
+    phone_number VARCHAR(40), 
     email TEXT, 
     PRIMARY KEY(id)
 );
