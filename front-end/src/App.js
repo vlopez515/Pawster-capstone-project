@@ -1,12 +1,16 @@
 import * as React from 'react';
+// import React, { useState, useEffect, createContext } from "react";
 import StartingScreen from './Pages/StartingScreen';
 import {BrowserRouter as Router} from "react-router-dom";
 // import { UserProvider } from "./Providers/UserProvider";
 import UserStartingScreen from './Pages/UserStartingScreen';
+import "./App.css";
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
 
 function App() {
+  
+
   return (
     <div className="App">
     <Router>
