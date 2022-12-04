@@ -1,23 +1,31 @@
 import * as React from 'react';
 import StartingScreen from './Pages/StartingScreen';
-import { BrowserRouter as Router } from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
+import { UserProvider } from "./Providers/UserProvider";
 import UserStartingScreen from './Pages/UserStartingScreen';
+import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
-// const API = process.env.REACT_APP_API_URL;
 
 function App() {
   return (
     <div className="App">
     <Router>
-     { false && 
-      <StartingScreen 
-      />}
-      {/* Example of How to Switching Screen for User / Shelter */}
-      { true && 
-      < UserStartingScreen 
-      />}
-      
-    </Router>
+      <UserProvider>
+          { true && 
+            <StartingScreen 
+           />}
+            {/* Example of How to Switching Screen for User / Shelter */}
+          { false && 
+            <UserStartingScreen/>
+            // <ContactUs />
+          }
+          {
+            false && 
+            <ShelterStartingScreen />
+          }
+
+        </UserProvider>
+     </Router>
     </div>
   );
 }

@@ -35,7 +35,7 @@ export default function ContactUs() {
             <p>Any general questions about the website or topics/concerns you'd like for the Pawster team to address, please feel free to let us know using the form below. We appreciate your feedback!</p>
           </div>
           
-          <div className="card shadow">
+
             <div className="card-body">
               <div className="row">
                 <div className="col-md-6">
@@ -59,7 +59,8 @@ export default function ContactUs() {
               </div>
             </div>
           </div>
-        </div>
+
+
       </section>
 
     </>

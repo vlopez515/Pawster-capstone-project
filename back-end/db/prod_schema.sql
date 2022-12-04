@@ -1,10 +1,3 @@
-DROP DATABASE IF EXISTS pets_dev;
-CREATE DATABASE pets_dev;
-
-\c pets_dev;
-
-DROP TABLE IF EXISTS users ;
-
 CREATE TABLE users (
     id SERIAL, 
     name TEXT,

@@ -34,6 +34,13 @@ export default function ContactDevCards() {
             photo: "https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F62805030-6405-4570-9ef5-950f738d7502%2FJamal_Ruiz.jpg?table=block&id=0c98b713-69f7-4fe9-a0cc-c11592e74f90&spaceId=e2735e9b-8fe9-4c16-bdc1-be142cd1014e&width=2000&userId=1c56301b-4ffe-419f-b2c0-5424d42c657c&cache=v2",
             github: "https://github.com/jamalRuiz",
             linkedin: "www.linkedin.com/in/jamal-ruiz-473a641a6",
+        },
+        {
+            name: 'Olayinka Fakanbi',
+            email: 'olayinkafakanbi@pursuit.org',
+            photo: 'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F312b1033-01d7-4b1c-a075-64ca0c79b05c%2FOlayinka_Fakanbi.jpg?id=a5b8ac40-ed54-464d-9702-7dd5c24a0e22&table=block&spaceId=e2735e9b-8fe9-4c16-bdc1-be142cd1014e&width=2000&userId=1c56301b-4ffe-419f-b2c0-5424d42c657c&cache=v2',
+            github: 'https://github.com/Olayinka19',
+            linkedin: 'http://linkedin.com/in/olayinka-fakanbi-2a46a6229',
         }
     ]
     return (
@@ -41,11 +48,11 @@ export default function ContactDevCards() {
         <div className="container pb-5 text-center">
             <h3>Developers</h3>
             <p>If you'd like to reach out to the developers regarding app functionality and style, use the below icons to send an email or vist their respective links! </p>
-            <Row xs={1} md={4} className="g-4">
-                {developers.map(per => (
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src={per.photo} />
+            <Row xs={1} md={1} lg={2} xl={3}>
+                {developers.map((per, indx) => (
+                    <Col className="container-fluid p-2">
+                        <Card key={indx} className='w-auto'>
+                            <Card.Img variant="top" src={per.photo}/>
                             <Card.Body className="text-center">
                                 <Card.Title>
                                     {per.name}
