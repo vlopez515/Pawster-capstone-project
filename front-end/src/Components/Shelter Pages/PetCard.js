@@ -53,9 +53,6 @@ function PetCard({ pet, id }) {
           </Collapse>
 
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
       </Card>
     </>
   )

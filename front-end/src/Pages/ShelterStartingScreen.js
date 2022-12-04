@@ -2,11 +2,13 @@ import { Routes, Route } from "react-router-dom";
 import HomeScreen from '../Components/Shelter Pages/HomeScreen';
 import Header from "../Components/Shelter Pages/Header.js";
 import PetForm from "../Components/newPetForm/PetForm";
-import PetEditForm from "../Components/newPetForm/PetEditForm";
 import Settings from '../Components/Shelter Pages/Settings';
 import Footer from '../Components/Shelter Pages/Footer';
 import axios from "axios";
 import { useState, useEffect } from "react";
+import EditPeformPage from "../Components/Shelter Pages/EditPeformPage";
+
+import './ShelterStartingScreen.css'
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -19,16 +21,19 @@ function ShelterStartingScreen() {
             .catch((c) => console.warn("catch", c));
     }, []);
 
+    console.log(pets)
 
     return (
-        <div>
-            <main className="pb-4">
+        <>
+            <main >
                 <Routes>
-                    <Route path="/shelter" element={
+                    {/* <Route path="/shelter" element={
                         <>
                             <Header />
+                            <h1>Welcome Back, NAME </h1>
+                            
                         </>
-                    } />
+                    } /> */}
                     <Route path="shelter/:id" element={
                         <>
                             <Header />
@@ -44,7 +49,7 @@ function ShelterStartingScreen() {
                     <Route path="shelter/:id/edit/:petId" element={
                         <>
                             <Header />
-                            <PetEditForm pets={pets} />
+                            <EditPeformPage pets={pets} />
                         </>
                     } />
                     <Route path="shelter/:id/settings" element={
@@ -57,7 +62,7 @@ function ShelterStartingScreen() {
                 </Routes>
             </main>
             <Footer />
-        </div >
+        </ >
     )
 
 }

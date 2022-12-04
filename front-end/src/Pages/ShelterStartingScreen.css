@@ -1,0 +1,10 @@
+.App {
+    height: 100%;
+}
+
+main {
+    height: 85vh;
+    display: block;
+    overflow: auto;
+
+}
