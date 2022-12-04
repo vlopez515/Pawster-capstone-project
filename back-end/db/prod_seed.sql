@@ -1,4 +1,3 @@
-
 INSERT INTO users (name, income, age, sex, household_size, residence_type, free_time, preferences, pet_type, address, proof_of_residence, photo_id, proof_pets_allowed, phone_number, email ) 
 VALUES
 ('Chad', 30000, 25, 'male', 5, 'apartment', '1-2', 'low', 'cat', '234 Oaks Drive, Apt. 1W, New York, NY 11308', 'lease1', 'https://visualpharm.com/assets/387/Person-595b40b75ba036ed117da139.svg', 'https://legaltemplates.net/wp-content/uploads/documents/pet-addendum/Sample-Pet-Addendum.png', '1234569877', 'emailSample@gmail.com'),
@@ -6,7 +5,7 @@ VALUES
 
 INSERT INTO shelters (name, address, business_hours, phone_number, email) VALUES 
 ('Tuff Tails Animal Rescue', 'P.O. Box 117, Levittown, NY 11756', null, null,'info@tufftails.org'),
-('P.A.N.T.', 'P.O. Box 143, Salt Point, NY 12578', null, '845-486-7075 ext.1', 'adoption@PANT.org'),
+('P.A.N.T.', 'P.O. Box 143, Salt Point, NY 12578', null, '845-486-7075ext.1', 'adoption@PANT.org'),
 ('Husky Savers, Inc.', 'Honeoye Falls, NY 14472', null, '585-576-1724', 'hskysavr1@gmail.com'),
 ('P.L.U.T.O. (Pet Lovers United Together as One)','PO Box 140889, Staten Island, NY 10314',null,null,'plutorescue@aol.com'),
 ('Estherville Animal Shelter','100 Russell Road, Greenfield Center, NY 12833', null, '518-893-7451', 'Esthervilleanimalshelter54@gmail.com'),
@@ -14,4 +13,4 @@ INSERT INTO shelters (name, address, business_hours, phone_number, email) VALUES
 
 INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level, spayed_neutered, house_trained, declawed,special_needs, shots_current, description, status, shelter_id ) VALUES
 ('Cedar', 'Cat', 'Domestic Short Hair', 'Small', 'Male', 'Baby', 'Gray / Blue / Silver', 'Low', true, false, false, false, true, null, 'adoptable', 1),
-('ChiChi', 'Dog', 'Mixed Breed', 'Small', 'Female', 'Adult', 'Brown / Chocolate', 'Mid',true, false, null, false, true, 'At first glance, I might appear to have a ruff, set in my ways exterior but once you give me...', 'adoptable', 1);
+('ChiChi', 'Dog', 'Mixed Breed', 'Small', 'Female', 'Adult', 'Brown / Chocolate', 'Mid',true, false, null, false, true, 'At first glance, I might appear to have a ruff, set in my ways exterior but once you give me...', 'adoptable', 2);
