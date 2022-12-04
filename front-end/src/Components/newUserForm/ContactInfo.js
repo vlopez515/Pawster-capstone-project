@@ -6,10 +6,10 @@ export default function ContactInfo({ handleTextChange, userEmail }) {
 
 
     return (
-        <div className="padding">
+        <div className="p-2">
             <div className="container container-2">
                 <div className="border border-dark">
-                    <h4 className="text-center">Contact Info</h4>
+                    <h4 className="text-center m-3">Contact Info</h4>
 
                     {/* Email */}
                     <Form.Group className="m-3 userEmail">

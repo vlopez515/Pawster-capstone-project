@@ -1,12 +1,12 @@
 import React from 'react';
 import { Form } from 'react-bootstrap/';
 
-export default function PersonInfo({ handleTextChange }) {
+export default function PersonInfo({ handleTextChange, handleNumberChange }) {
     return (
-        <div className="padding">
+        <div className='p-2'>
             <div className="container">
                 <div className="border border-dark">
-                    <h4 className="text-center">Personal Information</h4>
+                    <h4 className="text-center m-3">Personal Information</h4>
                     {/* Name */}
                     <Form.Group className="m-3 userFullName" >
                         <Form.Label>Full Name</Form.Label>
@@ -25,7 +25,7 @@ export default function PersonInfo({ handleTextChange }) {
                             id="age"
                             type="number"
                             placeholder="Enter age"
-                            onChange={handleTextChange}
+                            onChange={handleNumberChange}
                         // required
                         />
                     </Form.Group>
@@ -64,10 +64,8 @@ export default function PersonInfo({ handleTextChange }) {
                         <Form.Control
                             id="income"
                             type="number"
-                            step="0.01"
-                            pattern="^\d+(?:\.\d{1,2})?$"
                             placeholder="Enter Your Net Income"
-                            onChange={handleTextChange}
+                            onChange={handleNumberChange}
                         // required
                         />
                     </Form.Group>

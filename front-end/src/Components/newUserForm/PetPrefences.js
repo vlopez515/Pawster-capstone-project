@@ -4,10 +4,10 @@ import { Form } from 'react-bootstrap';
 export default function PetPreferences({ handleTextChange, userFree_time }) {
     return (
         <>
-            <div className="padding">
+            <div className="p-2">
                 <div className="container">
                     <div className="border border-dark">
-                        <h4 className="text-center">What You're Looking For..</h4>
+                        <h4 className="text-center m-3">What You're Looking For..</h4>
 
                         {/* Prefences */}
                         <Form.Group className="m-3" controlId="preferences" onChange={handleTextChange}>

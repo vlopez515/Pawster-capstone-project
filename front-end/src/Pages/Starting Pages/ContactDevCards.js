@@ -48,11 +48,11 @@ export default function ContactDevCards() {
         <div className="container pb-5 text-center">
             <h3>Developers</h3>
             <p>If you'd like to reach out to the developers regarding app functionality and style, use the below icons to send an email or vist their respective links! </p>
-            <Row xs={1} md={3} className="g-4">
+            <Row xs={1} md={1} lg={2} xl={3}>
                 {developers.map((per, indx) => (
-                    <Col>
-                        <Card key={indx}>
-                            <Card.Img variant="top" src={per.photo} />
+                    <Col className="container-fluid p-2">
+                        <Card key={indx} className='w-auto'>
+                            <Card.Img variant="top" src={per.photo}/>
                             <Card.Body className="text-center">
                                 <Card.Title>
                                     {per.name}
