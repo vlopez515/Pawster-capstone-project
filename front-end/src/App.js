@@ -1,11 +1,13 @@
 import * as React from 'react';
+// import React, { useState, useEffect, createContext } from "react";
 import StartingScreen from './Pages/StartingScreen';
 import { BrowserRouter as Router } from "react-router-dom";
 import UserStartingScreen from './Pages/UserStartingScreen';
-
-// const API = process.env.REACT_APP_API_URL;
+import "./App.css";
 
 function App() {
+  
+
   return (
     <div className="App">
     <Router>

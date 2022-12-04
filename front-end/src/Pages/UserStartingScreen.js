@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Routes, Route } from "react-router-dom";
 
 // Links Components Below:
@@ -7,8 +7,15 @@ import TinderCards from "../Components/User Pages/TinderCards.js";
 import SwipeButtons from "../Components/User Pages/SwipeButtons";
 import Chats from "../Components/User Pages/Chats";
 import ChatScreen from "../Components/User Pages/ChatScreen.js";
+import PetFinderAPI from "../Components/User Pages/PetFinderAPI/PetFinderAPI.js";
+
+import Auth_Token from "../Components/User Pages/PetFinderAPI/Auth_Token";
 
 function UserStartingScreen() {
+
+  // const [accessToken, setAccessToken] = useState(Auth_Token())
+  // // setAccessToken(Auth_Token());
+
   return (
     <div>
       <Routes>
@@ -38,6 +45,16 @@ function UserStartingScreen() {
             </div>
           }
         />
+
+<Route
+          path="/petfinderapi" element={
+            <div>
+              <Header />
+              <PetFinderAPI accessToken={Auth_Token()}/>
+            </div>
+          }
+        />
+
       </Routes>
     </div >
   )
