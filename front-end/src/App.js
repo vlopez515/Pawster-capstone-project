@@ -6,18 +6,16 @@ import {BrowserRouter as Router} from "react-router-dom";
 import UserStartingScreen from './Pages/UserStartingScreen';
 import "./App.css";
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
-
+import {AuthContextProvider} from './Context/AuthContext';
 
 function App() {
   
-
   return (
     <div className="App">
+    <AuthContextProvider>
     <Router>
-      {/* <UserProvider> */}
-          { false && 
-            <StartingScreen 
-           />}
+      { false && 
+      <StartingScreen />}
             {/* Example of How to Switching Screen for User / Shelter */}
           { false && 
             <UserStartingScreen/>
@@ -27,9 +25,8 @@ function App() {
             true && 
             <ShelterStartingScreen />
           }
-
-        {/* </UserProvider> */}
      </Router>
+     </AuthContextProvider>
     </div>
   );
 }

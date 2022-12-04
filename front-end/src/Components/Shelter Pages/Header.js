@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { GoogleButton } from 'react-google-button'
-import { signOut } from "../../Services/Firebase";
+// import { signOut } from "../../Services/Firebase";
 import { VscGear } from 'react-icons/vsc';
 import { SlOptions } from 'react-icons/sl'
 import { Dropdown } from 'react-bootstrap';
@@ -29,7 +29,7 @@ function Header() {
                             Settings <VscGear size={20} />
                             </Link>
                             </Dropdown.Item>
-                        <Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>
+                        {/* <Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item> */}
 
                     </Dropdown.Menu>
                 </Dropdown>
