@@ -2,12 +2,13 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap/';
 // import DisplayPets from './DisplayPets';
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 const API = process.env.REACT_APP_API_URL;
 
-export default function PetForm() {
-    let { id } = useParams();
+function PetEditForm() {
+    let { id, petId } = useParams();
     const navigate = useNavigate()
 
     const [petInfo, setPetInfo] = useState({
@@ -28,34 +29,46 @@ export default function PetForm() {
         status: null,
     });
 
-    const handleTextChange = (event) => {
-        setPetInfo({ ...petInfo, [event.target.id]: event.target.value });
-    };
+    useEffect(() => {
+        axios.get(`${API}/pets/${petId}`).then(
+            (response) => setPetInfo(response.data),
+            (error) => navigate(`*`)
+        );
+    }, [petId, navigate]);
 
-    const handleBooleanChange = (event) => {
-        console.log(event.target.value == 'true')
-        event.target.value == 'true' ?
-            setPetInfo({ ...petInfo, [event.target.id]: event.target.value === 'true' }) :
-            setPetInfo({ ...petInfo, [event.target.id]: false });
-    }
 
-    const createPet = (petInfo) => {
+
+
+    const updatePetInfo = (updatedPet, petId) => {
         axios
-            .post(`${API}/pets`, petInfo)
+            .put(`${API}/pets/${petId}`, updatedPet)
             .then(
                 () => {
-                    console.log(petInfo)
-                    navigate(`/users`);
+                    navigate(`/pets/${petId}`);
                 },
                 (error) => console.error(error)
             )
             .catch((c) => console.warn("catch", c));
     };
 
+
+    const handleTextChange = (event) => {
+        setPetInfo({ ...petInfo, [event.target.id]: event.target.value });
+    };
+    
+    const handleBooleanChange = (event) => {
+        console.log(event.target.value == 'true')
+        event.target.value == 'true' ? 
+            setPetInfo({ ...petInfo, [event.target.id]: event.target.value === 'true' }) :
+            setPetInfo({ ...petInfo, [event.target.id]: false });
+    }
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        createPet(petInfo);
-    }
+        updatePetInfo(petInfo, petId);
+    };
     return (
         <>
             <Form onSubmit={handleSubmit}>
@@ -66,7 +79,8 @@ export default function PetForm() {
                         id="name"
                         placeholder="Enter Pet's Name"
                         onChange={handleTextChange}
-                    required
+                        value={petInfo['name']}
+                    // required
                     />
                 </Form.Group>
 
@@ -76,8 +90,8 @@ export default function PetForm() {
                         <Form.Label>Type of Pet</Form.Label>
                         <Form.Control
                             as="select"
+                            value={petInfo['type']}
                             onChange={handleTextChange}
-                            required
                         >
                             <option value="">Please select</option>
                             <option value="Cat">Cat</option>
@@ -93,7 +107,8 @@ export default function PetForm() {
                         id="breed"
                         placeholder="Enter Pet's Breed"
                         onChange={handleTextChange}
-                    required
+                        value={petInfo['breed']}
+                    // required
                     />
                 </Form.Group>
 
@@ -103,8 +118,8 @@ export default function PetForm() {
                         <Form.Label>Pet Size</Form.Label>
                         <Form.Control
                             as="select"
+                            value={petInfo['size']}
                             onChange={handleTextChange}
-                            required
                         >
                             <option value="">Please select</option>
                             <option value="Small">Small Size (22lbs or less)</option>
@@ -120,8 +135,8 @@ export default function PetForm() {
                         <Form.Label>Pet Maintenance Level</Form.Label>
                         <Form.Control
                             as="select"
+                            value={petInfo['maintenance_level'] || 'Low'}
                             onChange={handleTextChange}
-                            required
                         >
                             <option value="">Please select</option>
                             <option value="Low">Low</option>
@@ -140,12 +155,14 @@ export default function PetForm() {
                         name="gender"
                         type="radio"
                         value="Female"
+                        defaultChecked={petInfo['gender'] === 'Female' ? 'true' : 'false'}
                     />
                     <Form.Check
                         label='Male'
                         name="gender"
                         type="radio"
                         value="Male"
+                        defaultChecked={petInfo['gender'] === 'Male' ? 'true' : 'false'}
                     />
                 </Form.Group>
 
@@ -154,6 +171,7 @@ export default function PetForm() {
                         <Form.Label>Age</Form.Label>
                         <Form.Control
                             as="select"
+                            value={petInfo['age']}
                             onChange={handleTextChange}
                         >
                             <option value="">Please select</option>
@@ -169,6 +187,7 @@ export default function PetForm() {
                         id="color"
                         placeholder="Describe Pet's Color"
                         onChange={handleTextChange}
+                        value={petInfo['color'] || 'none provided'}
                     />
                 </Form.Group>
 
@@ -178,6 +197,8 @@ export default function PetForm() {
                         id="description"
                         placeholder="Enter Brief Description"
                         onChange={handleTextChange}
+                        value={petInfo['description'] || ' ~ none provided ~ '}
+                    // required
                     />
                 </Form.Group>
 
@@ -190,13 +211,18 @@ export default function PetForm() {
                         id="spayed_neutered"
                         type="radio"
                         value='true'
+                        defaultChecked={ petInfo['spayed_neutered'] }
                     />
+
+                    {console.log(!petInfo['spayed_neutered'])}
+
                     <Form.Check
                         label='No'
                         name="spayed_neutered"
                         id="spayed_neutered"
                         type="radio"
                         value='false'
+                        defaultChecked={ petInfo['spayed_neutered'] == 'false' }
                     />
                 </Form.Group>
 
@@ -208,6 +234,7 @@ export default function PetForm() {
                         id="house_trained"
                         type="radio"
                         value='true'
+                        defaultChecked={ petInfo['house_trained']  }
                     />
 
                     <Form.Check
@@ -216,6 +243,7 @@ export default function PetForm() {
                         id="house_trained"
                         type="radio"
                         value='false'
+                        defaultChecked={ !petInfo['house_trained'] }
                     />
                 </Form.Group>
 
@@ -227,6 +255,7 @@ export default function PetForm() {
                         id="declawed"
                         type="radio"
                         value="true"
+                        defaultChecked={ petInfo['declawed'] }
                     />
                     <Form.Check
                         label='No / Not Applicable'
@@ -234,6 +263,7 @@ export default function PetForm() {
                         id="declawed"
                         type="radio"
                         value="false"
+                        defaultChecked={!petInfo['declawed']}
                     />
                 </Form.Group>
 
@@ -245,6 +275,7 @@ export default function PetForm() {
                         id="special_needs"
                         type="radio"
                         value="true"
+                        defaultChecked={petInfo['special_needs']}
                     />
 
                     <Form.Check
@@ -253,6 +284,7 @@ export default function PetForm() {
                         id="special_needs"
                         type="radio"
                         value="false"
+                        defaultChecked={ !petInfo['special_needs'] }
                     />
                 </Form.Group>
 
@@ -261,16 +293,18 @@ export default function PetForm() {
                     <Form.Check
                         label='Yes'
                         name="shots_current"
-                        id="shots_current"
+                        id="shots_current" 
                         type="radio"
                         value='true'
+                        defaultChecked={petInfo['shots_current']}
                     />
                     <Form.Check
                         label='No'
                         name="shots_current"
-                        id="shots_current"
+                        id="shots_current" 
                         type="radio"
                         value='false'
+                        defaultChecked={ !petInfo['shots_current']}
                     />
                 </Form.Group>
 
@@ -281,6 +315,7 @@ export default function PetForm() {
                         name="status"
                         type="radio"
                         value="adoptable"
+                        defaultChecked={petInfo['status'] === 'adoptable' ? 'true' : 'false'}
                     />
 
                     <Form.Check
@@ -288,6 +323,7 @@ export default function PetForm() {
                         name="status"
                         type="radio"
                         value={null}
+                        defaultChecked={!petInfo['status'] ? false : true}
                     />
                 </Form.Group>
 
@@ -301,3 +337,5 @@ export default function PetForm() {
         </>
     )
 }
+
+export default PetEditForm

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Form } from 'react-bootstrap/';
 
-export default function UserAddressForm({ userInfo, setUserInfo, addressInfo, setAddInfo, handleTextChange }) {
+export default function UserAddressForm({ userInfo, setUserInfo, addressInfo, setAddInfo, handleTextChange, handleNumberChange }) {
     const { address, city, state, zip, complete } = addressInfo;
 
     const handleAddressTextChange = (event) => {
@@ -16,11 +16,10 @@ export default function UserAddressForm({ userInfo, setUserInfo, addressInfo, se
 
     return (
         <  >
-
-            <div className="padding">
+            <div className="p-2">
                 <div className="container">
                     <div className="border border-dark">
-                        <h4 className="text-center">Housing Information</h4>
+                        <h4 className="text-center m-3">Housing Information</h4>
 
                         {/* Address */}
                         <div className="m-3 border p-3">
@@ -162,8 +161,9 @@ export default function UserAddressForm({ userInfo, setUserInfo, addressInfo, se
                             <Form.Control
                                 id="household_size"
                                 type="number"
+                                step='1'
                                 placeholder="Enter House Hold Size"
-                                onChange={handleTextChange} />
+                                onChange={handleNumberChange} />
                         </Form.Group>
 
                     </div>

@@ -4,10 +4,10 @@ import { URLRequired } from "../../Functions/userFormURLRequired";
 
 export default function DocsNeeded({ handleTextChange }) {
     return (
-        <div className="padding">
+        <div className="p-2">
             <div className="container">
                 <div className="border border-dark">
-                    <h4 className="text-center">Documents Needed</h4>
+                    <h4 className="text-center m-3">Documents Needed</h4>
                     {/* Proof of Residence and Photo ID */}
                     <div className="m-3">
                         <p className="text-muted">
