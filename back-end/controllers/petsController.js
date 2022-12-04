@@ -1,23 +1,23 @@
 const express = require("express");
-const Pets = express.Router();
+const pets = express.Router();
 const {
   getAllPets,
   getPet,
   createPet,
   deletePet,
   updatePet
-} = require("../queries/Pets.js");
+} = require("../queries/pets.js");
 
-Pets.get("/", async (req, res) => {
+pets.get("/", async (req, res) => {
   const allPets = await getAllPets();
   if (allPets[0]) {
     res.status(200).json(allPets);
   } else {
-    res.status(500).json({ error: "Server Error!" });
+    res.status(500).json({ error: "No Pets!" });
   }
 });
 
-Pets.get("/:id", async (req, res) => {
+pets.get("/:id", async (req, res) => {
   const { id } = req.params;
   const Pet = await getPet(id);
   if (Pet) {
@@ -27,7 +27,7 @@ Pets.get("/:id", async (req, res) => {
   }
 });
 
-Pets.post("/", async (req, res) => {
+pets.post("/", async (req, res) => {
   if(req.body) { 
      const createdPet = await createPet(req.body)
       res.status(200).send(createdPet);
@@ -37,7 +37,7 @@ Pets.post("/", async (req, res) => {
   });
 
 
-Pets.delete("/:id", async (req, res) => {
+pets.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedPet = await deletePet(id);
   if (deletedPet.id) {
@@ -47,7 +47,7 @@ Pets.delete("/:id", async (req, res) => {
   }
 });
 
-Pets.put("/:id", async (req, res) => {
+pets.put("/:id", async (req, res) => {
   const { id } = req.params;
   const updatedPet = await updatePet(req.body, id);
   if (updatedPet.id) {
@@ -57,4 +57,4 @@ Pets.put("/:id", async (req, res) => {
   }
 });
 
-module.exports = Pets;
+module.exports = pets;

@@ -1,9 +1,12 @@
 import * as React from 'react';
 // import React, { useState, useEffect, createContext } from "react";
 import StartingScreen from './Pages/StartingScreen';
-import { BrowserRouter as Router } from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
+// import { UserProvider } from "./Providers/UserProvider";
 import UserStartingScreen from './Pages/UserStartingScreen';
 import "./App.css";
+import ShelterStartingScreen from './Pages/ShelterStartingScreen';
+
 
 function App() {
   
@@ -11,15 +14,22 @@ function App() {
   return (
     <div className="App">
     <Router>
-     { false && 
-      <StartingScreen 
-      />}
-      {/* Example of How to Switching Screen for User / Shelter */}
-      { true && 
-      < UserStartingScreen 
-      />}
-      
-    </Router>
+      {/* <UserProvider> */}
+          { false && 
+            <StartingScreen 
+           />}
+            {/* Example of How to Switching Screen for User / Shelter */}
+          { false && 
+            <UserStartingScreen/>
+            // <ContactUs />
+          }
+          {
+            true && 
+            <ShelterStartingScreen />
+          }
+
+        {/* </UserProvider> */}
+     </Router>
     </div>
   );
 }

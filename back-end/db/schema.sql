@@ -13,69 +13,55 @@ CREATE TABLE users (
     sex TEXT,
     household_size INT,
     residence_type TEXT, 
-    free_time INT, 
+    free_time TEXT, 
     preferences TEXT, 
     pet_type TEXT, 
     address TEXT,
     proof_of_residence TEXT, 
     photo_id TEXT, 
     proof_pets_allowed TEXT, 
-    phone_number INT, 
+    phone_number TEXT, 
     email TEXT, 
     PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS shelter;
+DROP TABLE IF EXISTS shelters;
 
-CREATE TABLE shelter (
+CREATE TABLE shelters (
     id SERIAL , 
     name TEXT, 
     address TEXT, 
     business_hours TEXT,
-    phone_number INT, 
+    phone_number TEXT, 
     email TEXT, 
-    total_pet INT,
     PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS pet_dog;
+DROP TABLE IF EXISTS pets;
 
-CREATE TABLE pet_dog (
+CREATE TABLE pets (
     id SERIAL , 
     name TEXT, 
-    breed TEXT, 
-    weight INT, 
-    sex TEXT,
-    age INT,
-    color TEXT, 
-    hair_length TEXT, 
+    type TEXT,
+    breed TEXT,
     size TEXT, 
-    personality TEXT,
-    maintenance_level TEXT, 
-    neutered TEXT, 
-    special_needs TEXT, 
+    gender TEXT,
+    age TEXT,
+    color TEXT, 
+    maintenance_level TEXT,
+    spayed_neutered BOOLEAN, 
+    house_trained BOOLEAN,
+    declawed BOOLEAN, 
+    special_needs BOOLEAN, 
+    shots_current BOOLEAN,
     description TEXT, 
-    shelter_id INT REFERENCES shelter(id) ON DELETE CASCADE,
+    status TEXT,
+    shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
     PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS pet_cat;
-
-CREATE TABLE pet_cat (
-    id SERIAL , 
-    name TEXT, 
-    breed TEXT, 
-    weight INT, 
-    sex TEXT,
-    age INT,
-    color TEXT, 
-    hair_length TEXT, 
-    size TEXT, 
-    personality TEXT, 
-    maintenance_level TEXT, 
-    neutered TEXT, 
-    special_needs TEXT, 
-    description TEXT, 
-    shelter_id INT REFERENCES shelter(id) ON DELETE CASCADE,
-    PRIMARY KEY(id)
+CREATE TABLE users_pets (
+    pet_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    liked TIMESTAMP DEFAULT NOW()
 );
