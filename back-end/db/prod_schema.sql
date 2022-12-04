@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS users ;
 
 CREATE TABLE users (
-    id SERIAL, 
+    id SERIAL PRIMARY KEY, 
     name TEXT,
     income INT,
     age INT,
     sex TEXT,
     household_size INT,
     residence_type TEXT, 
-    free_time INT, 
+    free_time TEXT, 
     preferences TEXT, 
     pet_type TEXT, 
     address TEXT,
@@ -16,26 +16,24 @@ CREATE TABLE users (
     photo_id TEXT, 
     proof_pets_allowed TEXT, 
     phone_number TEXT, 
-    email TEXT, 
-    PRIMARY KEY(id)
+    email TEXT 
 );
 
 DROP TABLE IF EXISTS shelters;
 
 CREATE TABLE shelters (
-    id SERIAL , 
+    id SERIAL PRIMARY KEY, 
     name TEXT, 
     address TEXT, 
     business_hours TEXT,
-    phone_number INT, 
-    email TEXT, 
-    PRIMARY KEY(id)
+    phone_number VARCHAR(40), 
+    email TEXT
 );
 
 DROP TABLE IF EXISTS pets;
 
 CREATE TABLE pets (
-    id SERIAL , 
+    id SERIAL PRIMARY KEY, 
     name TEXT, 
     type TEXT,
     breed TEXT,
@@ -43,6 +41,7 @@ CREATE TABLE pets (
     gender TEXT,
     age TEXT,
     color TEXT, 
+    maintenance_level TEXT,
     spayed_neutered BOOLEAN, 
     house_trained BOOLEAN,
     declawed BOOLEAN, 
@@ -50,9 +49,10 @@ CREATE TABLE pets (
     shots_current BOOLEAN,
     description TEXT, 
     status TEXT,
-    shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
-    PRIMARY KEY(id)
+    shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS users_pets;
 
 CREATE TABLE users_pets (
     pet_id INTEGER NOT NULL,
