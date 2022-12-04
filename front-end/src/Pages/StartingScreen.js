@@ -12,6 +12,8 @@ import Support from "./Starting Pages/Support";
 import Contact from "./Starting Pages/ContactUs";
 // import Login from "../Components/Starting_Pages/Login";
 import {Login} from "../Components/Starting Pages/Login";
+import Account from "../Components/Starting Pages/Account"
+// import Protected from "../Components/Protected"
 
 function StartingScreen() {
     return (
@@ -26,6 +28,8 @@ function StartingScreen() {
                     <Route path="/support" element={<Support />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/account" element={<Account />} />
+                    {/* <Route path="/account" element={<Protected><Account /></Protected>} /> */}
                 </ Routes>
                 
             </main>

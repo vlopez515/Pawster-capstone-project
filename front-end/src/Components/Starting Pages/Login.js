@@ -1,38 +1,54 @@
 
-import React, { useContext, useEffect } from "react";
+// import React, { useContext, useEffect } from "react";
 // import { UserContext } from "../../Providers/UserProvider";
-import {UserContext} from "../../Providers/UserProvider"
+// import {UserContext} from "../../Providers/UserProvider"
+import React, { useEffect } from 'react';
+import {GoogleButton} from 'react-google-button'
 import { useNavigate } from "react-router-dom";
-
-import { signInWithGoogle, signOut } from "../../Services/Firebase";
+import { UserAuth } from '../../Context/AuthContext';
+// import { signInWithGoogle, signOut } from "../../Services/Firebase";
+// import account from './LoggedIn'
 import Button from 'react-bootstrap/Button';
-// import {GoogleButton} from 'react-google-button'
+// import { async } from '@firebase/util';
 
 export const Login = () => {
-  const user = useContext(UserContext);
+ const {googleSignIn, user} = UserAuth();
   const navigate = useNavigate();
   
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn()
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+
   useEffect(() => {
     if (user) {
-      navigate("/loggedInPage");
+      navigate("/login");
     } 
 
-  }, [user, navigate]);
+  }, [user]);
 
   return (
     <div>
-      <section>
-        <div>
-          <div> <h3>Your  Login Information:</h3></div>
-          {/* <GoogleButton onClick={signInWithGoogle} /> */}
+      
+        <div className='login'>
+         <h3>Log In </h3>
+         
+          <GoogleButton onClick={handleGoogleSignIn} />
+          {/* <GoogleButton /> */}
+          {/* <GoogleButton onClick={signInWithGoogle} />  */}
           {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
-          <br></br> */}
+          <br></br>
         
         {/* commented out */}
-          <Button onClick={signOut}> sign out</Button>
+          {/* <Button onClick={signOut}> sign out</Button> */}
           
       </div>
-      </section>
+      
 
     </div>
   );
