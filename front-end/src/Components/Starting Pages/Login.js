@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { signInWithGoogle, signOut } from "../../Services/Firebase";
 import Button from 'react-bootstrap/Button';
-import {GoogleButton} from 'react-google-button'
+// import {GoogleButton} from 'react-google-button'
 
 export const Login = () => {
   const user = useContext(UserContext);
@@ -24,7 +24,7 @@ export const Login = () => {
       <section>
         <div>
           <div> <h3>Your  Login Information:</h3></div>
-          <GoogleButton onClick={signInWithGoogle} />
+          {/* <GoogleButton onClick={signInWithGoogle} /> */}
           {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
           <br></br> */}
         

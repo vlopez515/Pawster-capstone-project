@@ -1,56 +1,56 @@
-import React, { useContext, useEffect } from "react";
-import { UserContext } from "../Providers/UserProvider";
-import { useNavigate } from "react-router-dom";
-import { signOut } from "../Services/Firebase";
-// import Form from 'react-bootstrap/Form';
-// import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
+// import React, { useContext, useEffect } from "react";
+// import { UserContext } from "../Providers/UserProvider";
+// import { useNavigate } from "react-router-dom";
+// import { signOut } from "../Services/Firebase";
+// // import Form from 'react-bootstrap/Form';
+// // import InputGroup from 'react-bootstrap/InputGroup';
+// import Button from 'react-bootstrap/Button';
 
 
-export const LoggedInPage = () => {
-  const imgStyle = {
-      width:'30vh',
-      height:'30vh'
-  }
-  const navigate= useNavigate()
-  const user = useContext(UserContext)
+// export const LoggedInPage = () => {
+//   const imgStyle = {
+//       width:'30vh',
+//       height:'30vh'
+//   }
+//   const navigate= useNavigate()
+//   const user = useContext(UserContext)
   
-  useEffect(() => { 
-    if(user){
+//   useEffect(() => { 
+//     if(user){
 
-     navigate("/")
-      }
-    }, [user, navigate]);
-
-  
-  const handleLogout = async () => {
-    signOut()
-    alert("you've been logged out")
-  };
-
+//      navigate("/")
+//       }
+//     }, [user, navigate]);
 
   
-  if ( user ){
-    return (
-      <div>
-        <h1> YOU ARE NOW LOGGED IN : </h1>
-        <h1>Welcome {user.displayName} !</h1>
-        <div>
-          <img src = {user.photoURL}
-          style={imgStyle}
-            className="user-image"
-            alt="its the users head"
-            ></img>
-        </div>
+//   const handleLogout = async () => {
+//     signOut()
+//     alert("you've been logged out")
+//   };
+
+
+  
+//   if ( user ){
+//     return (
+//       <div>
+//         <h1> YOU ARE NOW LOGGED IN : </h1>
+//         <h1>Welcome {user.displayName} !</h1>
+//         <div>
+//           <img src = {user.photoURL}
+//           style={imgStyle}
+//             className="user-image"
+//             alt="its the users head"
+//             ></img>
+//         </div>
         
-        <p>email: {user.email}</p>
-        <Button variant="primary" onClick={handleLogout}> LOG OUT</Button>
+//         <p>email: {user.email}</p>
+//         <Button variant="primary" onClick={handleLogout}> LOG OUT</Button>
        
 
-      </div>
-    );
-  } else 
-  return (
-    <div> NOT LOGGED IN </div>
-  )
-}
+//       </div>
+//     );
+//   } else 
+//   return (
+//     <div> NOT LOGGED IN </div>
+//   )
+// }

@@ -19,11 +19,11 @@ const getShelter = async (id) => {
 };
 
 const createShelter = async (shelter) => {
-  const { name, address, business_hours, phone_number, email, total_pets } = shelter;
+  const { name, address, business_hours, phone_number, email } = shelter;
   try {
     const newShelter = await db.one(
-      "INSERT INTO shelters (name, address, business_hours, phone_number, email, total_pets) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-      [name, address, business_hours, phone_number, email, total_pets]
+      "INSERT INTO shelters (name, address, business_hours, phone_number, email) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [name, address, business_hours, phone_number, email]
     );
     return newShelter;
   } catch (error) {
@@ -41,10 +41,10 @@ const deleteShelter = async (id) => {
 };
 
 const updateShelter = async (shelter, id) => {
-  const { name, address, business_hours, phone_number, email } = shelter;
+  const { name, address, business_hours, phone_number, email} = shelter;
   try {
-     const updatedShelter = await db.one("UPDATE shelters SET name = $1, address = $2, business_hours = $3, phone_number = $4, email = $5, WHERE id = $6 RETURNING *",
-  [name, address, business_hours, phone_number, email, id]);
+     const updatedShelter = await db.one("UPDATE shelters SET name = $1, address = $2,business_hours = $3, phone_number = $4, email = $5, WHERE id = $6 RETURNING *",
+     [name, address, business_hours, phone_number, email, id]);
     return updatedShelter;
   } catch (err) {
     return err;

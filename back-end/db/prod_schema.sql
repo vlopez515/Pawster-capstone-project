@@ -8,7 +8,7 @@ CREATE TABLE users (
     sex TEXT,
     household_size INT,
     residence_type TEXT, 
-    free_time INT, 
+    free_time TEXT, 
     preferences TEXT, 
     pet_type TEXT, 
     address TEXT,
@@ -27,7 +27,7 @@ CREATE TABLE shelters (
     name TEXT, 
     address TEXT, 
     business_hours TEXT,
-    phone_number INT, 
+    phone_number TEXT, 
     email TEXT, 
     PRIMARY KEY(id)
 );
@@ -43,6 +43,7 @@ CREATE TABLE pets (
     gender TEXT,
     age TEXT,
     color TEXT, 
+    maintenance_level TEXT,
     spayed_neutered BOOLEAN, 
     house_trained BOOLEAN,
     declawed BOOLEAN, 
