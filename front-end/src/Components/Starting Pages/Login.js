@@ -18,6 +18,7 @@ export const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn()
+      alert("Welcome to the Sign In Page")
 
     } catch (error) {
       console.log(error)
@@ -27,7 +28,10 @@ export const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/login");
+      // alert("you are logged in now")
+      // console.log(user
+      alert("Welcome to your new account")
+      navigate("/account");
     } 
 
   }, [user]);

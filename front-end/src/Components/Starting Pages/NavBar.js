@@ -16,6 +16,7 @@ export default function NavBarComponent() {
   const handleSignOut = async () => { 
     try {
       await logOut();
+      alert("You are now Logged Out!")
     } catch(err) {
       console.log(err);
     }
@@ -43,7 +44,7 @@ export default function NavBarComponent() {
             <Nav.Link href="/contact" className="text-center">Contact Us</Nav.Link>
             {/* <Button className='nav-button text-center' variant='primary' size='sm' href="/login">Log in</Button> */}
             {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button>  */}
-            {user?.displayName ? <Button onClick={handleSignOut}>Logout</Button>: <Button className='nav-button text-center' variant='primary' size='sm' href="/login">Log in</Button> }
+            {user?.displayName ? <Button onClick={handleSignOut}>Logout</Button>: <Button className='nav-button text-center' variant='primary' size='sm' href="/login">Login</Button> }
           </Nav>
         </Navbar.Collapse>
 
