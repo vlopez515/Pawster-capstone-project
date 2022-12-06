@@ -226,7 +226,7 @@ function PetEditForm() {
                     <div className="col-sm">
 
 
-                    <div className="col-sm petGender">
+                    {/* <div className="col-sm petGender">
                         <Form.Group controlId="gender" className="m-2">
                             <Form.Label>Gender</Form.Label>
                             <Form.Control
@@ -236,11 +236,11 @@ function PetEditForm() {
                                 required
                             >
                                 <option value="">Please select</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
                             </Form.Control>
                         </Form.Group>
-                    </div>
+                    </div> */}
 
                         <Form.Group className="m-2 form-control" onChange={handleBooleanChange}>
                             <Form.Label>Spayed / Neutered</Form.Label>
