@@ -48,10 +48,10 @@ shelters.delete("/:id", async (req, res) => {
 });
 
 shelters.put("/:id", async (req, res) => {
-  const { id } = req.params;
+  const {id} = req.params;
   const updatedShelter = await updateShelter(req.body, id);
   if (updatedShelter.id) {
-    res.status(200).json(updatedShelter);
+    res.json(updatedShelter);
   } else {
     res.status(404).json({error: "Shelter not updated!"});
   }
