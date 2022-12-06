@@ -7,6 +7,8 @@ function HomeScreen({ pets }) {
     console.log(id)
   return (
     <>
+      <h1>Welcome Back, SHELTER NAME</h1>
+        
         <DisplayPets pets={pets} id={id}/>
     </>
   )

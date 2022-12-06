@@ -29,7 +29,7 @@ function Header() {
                             Settings <VscGear size={20} />
                             </Link>
                             </Dropdown.Item>
-                        {/* <Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item> */}
+                        <Dropdown.Item >Sign Out</Dropdown.Item>
 
                     </Dropdown.Menu>
                 </Dropdown>
