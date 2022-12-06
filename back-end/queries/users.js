@@ -51,36 +51,33 @@ const updateUser = async (user, id) => {
   }
 };
 
-// const getAllPetsForUser = async (id) => {
-//   try {
-//     const petsByUser = db.any(
-//       `SELECT 
-//                 pet_id, user_id, pets.name, pets.type
-//             FROM
-//                 users_pets
-//             JOIN
-//                 users
-//             ON
-//                 users.id = users_pets.user_id
-//             JOIN
-//                 pets
-//             ON
-//                 pets.id = users_pets.pet_id
-//             WHERE
-//                 users_pets.user_id = $1
-//             `,
-//       id
-//     );
-//     return petsByUser;
-//   } catch (err) {
-//     return err;
-//   }
-// };
+const getAllPetsForUser = async (id) => {
+  try {
+    const petsByUser = db.any(
+      `SELECT 
+                pet_id, user_id, pets.name, pets.type
+            FROM
+                users_pets
+            JOIN
+                pets
+            ON
+                pets.id = users_pets.pet_id
+            WHERE
+                users_pets.user_id = $1
+            `,
+      id
+    );
+    return petsByUser;
+  } catch (err) {
+    return err;
+  }
+};
 
 module.exports = { 
     getAllUsers, 
     getUser, 
     createUser, 
     deleteUser,
-    updateUser
+    updateUser,
+    getAllPetsForUser
   };
