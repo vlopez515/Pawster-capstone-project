@@ -1,4 +1,4 @@
-import { Row, Col, Container, CardGroup } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import PetCard from "./PetCard";
 
 function DisplayPets({ pets, id }) {
@@ -9,20 +9,18 @@ function DisplayPets({ pets, id }) {
             {filteredPets.length ?
                 (
                 <>
-                    <div className="m-4 text-center ">
+                    <div className="m-4 text-center">
                     <h3>Pet Cards:</h3>
                     <p>See all the cards you've created thus far!</p>
                 </div>
-                    <Row >
-                        <CardGroup md={2} lg={4}>
+                    <Row xs={1} md={2} lg={3} xl={3} >
                             {filteredPets.map((pet) => {
                                 return (
-                                    <Col key={pet.id} className="d-flex justify-content-around" >
+                                    <Col key={pet.id} className="d-flex justify-content-around pet-Col" >
                                         <PetCard pet={pet} id={id} />
                                     </Col>
                                 )
                             })}
-                        </CardGroup>
                     </Row>
                 </>
                 )

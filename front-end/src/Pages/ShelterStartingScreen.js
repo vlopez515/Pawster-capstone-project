@@ -7,6 +7,7 @@ import Footer from '../Components/Shelter Pages/Footer';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import EditPeformPage from "../Components/Shelter Pages/EditPeformPage";
+import ShowPet from "../Components/Shelter Pages/ShowPet"
 
 import './ShelterStartingScreen.css'
 
@@ -52,6 +53,14 @@ function ShelterStartingScreen() {
                             <EditPeformPage pets={pets} />
                         </>
                     } />
+
+                    <Route path="shelter/:id/show/:petId" element={
+                        <>
+                            <Header />
+                            <ShowPet pets={pets} />
+                        </>
+                    } />
+
                     <Route path="shelter/:id/settings" element={
                         <>
                             <Header />
