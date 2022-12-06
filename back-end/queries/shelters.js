@@ -43,7 +43,7 @@ const deleteShelter = async (id) => {
 const updateShelter = async (shelter, id) => {
   const { name, address, business_hours, phone_number, email} = shelter;
   try {
-     const updatedShelter = await db.one("UPDATE shelters SET name = $1, address = $2,business_hours = $3, phone_number = $4, email = $5, WHERE id = $6 RETURNING *",
+     const updatedShelter = await db.one("UPDATE shelters SET name = $1, address = $2,business_hours = $3, phone_number = $4, email = $5 WHERE id = $6 RETURNING *",
      [name, address, business_hours, phone_number, email, id]);
     return updatedShelter;
   } catch (err) {

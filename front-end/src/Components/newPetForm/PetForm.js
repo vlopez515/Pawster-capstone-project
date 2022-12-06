@@ -9,6 +9,7 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function PetForm() {
     let { id } = useParams();
+    console.log(id)
     const navigate = useNavigate()
 
     const [petInfo, setPetInfo] = useState({
