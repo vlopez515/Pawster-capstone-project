@@ -1,5 +1,5 @@
 const express = require("express");
-const Shelters = express.Router();
+const shelters = express.Router();
 const {
   getAllShelters,
   getShelter,
@@ -8,7 +8,7 @@ const {
   updateShelter
 } = require("../queries/shelters.js");
 
-Shelters.get("/", async (req, res) => {
+shelters.get("/", async (req, res) => {
   const allShelters = await getAllShelters();
   if (allShelters[0]) {
     res.status(200).json(allShelters);
@@ -17,7 +17,7 @@ Shelters.get("/", async (req, res) => {
   }
 });
 
-Shelters.get("/:id", async (req, res) => {
+shelters.get("/:id", async (req, res) => {
   const { id } = req.params;
   const Shelter = await getShelter(id);
   if (Shelter) {
@@ -27,7 +27,7 @@ Shelters.get("/:id", async (req, res) => {
   }
 });
 
-Shelters.post("/", async (req, res) => {
+shelters.post("/", async (req, res) => {
   if(req.body) { 
      const createdShelter = await createShelter(req.body)
       res.status(200).send(createdShelter);
@@ -37,7 +37,7 @@ Shelters.post("/", async (req, res) => {
   });
 
 
-Shelters.delete("/:id", async (req, res) => {
+shelters.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedShelter = await deleteShelter(id);
   if (deletedShelter.id) {
@@ -47,14 +47,14 @@ Shelters.delete("/:id", async (req, res) => {
   }
 });
 
-Shelters.put("/:id", async (req, res) => {
-  const { id } = req.params;
+shelters.put("/:id", async (req, res) => {
+  const {id} = req.params;
   const updatedShelter = await updateShelter(req.body, id);
   if (updatedShelter.id) {
-    res.status(200).json(updatedShelter);
+    res.json(updatedShelter);
   } else {
     res.status(404).json({error: "Shelter not updated!"});
   }
 });
 
-module.exports = Shelters;
+module.exports = shelters;
