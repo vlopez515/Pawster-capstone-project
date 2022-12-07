@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import { Link } from'react-router-dom';
 import {GoogleButton} from 'react-google-button'
 // import GoogleButton from 'react-google-button'
 // import { signInWithGoogle, signOut } from "../Firebase";
@@ -13,6 +14,7 @@ const logoCut = require('../../assets/Pawster_cut.png')
 export default function NavBarComponent() {
   // console.log(signOut)
   const {user, logOut} = UserAuth();
+
   const handleSignOut = async () => { 
     try {
       await logOut();
@@ -42,9 +44,17 @@ export default function NavBarComponent() {
             <Nav.Link href="/products" className="text-center">Products</Nav.Link>
             <Nav.Link href="/support" className="text-center">Support</Nav.Link>
             <Nav.Link href="/contact" className="text-center">Contact Us</Nav.Link>
+      <h3>{user?.displayName}</h3>
             {/* <Button className='nav-button text-center' variant='primary' size='sm' href="/login">Log in</Button> */}
             {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button>  */}
-            {user?.displayName ? <Button onClick={handleSignOut}>Logout</Button>: <Button className='nav-button text-center' variant='primary' size='sm' href="/login">Login</Button> }
+            {/* {user?.displayName ? ( <Button onClick={handleSignOut}>Logout</Button> ) : ( <Button className='nav-button text-center' variant='primary' size='sm' href="/login">Login</Button> )} */}
+            {user?.displayName ? (
+        <button onClick={handleSignOut}>Log Out</button>
+      ) : (
+        <Button><Link to='/login'>Log In</Link></Button>
+        
+      )}
+
           </Nav>
         </Navbar.Collapse>
 

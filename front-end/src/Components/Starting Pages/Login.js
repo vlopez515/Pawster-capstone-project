@@ -27,11 +27,9 @@ export const Login = () => {
   
 
   useEffect(() => {
-    if (user) {
-      // alert("you are logged in now")
-      // console.log(user
-      alert("Welcome to your new account")
-      navigate("/account");
+    if (user != null) {
+      console.log(user)
+      navigate("/account")
     } 
 
   }, [user]);

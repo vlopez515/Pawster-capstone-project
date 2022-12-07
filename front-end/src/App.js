@@ -5,8 +5,12 @@ import {BrowserRouter as Router} from "react-router-dom";
 import UserStartingScreen from './Pages/UserStartingScreen';
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 import {AuthContextProvider} from './Context/AuthContext';
-
+//  import {UserAuth} from '../src/Context/AuthContext';
+//  import { UserAuth } from '../Context/AuthContext';
+// import { UserAuth } from '../Context/';
 function App() {
+  // const {user} = UserAuth();
+  
   return (
     <div className="App">
     <AuthContextProvider>
@@ -25,6 +29,8 @@ function App() {
             false && 
             <ShelterStartingScreen />
           }
+          {/* if ( user ?  <UserStartingScreen/> :  <StartingScreen 
+           /> ) */}
 
         
      </Router>
