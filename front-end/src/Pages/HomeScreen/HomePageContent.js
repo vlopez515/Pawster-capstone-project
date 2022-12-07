@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../../Components/Starting Pages/Carousel';
+import Carousel from '../../Components/HomeScreen/Carousel';
 import { Row } from 'react-bootstrap';
 
 export default function HomePageContent() {
