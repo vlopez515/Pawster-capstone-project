@@ -1,5 +1,3 @@
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 // ------------ Mail Functions ------------
 
@@ -33,22 +31,4 @@ export function sendMail(event) {
 //   .catch((err) => console.log(err))
 }
 
-// Modal not functional yet. Template only below.
-export function successModal (){
-  return (
-    <Modal.Dialog>
-      <Modal.Header closeButton>
-        <Modal.Title>Message Sent!</Modal.Title>
-      </Modal.Header>
 
-      <Modal.Body>
-        <p>Thank You! Someone from our team will reach out to you shortly.</p>
-      </Modal.Body>
-
-      <Modal.Footer>
-        <Button variant="secondary">Close</Button>
-        <Button variant="primary">Save changes</Button>
-      </Modal.Footer>
-    </Modal.Dialog>
-  );
-}

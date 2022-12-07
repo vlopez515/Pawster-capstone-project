@@ -13,7 +13,8 @@ import { GoogleButton } from 'react-google-button'
 // import { UserAuth } from '../../Context/AuthContext';
 
 export default function NavBar() {
-  let navigate = useNavigate()
+
+  const navigate = useNavigate()
   const sections = [
     { title: 'About Pawster', url: '/about' },
     { title: 'Support', url: '/support' },
