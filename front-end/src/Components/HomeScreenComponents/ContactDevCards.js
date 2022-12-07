@@ -1,9 +1,35 @@
-import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import { Grid, Card, Typography, Link } from '@mui/material';
+import "./ContactDevCards.css"
 
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+
+function CardFormat(card) {
+    return (
+        <Card sx={{ maxWidth: 200 }}>
+            <img src={card.photo} className="profileCard-Img" >
+            </img>
+            <Typography variant='body2' align='center' >
+                <h2>{card.name}</h2>
+                <Link href={card.linkedin} rel="noopener noreferrer" target="_blank">
+                    <LinkedInIcon />
+                </Link>
+                {"  "}
+                <Link href={card.github} rel="noopener noreferrer" target="_blank">
+                    <GitHubIcon />
+                </Link>
+                {"  "}
+                <Link href={card.email} rel="noopener noreferrer" target="_blank">
+                    <EmailIcon />
+                </Link>
+            </Typography>
+        </Card>
+    )
+
+}
 
 export default function ContactDevCards() {
     const developers = [
@@ -43,42 +69,10 @@ export default function ContactDevCards() {
             linkedin: 'http://linkedin.com/in/olayinka-fakanbi-2a46a6229',
         }
     ]
+
     return (
-        <>
-        <div className="container pb-5 text-center">
-            <h3>Developers</h3>
-            <p>If you'd like to reach out to the developers regarding app functionality and style, use the below icons to send an email or vist their respective links! </p>
-            <Row xs={1} md={1} lg={2} xl={3}>
-                {developers.map((per, indx) => (
-                    <Col className="container-fluid p-2">
-                        <Card key={indx} className='w-auto'>
-                            <Card.Img variant="top" src={per.photo}/>
-                            <Card.Body className="text-center">
-                                <Card.Title>
-                                    {per.name}
-                                </Card.Title>
-                                <Card.Text>
-                                    {/* Email Link */}
-                                    <a href={`mailto:${per.email}?subject=Contact Us RE: Pawster`}>
-                                        <FontAwesomeIcon icon={faEnvelope}>
-                                    </FontAwesomeIcon>
-                                    </a>
-                                    {/* LinkedIn */}
-                                    <a href={per.linkedin} className={`${per.name}-linkedin m-2`} rel="noopener noreferrer" target="_blank">
-                                        <FontAwesomeIcon icon={faLinkedin} />
-                                    </a>
-                                    {/* Github */}
-                                    <a href={per.github} className={`${per.name}-github `} rel="noopener noreferrer" target="_blank">
-                                        <FontAwesomeIcon icon={faGithub} />
-                                    </a>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </div>
-        </>
+        <Grid sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}>
+            {developers.map(person => CardFormat(person))}
+        </Grid>
     )
 }
-

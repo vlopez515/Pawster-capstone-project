@@ -1,19 +1,25 @@
 import { Routes, Route } from "react-router-dom";
-import HomeScreen from '../Components/Shelter Pages/HomeScreen';
-import Header from "../Components/Shelter Pages/Header.js";
-import PetForm from "../Components/newPetForm/PetForm";
-import Settings from '../Components/Shelter Pages/Settings';
-import Footer from '../Components/Shelter Pages/Footer';
+// import HomeScreen from '../Components/Shelter Pages/HomeScreen';
+// import PetForm from "../Components/newPetForm/PetForm";
+// import Settings from '../Components/Shelter Pages/Settings';
+
+// import EditPeformPage from "../Components/Shelter Pages/EditPeformPage";
+// import ShowPet from "../Components/Shelter Pages/ShowPet"
+
+// import NavBar from "../Components/HomeScreenComponents/NavBar";
+// import Footer from 
+
+// import './ShelterStartingScreen.css'
+
 import axios from "axios";
 import { useState, useEffect } from "react";
-import EditPeformPage from "../Components/Shelter Pages/EditPeformPage";
-import ShowPet from "../Components/Shelter Pages/ShowPet"
-
-import './ShelterStartingScreen.css'
+import { useParams } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function ShelterStartingScreen() {
+export default function ShelterStartingScreen() {
+    const { id, petId } = useParams();
+    console.log(id)
     const [pets, setPets] = useState([])
     useEffect(() => {
         axios
@@ -26,57 +32,19 @@ function ShelterStartingScreen() {
 
     return (
         <>
-            <main >
                 <Routes>
-                    {/* <Route path="/shelter" element={
-                        <>
-                            <Header />
-                            <h1>Welcome Back, NAME </h1>
-                            
-                        </>
-                    } /> */}
-                    <Route path="shelter/:id" element={
-                        <>
-                            <Header />
-                            <HomeScreen pets={pets} />
-                        </>
-                    } />
-                    <Route path="shelter/:id/new-pet" element={
-                        <>
-                            <Header />
-                            <PetForm />
-                        </>
-                    } />
-                    <Route path="shelter/:id/edit/:petId" element={
-                        <>
-                            <Header />
-                            <EditPeformPage pets={pets} />
-                        </>
-                    } />
-
-                    <Route path="shelter/:id/show/:petId" element={
-                        <>
-                            <Header />
-                            <ShowPet pets={pets} />
-                        </>
-                    } />
-
-                    <Route path="shelter/:id/settings" element={
-                        <>
-                            <Header />
-                            <Settings />
-                        </>
-
-                    } />
+                    <Route path="shelter/:id" element={ "<HomeScreen pets={pets} />"} />
+                    <Route path="shelter/:id/new-pet" element={ "<PetForm />"} />
+                    <Route path="shelter/:id/edit/:petId" element={ "<EditPeformPage pets={pets} /> "} />
+                    <Route path="shelter/:id/show/:petId" element={ "<ShowPet pets={pets} /> "} />
+                    <Route path="shelter/:id/settings" element={ "<Settings />" } />
                 </Routes>
-            </main>
-            <Footer />
         </ >
     )
 
 }
 
-export default ShelterStartingScreen
+
 
 
 

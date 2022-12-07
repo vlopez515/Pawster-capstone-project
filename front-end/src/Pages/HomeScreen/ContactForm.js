@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap/';
-import { sendMail } from '../../Functions/mailFunctions';
+// import { Button, Form } from 'react-bootstrap/';
+// import { sendMail } from '../../Functions/mailFunctions';
+import { FormGroup, Box,  FormControl, TextField, InputLabel, FormHelperText, Typography, Grid, Card, CardContent } from '@mui/material';
 
 export default function ContactForm() {
 
     return (
         <>
-            <Form onSubmit={sendMail}>
+            {/* <Form onSubmit={sendMail}>
 
                 <Form.Group className="mb-3" controlId="formBasicFullName">
                     <Form.Label>Full Name</Form.Label>
@@ -34,7 +35,29 @@ export default function ContactForm() {
                 <Button variant="primary" type="submit" >
                     Submit
                 </Button>
-            </Form>
+            </Form> */}
+
+
+
+            <div>
+                <Typography>
+                    Reac-App
+                </Typography>
+                <Card>
+                    <CardContent>
+                        <Grid container spacing={1}>
+                            <Grid xs={12} sm={6} item>
+                                <TextField label="First Name" placeholder='Enter first name..' variant="outlined" fullWidth/>
+                            </Grid>
+                            <Grid xs={12} sm={6} item>
+                                <TextField label="First Name" placeholder='Enter first name..' variant="outlined" fullWidth/>
+                            </Grid>
+                        </Grid>
+                    </CardContent>
+                </Card>
+            </div>
+
+
         </>
     )
 }
