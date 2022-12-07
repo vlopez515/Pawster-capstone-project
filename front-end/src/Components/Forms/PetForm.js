@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import { Grid } from '@material-ui/core';
 import { Stack } from '@mui/material';
 import Controls from './controls/Controls';
 import { useForm, Form } from './Form.js';
-// import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { getPetType, getPetSize, getPetMaintenance, getPetAge, getGenderItems, getYesOrNo, getDeclawedItems, getAdoptionStatus } from "./petsSelect/petsSelect"
 
+const API = process.env.REACT_APP_API_URL;
 
 export default function PetForm() {
-    // let { id } = useParams();
-    // console.log(id)
-    // const navigate = useNavigate()
+    let { id } = useParams();
+    console.log(id, API)
+    const navigate = useNavigate()
 
     const initialFValues = {
         name: "",
@@ -22,14 +24,14 @@ export default function PetForm() {
         size: "",
         type: '',
         maintenance_level: '',
-        spayed_neutered: null,
-        house_trained: null,
-        description: null,
-        declawed: null,
-        special_needs: null,
-        shots_current: null,
-        status: null,
-        shelter_id: 1,
+        spayed_neutered: "",
+        house_trained: "",
+        description: "",
+        declawed: "",
+        special_needs: "",
+        shots_current: "",
+        status: "",
+        shelter_id: Number(id),
     }
 
     const {
@@ -42,11 +44,22 @@ export default function PetForm() {
     const handleSubmit = e => {
         e.preventDefault()
         console.log(values)
-        // if (validate()){
-        //     // employeeService.insertEmployee(values)
-        //     resetForm()
-        // }
+        createPet(values);
     }
+
+    const createPet = (petInfo) => {
+        axios
+            .post(`${API}/pets`, petInfo)
+            .then(
+                () => {
+                    console.log("Hi there");
+                    // navigate(`/shelter/${id}`);
+                    window.location.reload()
+                },
+                (error) => console.error(error)
+            )
+            .catch((c) => console.warn("catch", c));
+    };
 
     return (
         <Form onSubmit={handleSubmit}>

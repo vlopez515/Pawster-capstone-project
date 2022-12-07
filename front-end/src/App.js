@@ -11,6 +11,7 @@ import Support from './Components/HomeScreenComponents/Support';
 
 // Shelter Route
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
+import PetForm from './Components/Forms/PetForm';
 
 // User Route
 
@@ -36,6 +37,8 @@ function App() {
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
 
               {/* User Routes */}
+              <Route path="/petForm/:id" element={ <PetForm />} />
+              <Route path="/pets" element={ <Feed />} />
 
           </Routes>
         </Router>

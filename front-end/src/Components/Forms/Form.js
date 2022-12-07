@@ -16,7 +16,6 @@ export function useForm(initialFValues) {
 
     const resetForm = () => {
         setValues(initialFValues);
-        setErrors({})
     }
 
 
