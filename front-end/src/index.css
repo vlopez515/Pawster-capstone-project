@@ -1,5 +1,27 @@
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fraunces';
+  color: #1976d2;
+}
+
+.login {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom:500px;
+  margin-top: 200px;
+  max-width: 200px;
+}
+.account {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom:1000px;
+  /* margin-top:200px; */
+}
+
+/* * {
+  margin: 0;
 }
 
 body {
@@ -14,20 +36,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-.login {
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom:500px;
-  margin-top: 200px;
-  max-width: 200px;
-}
-.account {
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom:1000px;
-  /* margin-top:200px; */
-}
+} */
 /* .user-image {
   width:120px;
   height:120px;
