@@ -1,20 +1,14 @@
 import React from 'react'
-import Button from '@mui/material/Button';
-import { IconButton, Stack } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { Toolbar } from '@mui/material';
-import { Link } from '@mui/material';
+import { IconButton, Stack, Button, Typography, Toolbar, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
 import { GoogleButton } from 'react-google-button'
-// import GoogleButton from 'react-google-button'
-// import { signInWithGoogle, signOut } from "../Firebase";
-// import {UserAuth} from '../Context/AuthContext'
-// import { UserAuth } from '../../Context/AuthContext';
 import { UserAuth } from '../../Context/AuthContext';
+
 export default function NavBar() {
+
   const { logOut, user} = UserAuth();
   let navigate = useNavigate()
+
   const sections = [
     { title: 'About Pawster', url: '/about' },
     { title: 'Support', url: '/support' },
