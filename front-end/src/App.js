@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/HomeScreenComponents/NavBar';
 import Footer from './Components/HomeScreenComponents/Footer';
 
+// Authentication
+import { AuthContextProvider } from "./Context/AuthContext";
 
 // Home Routes 
 import AboutPage from './Components/HomeScreenComponents/AboutPage';
@@ -25,7 +27,7 @@ function App() {
 
     return (
       <div className="App">
-
+      <AuthContextProvider>
         <Router>
           {/* Keep NavBar so each diff page keeps it */}
           <NavBar />
@@ -47,8 +49,7 @@ function App() {
 
           </Routes>
         </Router>
-
-
+    </AuthContextProvider>
         {/* Keep Footer for all other screens? */}
         <Footer />
       </div>
@@ -58,8 +59,6 @@ function App() {
 
 
   export default App;
-
-
 
 
 

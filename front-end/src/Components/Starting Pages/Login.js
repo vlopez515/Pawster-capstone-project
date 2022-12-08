@@ -6,14 +6,16 @@
 // import {GoogleButton} from 'react-google-button'
 // import { useNavigate } from "react-router-dom";
 // import { UserAuth } from '../../Context/AuthContext';
+// // import Button from 'react-bootstrap/Button';
 // // import { signInWithGoogle, signOut } from "../../Services/Firebase";
 // // import account from './LoggedIn'
-// import Button from 'react-bootstrap/Button';
 // // import { async } from '@firebase/util';
 
-// export const Login = () => {
-//  const {googleSignIn, user} = UserAuth();
+// export default function Login () {
+//   const {googleSignIn, user} = UserAuth();
+//   // console.log("Login")
 //   const navigate = useNavigate();
+// // const {googleSignIn, user} = UserAuth();
   
 //   const handleGoogleSignIn = async () => {
 //     try {
@@ -30,9 +32,7 @@
 //     if (user) {
 //       console.log(user)
 //       navigate("/account")
-//     } else {
-//       navigate("/login")
-//     }
+//     } 
 
 //   }, [user]);
 
