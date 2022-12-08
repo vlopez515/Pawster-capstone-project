@@ -14,11 +14,11 @@ import Support from './Components/HomeScreenComponents/Support';
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
 import UserForm from './Components/Forms/UserForm';
-import PetForm from './Components/Forms/PetForm';
+
 
 // User Route
 
-const API = process.env.REACT_APP_API_URL;
+
 
 function App() {
 
@@ -45,8 +45,6 @@ function App() {
               {/* User Routes */}
               <Route path="/userForm/:id" element={ <UserForm />} />
 
-              {/* For JAMAL!!  */}
-              <Route path="/jamal" element={<PetForm />} />
           </Routes>
         </Router>
 

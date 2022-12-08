@@ -1,31 +1,35 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import DisplayPets from './DisplayPets';
-import { useParams, useState } from "react-router-dom";
+import React from 'react';
+import DisplayPets from "./DisplayPets"
 
-const API = process.env.REACT_APP_API_URL;
+import { useParams } from "react-router-dom";
+import { Container } from '@mui/system';
+import {Grid} from '@mui/material';
+
 
 function HomeScreen({ pets }) {
   const { id } = useParams()
+  let data = []
 
-  // console.log( id, pets)
-  
-  // useEffect(() => {
-  //   filteredPets()
-  // }), []
-  // const filteredPets = () => {
-  //   let data = pets.map(pet => pet.shelter_id  === id)
-  //   console.log(data)
-  // }
-  
-  // console.log(filteredPets)
+  const filteredPets = () => {
+    return data = pets.filter(pet => pet.shelter_id === Number(id)) 
+  }
+
+  filteredPets()
 
   return (
-    <>
+    <Container align="center">
+      <br/>
+    <div>
       <h1>Welcome Back, SHELTER NAME</h1>
+    </div>
+    <br/>
+    <br/>
+        <Grid  container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 1 }}>
+          {data.map((pet, i) => <DisplayPets pet={pet} index={i} />)}
+        </Grid>
         
-        <DisplayPets pets={[...pets]} shelterId={id} />
-    </>
+
+    </Container>
   )
 }
 
