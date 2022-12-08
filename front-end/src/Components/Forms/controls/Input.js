@@ -11,6 +11,7 @@ export default function Input(props) {
             name={name}
             value={value}
             onChange={onChange}
+            InputLabelProps={{ shrink: true }}
             {...(error && {error:true,helperText:error})}
         />
     )
