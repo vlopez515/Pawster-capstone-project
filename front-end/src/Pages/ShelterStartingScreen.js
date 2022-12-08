@@ -1,7 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-// import HomeScreen from '../Components/Shelter Pages/HomeScreen';
-// import PetForm from "../Components/newPetForm/PetForm";
-// import Settings from '../Components/Shelter Pages/Settings';
+import PetForm from "../Components/Forms/PetForm";
+import HomeScreen from "../Pages/ShelterPages/HomeScreen"
+// import HomeScreen from '../Components/ShelterPages/HomeScreen';
+import Settings from '../Pages/ShelterPages/Settings';
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
 // import EditPeformPage from "../Components/Shelter Pages/EditPeformPage";
 // import ShowPet from "../Components/Shelter Pages/ShowPet"
@@ -11,33 +14,36 @@ import { Routes, Route } from "react-router-dom";
 
 // import './ShelterStartingScreen.css'
 
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
-const API = process.env.REACT_APP_API_URL;
+// import { useParams } from "react-router-dom";
+
+
+// const API = process.env.REACT_APP_API_URL;
 
 export default function ShelterStartingScreen() {
-    const { id, petId } = useParams();
-    console.log(id)
     const [pets, setPets] = useState([])
+    
     useEffect(() => {
-        axios
-            .get(`${API}/pets`)
-            .then((response) => setPets(response.data))
-            .catch((c) => console.warn("catch", c));
+      getPets()
     }, []);
-
-    console.log(pets)
+  
+    const getPets = async () => {
+      await axios.get(`https://pawster.onrender.com/pets`).then((res) => {
+        const data = res.data
+        console.log(data)
+        setPets(data)
+      }).catch((c) => console.warn("catch", c));
+    }
 
     return (
         <>
                 <Routes>
-                    <Route path="shelter/:id" element={ "<HomeScreen pets={pets} />"} />
-                    <Route path="shelter/:id/new-pet" element={ "<PetForm />"} />
-                    <Route path="shelter/:id/edit/:petId" element={ "<EditPeformPage pets={pets} /> "} />
-                    <Route path="shelter/:id/show/:petId" element={ "<ShowPet pets={pets} /> "} />
-                    <Route path="shelter/:id/settings" element={ "<Settings />" } />
+                    <Route path="/" />
+                    <Route path="/:id" element={<HomeScreen pets={pets}/>} />
+                    <Route path="/:id/new" element={ <PetForm />} />
+                    <Route path="/:id/edit/:petId" element={ "<EditPeformPage pets={pets} /> "} />
+                    <Route path="/:id/show/:petId" element={ "<ShowPet pets={pets} /> "} />
+                    <Route path="/:id/settings" element={ <Settings />} />
                 </Routes>
         </ >
     )
