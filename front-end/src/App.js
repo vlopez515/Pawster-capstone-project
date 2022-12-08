@@ -1,40 +1,32 @@
-import * as React from 'react';
+import * as React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import NavBar from './Components/HomeScreenComponents/NavBar';
-import Footer from './Components/HomeScreenComponents/Footer';
-import HomeScreenRoutes from './HomeScreenRoutes';
-
+import NavBar from "./Components/HomeScreenComponents/NavBar";
+import Footer from "./Components/HomeScreenComponents/Footer";
+import HomeScreenRoutes from "./HomeScreenRoutes";
+import { AuthContextProvider } from "./Context/AuthContext";
 
 function App() {
   // const {user} = UserAuth();
-  
+
   return (
     <div className="App">
+      <AuthContextProvider>
+        <Router>
+          {/* Keep NavBar so each diff page keeps it */}
+          <NavBar />
+          <main>
+            <HomeScreenRoutes />
+          </main>
+        </Router>
 
-      <Router>
-        {/* Keep NavBar so each diff page keeps it */}
-        <NavBar />
-        <main>
-          <HomeScreenRoutes /> 
-
-
-        </main>
-      </Router>
-
-      {/* Keep Footer for all other screens? */}
-      <Footer />
+        {/* Keep Footer for all other screens? */}
+        <Footer />
+      </AuthContextProvider>
     </div>
-  )
+  );
 }
 
-
-
 export default App;
-
-
-
-
-
 
 // function App() {
 

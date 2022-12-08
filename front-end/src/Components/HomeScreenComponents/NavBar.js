@@ -11,8 +11,9 @@ import { GoogleButton } from 'react-google-button'
 // import { signInWithGoogle, signOut } from "../Firebase";
 // import {UserAuth} from '../Context/AuthContext'
 // import { UserAuth } from '../../Context/AuthContext';
-
+import { UserAuth } from '../../Context/AuthContext';
 export default function NavBar() {
+  const { logOut, user} = UserAuth();
   let navigate = useNavigate()
   const sections = [
     { title: 'About Pawster', url: '/about' },
@@ -42,9 +43,12 @@ export default function NavBar() {
         <IconButton>
 
         </IconButton>
-        <Button variant="outlined" size="small" href="/login" onClick={handleSignOut}>
-          Login
-        </Button>
+        <img width ="40px" height="40px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"></img>{user?.displayName}
+        {user?.displayName ? (
+        <Button onClick={handleSignOut}>Logout</Button>
+      ) : (
+        <Button><Link to='/signin'>Log In</Link></Button>
+      )}
       </Toolbar>
       <Stack
         direction='row'
@@ -64,6 +68,7 @@ export default function NavBar() {
           </Link>
         ))}
       </Stack>
+      
     </div>
   )
 }

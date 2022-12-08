@@ -18,14 +18,7 @@ function Account() {
         }
   
       }
-      // useEffect(() => {
-      //   if (user) {
-          
-      //     console.log(user)
-      //     navigate("/account");
-      //   } 
     
-      // }, [user]);
       
 
   return (

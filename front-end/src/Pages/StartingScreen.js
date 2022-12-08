@@ -11,7 +11,7 @@ import Products from "./Starting Pages/Products";
 import Support from "./Starting Pages/Support";
 import Contact from "./Starting Pages/ContactUs";
 // import Login from "../Components/Starting_Pages/Login";
-import {Login} from "../Components/Starting Pages/Login";
+import Login from "../Components/Login";
 import Account from "../Components/Starting Pages/Account"
 import Protected from "../Components/Protected"
 
