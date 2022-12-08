@@ -18,7 +18,7 @@ export default function Auth_Token() {
         grant_type: "client_credentials",
       })
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         // localStorage.setItem("token", response.data.access_token);
         setAccessToken(response);
         setExpiresIn(response.data.expires_in);

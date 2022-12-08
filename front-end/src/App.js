@@ -17,12 +17,12 @@ function App() {
       { false && 
       <StartingScreen />}
             {/* Example of How to Switching Screen for User / Shelter */}
-          { false && 
+          { true && 
             <UserStartingScreen/>
             // <ContactUs />
           }
           {
-            true && 
+            false && 
             <ShelterStartingScreen />
           }
      </Router>
