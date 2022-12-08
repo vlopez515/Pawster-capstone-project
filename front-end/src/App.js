@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/HomeScreenComponents/NavBar';
 import Footer from './Components/HomeScreenComponents/Footer';
 
+
 // Home Routes 
 import AboutPage from './Components/HomeScreenComponents/AboutPage';
 import ContactUs from './Components/HomeScreenComponents/ContactUs';
@@ -11,12 +12,17 @@ import Support from './Components/HomeScreenComponents/Support';
 
 // Shelter Route
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
+
+import UserForm from './Components/Forms/UserForm';
 import PetForm from './Components/Forms/PetForm';
 
 // User Route
 
+const API = process.env.REACT_APP_API_URL;
 
 function App() {
+
+
     return (
       <div className="App">
 
@@ -37,9 +43,10 @@ function App() {
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
 
               {/* User Routes */}
-              <Route path="/petForm/:id" element={ <PetForm />} />
-              <Route path="/pets" element={ <Feed />} />
+              <Route path="/userForm/:id" element={ <UserForm />} />
 
+              {/* For JAMAL!!  */}
+              <Route path="/jamal" element={<PetForm />} />
           </Routes>
         </Router>
 

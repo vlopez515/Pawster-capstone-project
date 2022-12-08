@@ -4,16 +4,16 @@ import { Grid } from '@material-ui/core';
 import { Stack, Typography } from '@mui/material';
 import Controls from './controls/Controls';
 import { useForm, Form } from './Form.js';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { getPetType, getPetSize, getPetMaintenance, getPetAge, getGenderItems, getYesOrNo, getDeclawedItems, getAdoptionStatus } from "./selectValues/petsSelect"
 
 const API = process.env.REACT_APP_API_URL;
 
-export default function PetForm() {
+export default function UserForm() {
     let { id } = useParams();
-    console.log(id)
-
+    console.log(id, API)
+    
     const initialFValues = {
         name: "",
         breed: "",
@@ -54,7 +54,7 @@ export default function PetForm() {
             .then(
                 () => {
                     console.log("Hi there");
-                    // useNavigate(`/shelter/${id}`);
+                    useNavigate(`/shelter/${id}`);
                     window.location.reload()
                 },
                 (error) => console.error(error)
@@ -64,12 +64,12 @@ export default function PetForm() {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Typography variant="h4" align="center" sx={{ pt: 3, fontWeight: "bold" }}>New Pet</Typography>
+            <Typography variant="h4" align="center" sx={{ pt: 3, fontWeight:"bold" }}>New User</Typography>
             <Stack
                 direction="column"
                 alignItems="center"
                 sx={{ py: 4 }}
-            >
+                >
                 <Grid item xs={6}>
                     <Controls.Input
                         name="name"
@@ -140,8 +140,8 @@ export default function PetForm() {
                         onChange={handleInputChange}
                         options={getPetAge}
                     />
-
-
+                
+                
                     <Controls.Select
                         name="spayed_neutered"
                         label="Has the pet been spayed / neutered?"
