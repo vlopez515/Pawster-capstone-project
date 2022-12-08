@@ -21,6 +21,8 @@ import UserForm from './Components/Forms/UserForm';
 // User Route
 
 
+import UserOrShelter from "../src/Pages/UserOrShelter"
+
 
 function App() {
 
@@ -46,6 +48,8 @@ function App() {
 
               {/* User Routes */}
               <Route path="/userForm/:id" element={ <UserForm />} />
+
+              <Route path="/UserOrShelter" element={ <UserOrShelter />}/>
 
           </Routes>
         </Router>
