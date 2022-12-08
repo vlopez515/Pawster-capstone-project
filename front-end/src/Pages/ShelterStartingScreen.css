@@ -1,0 +1,38 @@
+/*  Home Screen CSS */
+.pet-Col {
+    padding-bottom: 5%;
+}
+
+.show-PetCard {
+    border-style: solid;
+    padding: 2%;
+
+}
+
+.show-petImg img {
+    max-width: 100%;
+    padding: 2%;
+}
+
+/* Pet Shown Page CSS */
+/* .pet-ShowPage {
+    columns: 2;
+    column-width: 50%;
+} */
+
+#pet-ShowInfo {
+    text-align: center;  
+}
+
+#pet-ShowInfo img{
+    width: 50%;
+}
+
+#pet-editForm {
+    overflow: scroll;
+    padding: 5%
+}
+
+.invisible {
+    display: none;
+}

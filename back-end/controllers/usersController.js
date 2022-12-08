@@ -59,21 +59,21 @@ users.put("/:id", async (req, res) => {
   }
 });
 
-// users.get("/:id/pets", async (req, res) => {
-//   const { id } = req.params;
-//   const usersPets = await getAllPetsForUser(id);
-//   res.json(usersPets);
-// });
+users.get("/:id/pets", async (req, res) => {
+  const { id } = req.params;
+  const usersPets = await getAllPetsForUser(id);
+  res.json(usersPets);
+});
 
-// users.post("/:id/pets/:petId", async (req, res) => {
-//   const { id, petId } = req.params;
-//   const successfulAdd = await addNewPetForUser(id, petId);
-//   if (successfulAdd) {
-//     res.status(201).json({ message: "Pet liked!" })
-//   } else {
-//       res.status(422).json({ error: "Unprocessable entity" });
-//     }
-// });
+users.post("/:id/pets/:petId", async (req, res) => {
+  const { id, petId } = req.params;
+  const successfulAdd = await addNewPetForUser(id, petId);
+  if (successfulAdd) {
+    res.status(201).json({ message: "Pet liked!" })
+  } else {
+      res.status(422).json({ error: "Unprocessable entity" });
+    }
+});
 
 
 module.exports = users;

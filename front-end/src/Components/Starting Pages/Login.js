@@ -1,55 +1,59 @@
 
-// import React, { useContext, useEffect } from "react";
-// import { UserContext } from "../../Providers/UserProvider";
-// import {UserContext} from "../../Providers/UserProvider"
-import React, { useEffect } from 'react';
-import {GoogleButton} from 'react-google-button'
-import { useNavigate } from "react-router-dom";
-import { UserAuth } from '../../Context/AuthContext';
-// import { signInWithGoogle, signOut } from "../../Services/Firebase";
-// import account from './LoggedIn'
-import Button from 'react-bootstrap/Button';
-// import { async } from '@firebase/util';
+// // import React, { useContext, useEffect } from "react";
+// // import { UserContext } from "../../Providers/UserProvider";
+// // import {UserContext} from "../../Providers/UserProvider"
+// import React, { useEffect } from 'react';
+// import {GoogleButton} from 'react-google-button'
+// import { useNavigate } from "react-router-dom";
+// import { UserAuth } from '../../Context/AuthContext';
+// // import Button from 'react-bootstrap/Button';
+// // import { signInWithGoogle, signOut } from "../../Services/Firebase";
+// // import account from './LoggedIn'
+// // import { async } from '@firebase/util';
 
-export const Login = () => {
- const {googleSignIn, user} = UserAuth();
-  const navigate = useNavigate();
+// export default function Login () {
+//   const {googleSignIn, user} = UserAuth();
+//   // console.log("Login")
+//   const navigate = useNavigate();
+// // const {googleSignIn, user} = UserAuth();
   
-  const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn()
+//   const handleGoogleSignIn = async () => {
+//     try {
+//       await googleSignIn()
+//       alert("Welcome to the Sign In Page")
 
-    } catch (error) {
-      console.log(error)
-    }
-  }
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
   
 
-  useEffect(() => {
-    if (user) {
-      navigate("/login");
-    } 
+//   useEffect(() => {
+//     if (user) {
+//       console.log(user)
+//       navigate("/account")
+//     } 
 
-  }, [user]);
+//   }, [user]);
 
-  return (
-    <div>
+//   return (
+//     <div>
       
-        <div className='login'>
-         <h3>Log In </h3>
+//         <div className='login'>
+//          <h3>Log In </h3>
          
-          <GoogleButton onClick={handleGoogleSignIn} />
-          {/* <GoogleButton /> */}
-          {/* <GoogleButton onClick={signInWithGoogle} />  */}
-          {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
-          <br></br>
+//           <GoogleButton onClick={handleGoogleSignIn} />
+//           {/* <GoogleButton /> */}
+//           {/* <GoogleButton onClick={signInWithGoogle} />  */}
+//           {/* <Button onClick={signInWithGoogle}><GoogleButton /></Button> <br></br>
+//           <br></br>
         
-        {/* commented out */}
-          {/* <Button onClick={signOut}> sign out</Button> */}
+//         {/* commented out */}
+//           {/* <Button onClick={signOut}> sign out</Button> */}
           
-      </div>
+//       </div>
       
 
-    </div>
-  );
-};
+//     </div>
+//   );
+// };

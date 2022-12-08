@@ -14,3 +14,10 @@ INSERT INTO shelters (name, address, business_hours, phone_number, email) VALUES
 INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level, spayed_neutered, house_trained, declawed,special_needs, shots_current, description, status, shelter_id ) VALUES
 ('Cedar', 'Cat', 'Domestic Short Hair', 'Small', 'Male', 'Baby', 'Gray / Blue / Silver', 'Low', true, false, false, false, true, null, 'adoptable', 1),
 ('ChiChi', 'Dog', 'Mixed Breed', 'Small', 'Female', 'Adult', 'Brown / Chocolate', 'Mid',true, false, null, false, true, 'At first glance, I might appear to have a ruff, set in my ways exterior but once you give me...', 'adoptable', 2);
+
+INSERT INTO users_pets(pet_id, user_id)
+VALUES
+(1,1),
+(2,1),
+(1,2),
+(2,2);
