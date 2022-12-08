@@ -5,13 +5,16 @@ export function useForm(initialFValues) {
 
 
     const [values, setValues] = useState(initialFValues);
-    const [errors, setErrors] = useState({});
 
     const handleInputChange = e => {
         const { name, value } = e.target
+        if(value === "true") {
+            setValues({ ...values, [name]: true })
+        } 
+        if(value === "false") {
+            setValues({ ...values, [name]: false })
+        }
         setValues({ ...values, [name]: value })
-        // if (validateOnChange)
-        //     validate({ [name]: value })
     }
 
     const resetForm = () => {
@@ -22,8 +25,6 @@ export function useForm(initialFValues) {
     return {
         values,
         setValues,
-        errors,
-        setErrors,
         handleInputChange,
         resetForm
 

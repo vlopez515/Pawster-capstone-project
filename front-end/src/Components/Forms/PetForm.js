@@ -5,6 +5,7 @@ import { Stack, Typography } from '@mui/material';
 import Controls from './controls/Controls';
 import { useForm, Form } from './Form.js';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { getPetType, getPetSize, getPetMaintenance, getPetAge, getGenderItems, getYesOrNo, getDeclawedItems, getAdoptionStatus } from "./selectValues/petsSelect"
 
@@ -23,13 +24,13 @@ export default function PetForm() {
         size: "",
         type: '',
         maintenance_level: '',
-        spayed_neutered: "",
-        house_trained: "",
-        description: "",
-        declawed: "",
-        special_needs: "",
-        shots_current: "",
-        status: "",
+        spayed_neutered: null,
+        house_trained: null,
+        description: null,
+        declawed: null,
+        special_needs: null,
+        shots_current: null,
+        status: null,
         shelter_id: Number(id),
     }
 
@@ -43,24 +44,19 @@ export default function PetForm() {
     const handleSubmit = e => {
         e.preventDefault()
         console.log(values)
-        createPet(JSON.stringify(initialFValues));
+        createPet(initialFValues);
     }
 
-    // const navigate = () => useNavigate()
+    const navigate = useNavigate()
 
-    const createPet = (petInfo) => {
-        axios
-            .post(`${API}/pets`, petInfo)
-            .then(
-                () => {
-                    console.log("Hi there");
-                    // useNavigate(`/shelter/${id}`);
-                    window.location.reload()
-                },
-                (error) => console.error(error)
-            )
-            .catch((c) => console.warn("catch", c));
-    };
+    const createPet = async (petInfo) => {
+      await axios.post(`https://pawster.onrender.com/pets`, petInfo).then((res) => {
+        const data = res.data
+        console.log(data)
+       navigate(`/shelter/${id}`);
+      }).catch((c) => console.warn("catch", c));
+
+    }
 
     return (
         <Form onSubmit={handleSubmit}>
