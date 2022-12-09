@@ -3,6 +3,7 @@ import { IconButton, Stack, Button, Typography, Toolbar, Link } from '@mui/mater
 import { useNavigate, useParams } from 'react-router-dom';
 import { GoogleButton } from 'react-google-button'
 import { UserAuth } from '../../Context/AuthContext';
+// import { UserAuth } from '../../Context/UserContext';
 
 
 export default function NavBar() {
@@ -11,7 +12,7 @@ export default function NavBar() {
 
   let pawsterHomePageVal = `${(window.location.pathname).split("/")[1]}/${(window.location.pathname).split("/")[2]}`
 
-  const { logOut, user } = UserAuth();
+  const { logOut, user , googleSignIn} = UserAuth();
   let navigate = useNavigate()
 
   const sections = [
@@ -20,8 +21,23 @@ export default function NavBar() {
     { title: 'Contact Us', url: '/contact' },
   ];
 
-  const handleSignOut = () => {
-    console.log("hi")
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      console.log(user)
+      alert("you are logged out")
+    } catch(err) {
+      console.log(err);
+    }
+  }
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+      alert("you are logged in")
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   console.log(pawsterHomePageVal)
@@ -56,7 +72,7 @@ export default function NavBar() {
         {user?.displayName ? (
           <Button onClick={handleSignOut}>Logout</Button>
         ) : (
-          <Button><Link to='/signin'>Log In</Link></Button>
+          <Button onClick={handleGoogleSignIn}>Log In</Button>
         )}
       </Toolbar>
       <Stack

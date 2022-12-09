@@ -9,24 +9,24 @@ import FlashOnIcon from "@mui/icons-material/FlashOn";
 
 export default function SwipeButtons() {
   return (
-    <div>
+    <div className="SwipeButton_overall_div">
       <div className="swipeButtons">
-        <IconButton className="swipeButtons_repeat">
-          <ReplayIcon fontSize="large" />
+        <IconButton className="swipeButtons_repeat" size="large" >
+          <ReplayIcon fontSize="large"  />
         </IconButton>
-        <IconButton className="swipeButtons_left">
+        <IconButton className="swipeButtons_left" size="medium">
           <CloseIcon fontSize="large" />
         </IconButton>
-        <IconButton className="swipeButtons_star">
+        <IconButton className="swipeButtons_star" size="small">
           <StarRateIcon fontSize="large" />
         </IconButton>
-        <IconButton className="swipeButtons_right">
+        <IconButton className="swipeButtons_right" size="small">
           <FavoriteIcon fontSize="large" />
         </IconButton>
-        <IconButton className="swipeButtons_lightning">
+        <IconButton className="swipeButtons_lightning" size="small">
           <FlashOnIcon fontSize="large" />
         </IconButton>
       </div>
-    </div>
+     </div>
   );
 }
