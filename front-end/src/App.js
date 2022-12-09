@@ -15,11 +15,8 @@ import Support from './Components/HomeScreenComponents/Support';
 // Shelter Route
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
-import UserForm from './Components/Forms/UserForm';
-
-
 // User Route
-
+import UserStartingScreen from "../src/Pages/UserStartingScreen"
 
 
 function App() {
@@ -31,8 +28,8 @@ function App() {
         <Router>
           {/* Keep NavBar so each diff page keeps it */}
           <NavBar />
+
           <Routes>
-            
               {/* Home Routes */}
                 <Route path="/" element={<Feed />} />
                 <Route path="/about" element={<AboutPage />} />
@@ -45,7 +42,7 @@ function App() {
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
 
               {/* User Routes */}
-              <Route path="/userForm/:id" element={ <UserForm />} />
+                <Route path="/user/*" element={ <UserStartingScreen />} />
 
           </Routes>
         </Router>

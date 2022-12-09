@@ -13,7 +13,9 @@ export default function Select(props) {
                 label={label}
                 name={name}
                 value={value}
-                onChange={onChange}>
+                onChange={onChange}
+                sx={{shrink: true}}
+                >
                 <MenuItem value="">None</MenuItem>
                 {
                     options.map(
