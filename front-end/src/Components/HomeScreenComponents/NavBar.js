@@ -20,8 +20,23 @@ export default function NavBar() {
     { title: 'Contact Us', url: '/contact' },
   ];
 
-  const handleSignOut = () => {
-    console.log("hi")
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      console.log(user)
+      alert("you are logged out")
+    } catch(err) {
+      console.log(err);
+    }
+  }
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+      alert("you are logged in")
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   console.log(pawsterHomePageVal)
@@ -56,7 +71,7 @@ export default function NavBar() {
         {user?.displayName ? (
           <Button onClick={handleSignOut}>Logout</Button>
         ) : (
-          <Button><Link to='/signin'>Log In</Link></Button>
+          <Button><Link to='/login'>Log In</Link></Button>
         )}
       </Toolbar>
       <Stack
