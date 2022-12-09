@@ -18,7 +18,7 @@ const [token, setToken] = useState(accessToken);
       .get("https://api.petfinder.com/v2/animals?location=ny", {
         headers: {
           Authorization:
-            `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJrazBKSHFqalhYTkI4V25tWWo5VFZZbFBiSWJoNlFiMlZiRW1nbXJ6eUYxd0pHaE5kRSIsImp0aSI6IjI5YzJlYzc2MTk4MTY0MTc4ZTM4MWQ2MTBmMjc2ZDZhOTgwODhkMGVlYTIxYmVjMTU0YjA3NTkyNTcxZTFlOWY1Y2RjMTYyZDk5ZWNlYmIyIiwiaWF0IjoxNjcwMTg0ODczLCJuYmYiOjE2NzAxODQ4NzMsImV4cCI6MTY3MDE4ODQ3Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.VldgK00lKQ_2VMrB282BMQgRTz8EQhjU742mdNju3K8zpY6BkVaHenVHhT7wqreJHP9hzHw0PyfL_lnEhdSojpA1F_zduvi9fFQRLyGsGRdqS6CjNX4BDj-TdkNKP2LabQdDGVBW97gme88TYPj4bZ_l5QPQ4ibJDgoMUpj0FABszk5qgO4B4PRNR8KaN00S6bR9dafbgOMhQcZUWZ-dxZy-o1K3lRa8tImF6BjuwaFk61olVAl45yUfUpM3ypbM5mJ517gQ02veTVBSVanoc3_nvq2QentEd5CKBWda7Vm9bDMZw1fOtgH3p4t46_jhzff5b_0Rgq9R_s91BTaJzw`,
+            `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJrazBKSHFqalhYTkI4V25tWWo5VFZZbFBiSWJoNlFiMlZiRW1nbXJ6eUYxd0pHaE5kRSIsImp0aSI6IjU2NDFiMjQ2ZjU0YWY2ZTdiN2EyYmE5ODU5MGZiMWQ4Y2JhYWMxYWU5M2M2OTI2NGNmMmU3YWM0Mzk0ZTlkMjE2ZjNjN2FkOTRkZmJhNTNlIiwiaWF0IjoxNjcwNTQ3Njg2LCJuYmYiOjE2NzA1NDc2ODYsImV4cCI6MTY3MDU1MTI4NSwic3ViIjoiIiwic2NvcGVzIjpbXX0.cDI9maJNCdGDEdEUU5aF3Rx4PpJkeQyb7fu_jQyMH5IzXhmRHO6sGHDbJm4Hxnaox1gCvJ_3LJWzeLIcZ2oEOzWELZ1x2LFFKeLSjN1dY4-hTM78Z1XpEvBrgERc5vWK02qAdxvpvUkDWu8G5BwfDOeZ5ygLNr1OiE2UwnUcvZPkEm5Z5ruRTgO3GoAXOV1sEz59Ajlp6wWVOJIMTqv50H-HfQ4tHUQXZ9CQgPJIRcx3BveGsw8-dUym1DhfOi4Ai9S94_unoBLOHdPMn8bDFhX5IS2NcwG1MvSj7diEDS4vzYtg50Miz4nx0p-zvdmyeTiXVSCwaVfvfBpjZGZ4pA`,
         },
       })
       .then((response) => {
@@ -28,6 +28,7 @@ const [token, setToken] = useState(accessToken);
         console.log(error);
       });
   }, [token]);
+
 
   return (
     <div className="PetFinderAPI_card">

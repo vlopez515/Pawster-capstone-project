@@ -1,19 +1,41 @@
 .swipeButtons {
-  position: fixed;
-  bottom: 10vh;
-  width: 100%;
+  /* position:fixed; */
+  position:fixed;
+  /* width: 10vw; */
   display: flex;
   justify-content: space-evenly;
+    /* position: relative; */
+   bottom: 1vh;
+   width: 70vw !important;
+   height: 10vh !important;
+   /* top: 100%;  */
+   /* left: 10px; */
+  /* bottom: 100px; */
 }
+
+/* MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall swipeButtons_right css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root */
+
+
+
+.SwipeButton_overall_div {
+  display: flex;
+  justify-content:center;
+
+}
+
 
 .swipeButtons .MuiIconButton-root {
   background-color: white;
   box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3) !important;
+  height:50px;
+  width:50px;
+  
 }
 
 .swipeButtons_repeat {
   padding: 3vw !important;
   color: #f5b748 !important;
+  /* size:"large"; */
 }
 
 .swipeButtons_left {
