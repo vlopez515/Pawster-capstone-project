@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 // Links Components Below:
 import Header from "../Components/User Pages/Header.js";
 import TinderCards from "../Components/User Pages/TinderCards.js";
-import SwipeButtons from "../Components/User Pages/SwipeButtons";
+// import SwipeButtons from "../Components/User Pages/SwipeButtons";
 import Chats from "../Components/User Pages/Chats";
 import ChatScreen from "../Components/User Pages/ChatScreen.js";
 import PetFinderAPI from "../Components/User Pages/PetFinderAPI/PetFinderAPI.js";
@@ -22,8 +22,8 @@ function UserStartingScreen() {
         <Route path="/" element={
             <div>
               <Header />
-              <TinderCards />
-              <SwipeButtons />
+              <PetFinderAPI accessToken={Auth_Token()}/>
+              {/* <SwipeButtons /> */}
             </div>
           }
         />

@@ -15,9 +15,12 @@ import Support from './Components/HomeScreenComponents/Support';
 // Shelter Route
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
+import UserForm from './Components/Forms/UserForm';
+
+
 // User Route
 import UserStartingScreen from "../src/Pages/UserStartingScreen"
-
+import TinderCard from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
 
 function App() {
 
@@ -42,8 +45,8 @@ function App() {
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
 
               {/* User Routes */}
-                <Route path="/user/*" element={ <UserStartingScreen />} />
-
+              {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
+              <Route path="/user/:id/explore" element={ <TinderCard />} />
           </Routes>
         </Router>
     </AuthContextProvider>
