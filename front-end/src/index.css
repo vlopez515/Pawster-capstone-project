@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: 'Fraunces';
   color: #1976d2;
-  overflow:hidden;
+  /* overflow:hidden; */
 }
 
 .login {

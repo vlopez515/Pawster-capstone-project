@@ -177,6 +177,7 @@ export default function TinderCards({ animals }) {
               preventSwipe={["up", "down"]}
               onSwipe={(dir) => swiped(dir, animal.name, index)} //maybe this function??
               onCardLeftScreen={() => outOfFrame(animal.name, index)}
+      
             >
               <div
                 style={
