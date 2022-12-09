@@ -23,7 +23,7 @@ function Account() {
 
   return (
     <div className='account'>
-    <h1>Account Information</h1>
+    <h1>Users Profile</h1>
     
       <p>Welcome {user?.displayName}</p>
       

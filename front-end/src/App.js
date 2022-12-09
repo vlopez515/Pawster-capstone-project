@@ -16,11 +16,11 @@ import Support from './Components/HomeScreenComponents/Support';
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
 import UserForm from './Components/Forms/UserForm';
-import TinderCard from '../src/Components/User Pages/PetFinderAPI/PetFinderAPI';
+
 
 // User Route
-
-
+import UserStartingScreen from "../src/Pages/UserStartingScreen"
+import TinderCard from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
 
 function App() {
 
@@ -31,8 +31,8 @@ function App() {
         <Router>
           {/* Keep NavBar so each diff page keeps it */}
           <NavBar />
+
           <Routes>
-            
               {/* Home Routes */}
                 <Route path="/" element={<Feed />} />
                 <Route path="/about" element={<AboutPage />} />
@@ -45,8 +45,8 @@ function App() {
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
 
               {/* User Routes */}
-              <Route path="/userForm/:id" element={ <UserForm />} />
-              <Route path="/apiTesting" element={ <TinderCard />} />
+              {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
+              <Route path="/user/:id/explore" element={ <TinderCard />} />
           </Routes>
         </Router>
     </AuthContextProvider>

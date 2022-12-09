@@ -165,7 +165,7 @@ export default function TinderCards({ animals }) {
 
   return (
     <div className="tinderCard_cardContainer">
-      <h1>Tinder Cards</h1>
+      {/* <h1>Tinder Cards</h1> */}
       <div className="tinderCard_cardContainer">
         {/* cards start here. */}
         {animals.map((animal, index) => {
