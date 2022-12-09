@@ -16,7 +16,24 @@ export default function TinderCards({ animals }) {
   const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
   // const alreadyRemoved = [];
-  const [currentAnimal, setCurrentAnimal] = useState({});
+  const [currentAnimal, setCurrentAnimal] = useState({
+    name: "",
+    breed: "",
+    gender: "",
+    age: "",
+    color: "",
+    size: "",
+    type: "",
+    maintenance_level: "",
+    spayed_neutered: null,
+    house_trained: null,
+    description: null,
+    declawed: null,
+    special_needs: null,
+    shots_current: null,
+    status: null,
+    shelter_id: 2,
+  });
 
   const childRefs = useMemo(
     () =>
@@ -38,40 +55,40 @@ export default function TinderCards({ animals }) {
   const swiped = async (direction, nameToDelete, index) => {
     setLastDirection(direction);
     updateCurrentIndex(index - 1);
-
     console.log(direction, index);
+
     if (direction === "right") {
-      await setCurrentAnimal(animals[index]); //set the current animal the the one animal being swiped right on
+      //when I swipe right - run function that sents the data.
+
+      setCurrentAnimal(
+        // update the current animal
+        {
+          name: `${animals[index].name}`,
+          type: `${animals[index].type}`,
+          breed: `${animals[index].breeds.primary}`,
+          size: `${animals[index].size}`,
+          gender: `${animals[index].gender}`,
+          age: `${animals[index].age}`,
+          color: `${animals[index].colors.primary}`,
+          maintenance_level: null,
+          spayed_neutered: `${animals[index].attributes.spayed_neutered}`,
+          house_trained: `${animals[index].attributes.house_trained}`,
+          declawed: `${animals[index].attributes.declawed}`,
+          special_needs: `${animals[index].attributes.special_needs}`,
+          shots_current: `${animals[index].attributes.shots_current}`,
+          description: `${animals[index].description}`,
+          status: `${animals[index].status}`,
+          shelter_id: 2,
+        }
+      );
+      //send run function that sent the post request
+      likedAnimal(currentAnimal); //-- this works but I need some way to update the setcurrentAnimal and use that instead. this would work
+
+      //set the current animal the the one animal being swiped right on
+
       console.log(currentAnimal);
-
-      //MAKE POST HERE?
-      axios
-        .post(`https://pawster.onrender.com/pets`, {
-          // name: `${currentAnimal.name}`,
-          // type: `${currentAnimal.type}`,
-          //  breed: `${currentAnimal.breeds.primary ? `${currentAnimal.breeds.primary}` : "null" }`,
-          // size: `${currentAnimal.size}`,
-          // gender: `${currentAnimal.gender}`,
-          // age: `${currentAnimal.age}`,
-          // color: `${currentAnimal.colors.primary}`,
-          // maintenance_level: null,
-          // spayed_neutered: `${currentAnimal.attributes.spayed_neutered}`,
-          // house_trained: `${currentAnimal.attributes.house_trained}`,
-          // declawed: `${currentAnimal.attributes.declawed}`,
-          // special_needs: `${currentAnimal.attributes.special_needs}`,
-          // shots_current: `${currentAnimal.attributes.shots_current}`,
-          // description: `${currentAnimal.description}`,
-          // status: `${currentAnimal.status}`,
-          // shelter_id: 2,
-        })
-        .then((res) => {
-          console.log(res);
-        });
-
-
-    } // console.log(currentAnimal)
-    // console.log(canSwipe)
-    // alreadyRemoved.push(nameToDelete)
+      //its working but its updating too fast like 4 times a second --- we just need one.
+    }
   };
 
   const outOfFrame = (name, idx) => {
@@ -103,6 +120,19 @@ export default function TinderCards({ animals }) {
   const goRight = () => {
     swipe("right");
     // console.log(currentAnimal)
+  };
+
+  const likedAnimal = (newLikedAnimal) => {
+    axios
+      .post(`https://pawster.onrender.com/pets`, newLikedAnimal)
+      .then(
+        (response) => {
+          console.log(response);
+          // navigate(`/snacks`);
+        },
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn("catch", c));
   };
 
   //How do i grab the info of the pets????

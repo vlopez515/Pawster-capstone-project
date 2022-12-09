@@ -16,7 +16,7 @@ import Support from './Components/HomeScreenComponents/Support';
 import ShelterStartingScreen from './Pages/ShelterStartingScreen';
 
 import UserForm from './Components/Forms/UserForm';
-
+import TinderCard from '../src/Components/User Pages/PetFinderAPI/PetFinderAPI';
 
 // User Route
 
@@ -46,7 +46,7 @@ function App() {
 
               {/* User Routes */}
               <Route path="/userForm/:id" element={ <UserForm />} />
-
+              <Route path="/apiTesting" element={ <TinderCard />} />
           </Routes>
         </Router>
     </AuthContextProvider>
