@@ -2,8 +2,8 @@ import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/HomeScreenComponents/NavBar';
 import Footer from './Components/HomeScreenComponents/Footer';
-
-// Authentication
+import Account from './Components/HomeScreenComponents/Account';
+// import Login from './Components/HomeScreenComponents/Login';
 import { AuthContextProvider } from "./Context/AuthContext";
 
 // Home Routes 
@@ -38,8 +38,9 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/contact" element={<ContactUs />} />
-                <Route path="/login" element={"<Login />"} />
-                <Route path="/account" element={" <Account />"} />
+                
+                
+                <Route path='/account' element={<Account/>} />
 
               {/* Shelter Routes */}
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
