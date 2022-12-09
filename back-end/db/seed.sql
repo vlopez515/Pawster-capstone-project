@@ -15,8 +15,15 @@ INSERT INTO shelters (name, address, business_hours, phone_number, email) VALUES
 
 INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level, spayed_neutered, house_trained, declawed,special_needs, shots_current, description, status, shelter_id ) VALUES
 ('Cedar', 'Cat', 'Domestic Short Hair', 'Small', 'Male', 'Baby', 'Gray / Blue / Silver', 'Low', true, false, false, false, true, null, 'adoptable', 1),
-('ChiChi', 'Dog', 'Mixed Breed', 'Small', 'Female', 'Adult', 'Brown / Chocolate', 'Mid',true, false, null, false, true, 'At first glance, I might appear to have a ruff, set in my ways exterior but once you give me...', 'adoptable', 1);
-
+('ChiChi', 'Dog', 'Mixed Breed', 'Small', 'Female', 'Adult', 'Brown / Chocolate', 'Mid',true, false, null, false, true, 'At first glance, I might appear to have a ruff, set in my ways exterior but once you give me...', 'adoptable', 1),
+('Pixie', 'Dog','Miniature Poodle', 'Small', 'Female', 'Young', 'White / Cream','High', true, false, true, true, true, "Say hello to Pixie, the adorable 1 year old poodle mix. Pixie came to us from a partner rescue and she can't wait to find a home.", 'adoptable',2 ),
+('Ash', 'Dog', 'German Shepherd Dog','Large', 'Male' , 'Baby','Bicolor', 'Low', true, false, false, false, true, 'Ash is 6- 8 months old.  Ash is playful, hight energy.', 'adoptable', 2 ),
+('Thumper', 'Dog', 'Larbador Retriever', 'Large', 'Female','Baby', 'Yellow / Tan / Blond / Fawn', 'Low', true, false, null, false, true,'Hi I am Thumper! I am a large mix puppy and I weigh almost 19 pounds! Puppies are a great companion to have.', 'adoptable', 1  ),
+('August', 'Cat', 'Domestic Short Hair', 'Medium', 'Male', 'Baby','Orange / Red', 'Low', true, true, false, false, false, 'My name is August and I am waiting for my forver home.', 'adoptable', 1),
+('Uno', 'Cat', 'Domestic Short Hair', 'Medium', 'Male', 'Baby','Orange & White','Low', true, true, false, false, false, 'My name is Uno because I want to be your number one.',  'adoptable', 3),
+('Mariana', 'Cat','Domestic Short Hair', 'Medium', 'Female', 'Baby','Black','Medium', true, true, false, false, false, null, 'adoptable', 4),
+('Spice', 'Cat','Domestic Short Hair', 'Small', 'Female', 'Baby','Gray & White','Medium', true, true, false, false, true, null, 'adoptable', 4)
+('Chanel', 'Dog', 'American Pitbull', 'Large', 'Female','Baby', 'Black', 'Low', true, false, null, false, true,'Hi I am Chanel! I am a large mix puppy and I weigh almost 19 pounds! Puppies are a great companion to have.', 'adoptable', 5 )
 INSERT INTO users_pets (user_id, pet_id) VALUES
 (1,1),
 (1,2),
