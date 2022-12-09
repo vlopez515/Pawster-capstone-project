@@ -13,7 +13,14 @@ const logoCut = require('../../assets/Pawster_cut.png')
 
 export default function NavBarComponent() {
   // console.log(signOut)
-  const {user, logOut} = UserAuth();
+  const {user, logOut, googleSignIn} = UserAuth();
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSignOut = async () => { 
     try {
@@ -51,7 +58,7 @@ export default function NavBarComponent() {
             {user?.displayName ? (
         <button onClick={handleSignOut}>Log Out</button>
       ) : (
-        <Button><Link to='/login'>Log In</Link></Button>
+        <Button onClick={handleGoogleSignIn}>Log In</Button>
         
       )}
 
