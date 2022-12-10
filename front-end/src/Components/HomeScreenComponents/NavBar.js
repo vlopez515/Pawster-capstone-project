@@ -1,11 +1,9 @@
 import React from 'react'
 import { IconButton, Stack, Button, Typography, Toolbar, Link } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
-import { GoogleButton } from 'react-google-button'
+import { useNavigate } from 'react-router-dom';
+// import { GoogleButton } from 'react-google-button'
 import { UserAuth } from '../../Context/AuthContext';
-// import { UserAuth } from '../../Context/UserContext';
-// import Account from './Account';
-import Account from '../HomeScreenComponents/Account';
+// import Account from '../HomeScreenComponents/Account';
 
 
 
@@ -72,9 +70,23 @@ export default function NavBar() {
 
         </IconButton>
         
-        <img width="40px" height="40px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"></img>
-        {user?.displayName}
         
+        {user?.displayName ? (<img width="30px" height="30px" src={user?.photoURL} /> ) : (
+          <img width="35px" height="35px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"></img>
+
+        )}
+       
+        {/* <button className='dropbtn'>{user?.displayName}</button> */}
+       
+        <Button variant='success'><Link href='/account'>Account</Link></Button>
+        
+        {/* {user?.displayName ? (
+          <Button><Link href="/account">Account</Link></Button>
+        ) : (
+          null
+        )} */}
+        
+       
         {user?.displayName ? (
           <Button onClick={handleSignOut}>Logout</Button>
         ) : (

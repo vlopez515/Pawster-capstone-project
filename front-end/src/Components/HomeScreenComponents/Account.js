@@ -1,49 +1,38 @@
-import {React, useEffect }from 'react'
-import { UserAuth } from '../../Context/AuthContext';
-import { useNavigate} from "react-router-dom";
+import { React } from "react";
+import { UserAuth } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 function Account() {
-    const { logOut, user} = UserAuth();
-    const navigate = useNavigate();
+  const { logOut, user } = UserAuth();
+  const navigate = useNavigate();
 
-    
-    const handleSignOut = async () => { 
-        try {
-          await logOut();
-          console.log(user)
-          alert("you are logged out")
-        } catch(err) {
-          console.log(err);
-        }
-  
-      }
-    
-      
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      console.log(user);
+      alert("You are now logged out");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
-    <div className='account'>
-    <h1>Users Profile</h1>
-    
-      <p>Welcome {user?.displayName}</p>
-      
-      <hr></hr>
-      <div><img src = {user?.photoURL}
-          
-          className='animate__animated animate__zoomInDown'
-          alt="its the users head"
-          ></img></div>
-          <h5>email: {user?.email}</h5>
-          <hr></hr>
-  
-        <button onClick={handleSignOut}>Logout</button>
-        <button ><a href="/">BACK</a></button>
-        <br></br>
-        <hr></hr>
-        
+    <div className="account">
+      <h2>Welcome, {user?.displayName}!</h2>
+
+      <div>
+        <img src={user?.photoURL} className="image-container" alt="PFP"></img>
+      </div>
+
+      <h2>Email: {user?.email}</h2>
+
+      <button onClick={handleSignOut}>Logout</button>
+      <button>
+        <a href="/">BACK</a>
+      </button>
     </div>
-    
-  )
+  );
 }
 
-export default Account
+export default Account;
