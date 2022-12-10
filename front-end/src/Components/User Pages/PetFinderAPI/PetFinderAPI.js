@@ -16,7 +16,7 @@ export default function PetFinderAPI() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:2222/pets")
+      .get("https://pawster.onrender.com/pets")
       .then((response) => setAnimals(response.data))
       // .then(response => console.log(response.data))
 
@@ -30,7 +30,7 @@ export default function PetFinderAPI() {
   //     .get("https://api.petfinder.com/v2/animals?location=ny", {
   //       headers: {
   //         Authorization:
-  //           `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJrazBKSHFqalhYTkI4V25tWWo5VFZZbFBiSWJoNlFiMlZiRW1nbXJ6eUYxd0pHaE5kRSIsImp0aSI6ImQyMWMwYjY5MGZlOTkyN2YxZjgxMGExMTAyMzg1ZDI2YTY0YjY4ZTA4YzdlZDQ0Njc3Nzc2ODIxMjJlY2JjYzQ5Y2NiMmJhMzFkZjM2NDA3IiwiaWF0IjoxNjcwNTUxODkxLCJuYmYiOjE2NzA1NTE4OTEsImV4cCI6MTY3MDU1NTQ5MSwic3ViIjoiIiwic2NvcGVzIjpbXX0.FVMOUI_6sXt2WpKbsnw3soapu5wMdj6S5WChFYnrJqDOgojUDxgbbLH36vH5I0jHdQf8hxAWW8F9KGR7x2dnYNsMwuGTZtNuH0pfexJVbO22zXbodGpoOuw0OejR28OuXTK8zorAATX_W7RqRObqS3r9lezs77kRzUEt-e1XHFzH0GmIxeRg3xPgCiAPCYMdVgOXtkdQc_6KPRU_5z8gq7fIgpFbCpDE2L110RBpwq7Xk1FG-pp3NxmIKq_OIiUnUlPoF_mdKNwgq5LWwzdzxh0eZjQGx111zf8nMe3F2yrsNXVbUIO87GHuza5mYJScJasHMaYKluzrhA6avD_7iA`,
+  //           `Bearer `,
   //       },
   //     })
   //     .then((response) => {
