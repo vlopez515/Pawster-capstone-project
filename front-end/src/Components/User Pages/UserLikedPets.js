@@ -6,7 +6,7 @@ import LikedPet from './User Pages/LikedPet'
 import ViewPet from './User Pages/ViewPet'
 
 
-function Playground() {
+function UserLikedPets() {
     const [petIndx, setPetIndx] = useState(0)
 
     return (
@@ -43,4 +43,4 @@ function Playground() {
     )
 }
 
-export default Playground
+export default UserLikedPets
