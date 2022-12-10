@@ -1,5 +1,15 @@
 .PetFinderAPI_card {
-    height: 500px;
-    width: 500px;
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+}
 
+.PetFinderAPI_userLikedPet_Button {
+  position: fixed;
+  /* top: 0px; */
+  right: 0;
+  margin-right: 3%;
+  padding: 7px;
+  margin-top: 10px;
+  border-radius: 7px;
 }

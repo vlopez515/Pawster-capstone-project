@@ -40,7 +40,7 @@ CREATE TABLE shelters (
 DROP TABLE IF EXISTS pets;
 
 CREATE TABLE pets (
-    id SERIAL , 
+   id SERIAL PRIMARY KEY, 
     name TEXT, 
     type TEXT,
     breed TEXT,
@@ -57,7 +57,8 @@ CREATE TABLE pets (
     description TEXT, 
     status TEXT,
     shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
-    PRIMARY KEY(id)
+    userLiked BOOLEAN,
+    image_url TEXT
 );
 
 CREATE TABLE users_pets (
