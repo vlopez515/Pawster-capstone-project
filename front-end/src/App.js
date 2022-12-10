@@ -21,6 +21,7 @@ import UserForm from './Components/Forms/UserForm';
 // User Route
 import UserStartingScreen from "../src/Pages/UserStartingScreen"
 import TinderCard from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
+import Playground from "./Components/Playground.js"
 
 function App() {
 
@@ -48,6 +49,9 @@ function App() {
               {/* User Routes */}
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
               <Route path="/user/:id/explore" element={ <TinderCard />} />
+
+              {/* Playground */}
+              <Route path="/playground" element={ <Playground />} />
           </Routes>
         </Router>
     </AuthContextProvider>
