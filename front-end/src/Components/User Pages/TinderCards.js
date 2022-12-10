@@ -115,7 +115,7 @@ export default function TinderCards({ animals }) {
     // const {userLiked} = newLikedAnimal
     // console.log(id)
     axios
-      .put(`http://localhost:2222/pets/${id}`, newLikedAnimal)
+      .put(`https://pawster.onrender.com/pets/${id}`, newLikedAnimal)
       .then(
         (response) => {
           console.log(response);
