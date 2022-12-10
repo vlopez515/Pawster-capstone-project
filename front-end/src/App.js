@@ -20,8 +20,8 @@ import UserForm from './Components/Forms/UserForm';
 
 // User Route
 import UserStartingScreen from "../src/Pages/UserStartingScreen"
-import TinderCard from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
 import UserLikedPets from './Components/User Pages/UserLikedPets';
+import TinderCards from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
 
 function App() {
 
@@ -48,9 +48,9 @@ function App() {
 
               {/* User Routes */}
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
-              <Route path="/user/:id/explore" element={ <TinderCard />} />
+              <Route path="/user/:id/explore" element={ <TinderCards />} />
               <Route path="/user/:id/pets" element={<UserLikedPets />} />
-            
+
           </Routes>
         </Router>
     </AuthContextProvider>

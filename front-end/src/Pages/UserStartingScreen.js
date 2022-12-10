@@ -22,7 +22,7 @@ function UserStartingScreen() {
         <Route path="/" element={
             <div>
               <Header />
-              <PetFinderAPI accessToken={Auth_Token()}/>
+              {/* <PetFinderAPI accessToken={Auth_Token()}/> */}
               {/* <SwipeButtons /> */}
             </div>
           }

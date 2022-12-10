@@ -10,11 +10,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import axios from "axios";
 import { async } from "@firebase/util";
+import { useNavigate } from "react-router-dom";
 
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
   const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
+  const navigate = useNavigate();
   // const alreadyRemoved = [];
   const [currentAnimal, setCurrentAnimal] = useState({
     name: "",
@@ -33,7 +35,18 @@ export default function TinderCards({ animals }) {
     shots_current: null,
     status: null,
     shelter_id: 2,
+    userLiked: false,
+    image_url: null,
   });
+
+  const [likedAnimals, setLikedAnimals] = useState([]);
+
+  const imageArr = [
+    "https://images.unsplash.com/photo-1489440543286-a69330151c0b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8cGV0c3x8fHx8fDE2NzA1NTM1NTQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=500",
+    "https://images.unsplash.com/photo-1558947530-cbcf6e9aeeae?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8cGV0c3x8fHx8fDE2NzA1NTM1NjA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=500",
+    "https://images.unsplash.com/photo-1607791502157-a5c7b4cdd47b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8cGV0c3x8fHx8fDE2NzA1NTM1NjI&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=500",
+    "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8cGV0c3x8fHx8fDE2NzA1NTM1NjM&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=500",
+  ];
 
   const childRefs = useMemo(
     () =>
@@ -58,36 +71,11 @@ export default function TinderCards({ animals }) {
     console.log(direction, index);
 
     if (direction === "right") {
-      //when I swipe right - run function that sents the data.
-
-      setCurrentAnimal(
-        // update the current animal
-        {
-          name: `${animals[index].name}`,
-          type: `${animals[index].type}`,
-          breed: `${animals[index].breeds.primary}`,
-          size: `${animals[index].size}`,
-          gender: `${animals[index].gender}`,
-          age: `${animals[index].age}`,
-          color: `${animals[index].colors.primary}`,
-          maintenance_level: null,
-          spayed_neutered: `${animals[index].attributes.spayed_neutered}`,
-          house_trained: `${animals[index].attributes.house_trained}`,
-          declawed: `${animals[index].attributes.declawed}`,
-          special_needs: `${animals[index].attributes.special_needs}`,
-          shots_current: `${animals[index].attributes.shots_current}`,
-          description: `${animals[index].description}`,
-          status: `${animals[index].status}`,
-          shelter_id: 2,
-        }
-      );
-      //send run function that sent the post request
-      likedAnimal(currentAnimal); //-- this works but I need some way to update the setcurrentAnimal and use that instead. this would work
-
-      //set the current animal the the one animal being swiped right on
-
-      console.log(currentAnimal);
-      //its working but its updating too fast like 4 times a second --- we just need one.
+      //new code - for swiping right, needs to change the userLiked part to true... since its liked now
+      // console.log(currentAnimal)
+      updateAnimal({ ...animals[index], userLiked: true }, index + 1);
+    } else if (direction === "left") {
+      updateAnimal({ ...animals[index], userLiked: false }, index + 1);
     }
   };
 
@@ -122,9 +110,12 @@ export default function TinderCards({ animals }) {
     // console.log(currentAnimal)
   };
 
-  const likedAnimal = (newLikedAnimal) => {
+  const updateAnimal = (newLikedAnimal, id) => {
+    // const {id} = newLikedAnimal;
+    // const {userLiked} = newLikedAnimal
+    // console.log(id)
     axios
-      .post(`https://pawster.onrender.com/pets`, newLikedAnimal)
+      .put(`http://localhost:2222/pets/${id}`, newLikedAnimal)
       .then(
         (response) => {
           console.log(response);
@@ -135,37 +126,10 @@ export default function TinderCards({ animals }) {
       .catch((c) => console.warn("catch", c));
   };
 
-  //How do i grab the info of the pets????
-
-  // useEffect(() => {
-  //   if (lastDirection === "left") return;
-  //   axios
-  //     .post(`https://pawster.onrender.com/pets`, {
-  //       name: `${currentAnimal.name}`,
-  //       type: `${currentAnimal.type}`,
-  //       breed: `${currentAnimal.breeds.primary}`,
-  //       size: `${currentAnimal.size}`,
-  //       gender: `${currentAnimal.gender}`,
-  //       age: `${currentAnimal.age}`,
-  //       color: `${currentAnimal.colors.primary}`,
-  //       maintenance_level: null,
-  //       spayed_neutered: `${currentAnimal.attributes.spayed_neutered}`,
-  //       house_trained: `${currentAnimal.attributes.house_trained}`,
-  //       declawed: `${currentAnimal.attributes.declawed}`,
-  //       special_needs: `${currentAnimal.attributes.special_needs}`,
-  //       shots_current: `${currentAnimal.attributes.shots_current}`,
-  //       description: `${currentAnimal.description}`,
-  //       status: `${currentAnimal.status}`,
-  //       shelter_id: 2,
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //     });
-  // }, []);
-
   return (
     <div className="tinderCard_cardContainer">
       {/* <h1>Tinder Cards</h1> */}
+      {/* {console.log(animals)} */}
       <div className="tinderCard_cardContainer">
         {/* cards start here. */}
         {animals.map((animal, index) => {
@@ -181,58 +145,74 @@ export default function TinderCards({ animals }) {
             >
               <div
                 style={
-                  animal.photos.length > 0
-                    ? {
-                        backgroundImage: "url(" + animal.photos[0].full + ")",
-                      }
-                    : {
-                        backgroundImage:
-                          "url(" +
-                          "https://media.istockphoto.com/id/936182806/vector/no-image-available-sign.jpg?s=612x612&w=0&k=20&c=9HTEtmbZ6R59xewqyIQsI_pQl3W3QDJgnxFPIHb4wQE=" +
-                          ")",
-                      }
+                  { backgroundImage: "url(" + `${animal.image_url}` + ")" }
+                  // animal.photos.length > 0
+                  //   ? {
+                  //       backgroundImage: "url(" + animal.photos[0].full + ")",
+                  //     }
+                  //   : {
+                  //       backgroundImage:
+                  //         "url(" +
+                  //         `${imageArr[Math.floor(Math.random() * imageArr.length)]}` +
+                  //         ")",
+                  //     }
                 }
                 className="card"
               >
                 <div className="TinderCards_AnimalInfo">
                   <h3>
-                    {animal.name} ({animal.age})
+                    {animal.name} ({animal.age} {animal.breed})
                   </h3>
-                  <p>
-                    {animal.distance} km away at {animal.organization_id}
-                  </p>
-                  <p>{animal.breeds.primary}</p>
+                  <p>{animal.description}</p>
                 </div>
               </div>
             </TinderCard>
           );
         })}
 
+        {/* <button
+          onClick={() => navigate("/")}
+        >
+          Swipe left!
+        </button> */}
         {/* <SwipeButtons/> */}
 
         {/* <div className="SwipeButton_overall_div">
-      <div className="swipeButtons">
-      <IconButton className="swipeButtons_left" size="medium" onClick={goLeft}>
-          <CloseIcon fontSize="large" />
-        </IconButton>
-        <IconButton className="swipeButtons_repeat" size="large" onClick={goBack} >
-          <ReplayIcon fontSize="large"  />
-        </IconButton>
-        <IconButton className="swipeButtons_right" size="small" onClick={goRight}>
-          <FavoriteIcon fontSize="large" />
-        </IconButton>
-
-      </div>
-     </div> */}
-      </div>
-
-      {/* <button
+          <div className="swipeButtons">
+            <IconButton
+              className="swipeButtons_left"
+              size="medium"
+              onClick={goLeft}
+            >
+              <CloseIcon fontSize="large" />
+            </IconButton>
+            <IconButton
+              className="swipeButtons_repeat"
+              size="large"
+              onClick={goBack}
+            >
+              <ReplayIcon fontSize="large" />
+            </IconButton>
+            <IconButton
+              className="swipeButtons_right"
+              size="small"
+              onClick={goRight}
+            >
+              <FavoriteIcon fontSize="large" />
+            </IconButton>
+          </div>
+        </div> */}
+        {/*       
+      <div className="buttons">
+        <button
           style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
           onClick={() => swipe("left")}
         >
           Swipe left!
-        </button> */}
-
+        </button>
+        </div>
+         */}
+      </div>
       {/* <div className="buttons">
         <button
           style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
