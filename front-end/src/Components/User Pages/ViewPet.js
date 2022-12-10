@@ -5,9 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 
 
-
 export default function ViewPet({ petShown }) {
-    console.log(petShown.name)
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -17,7 +15,7 @@ export default function ViewPet({ petShown }) {
             />
             <CardMedia
                 component="img"
-                height="200"
+                height="100"
                 image={`${petShown.image}`}
                 alt={`${petShown.name}-picture`}
             />
