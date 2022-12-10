@@ -17,8 +17,8 @@
 .account {
   text-align: center;
   margin: 0 auto;
-  margin-bottom:1000px;
-  /* margin-top:200px; */
+  margin-bottom:100px;
+   margin-top:50px; 
 }
 
 /* * {
@@ -38,8 +38,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
-/* .user-image {
+/* .nav-image {
   width:120px;
   height:120px;
   border-radius:50%;
+  overflow:hidden;
+  margin:0 auto;
 } */
+.Linko {
+  color: #1976d2;
+  text-decoration: none;
+}
+.image-container {
+  width:"160px";
+  height:160px;
+  border-radius:30%;
+  -webkit-border-radius:30%;
+  -moz-border-radius:30%;
+  -ms-border-radius:30%;
+  -o-border-radius:30%;
+}
