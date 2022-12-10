@@ -22,14 +22,13 @@ export default function DisplayPets({ pet, index }) {
     //     }).catch((c) => console.warn("catch", c));
     //   }
 
-
     return (
         <Grid item xs={6} key={index}>
             <Badge 
             badgeContent= {randomIndex? (`♥ ${randomIndex}`) : null} 
             color="primary"
             >
-                <PetCards pet={pet} index={index} id={id} />
+                <PetCards pet={pet} index={index} id={id} randomIndex={randomIndex}/>
              </Badge>
         </Grid>
 
