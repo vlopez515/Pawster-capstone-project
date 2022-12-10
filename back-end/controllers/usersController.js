@@ -75,5 +75,16 @@ users.post("/:id/pets/:petId", async (req, res) => {
     }
 });
 
+users.post("/:id/pets/:petId", async (req, res) => {
+  const { id, petId } = req.params;
+  const successfulAdd = await addNewBookmarkForUser(id, petId);
+  if (successfulAdd) {
+    res.status(201).json({ message: "Pet for user created!" })
+  } else {
+    res.status(422).json({ error: "unprocessable entity" });
+    }
+});
+
+
 
 module.exports = users;

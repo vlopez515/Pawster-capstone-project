@@ -5,40 +5,29 @@ import Pet from './Pet';
 import LikedUsers from './LikedUsers';
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-export default function ShowPage() {
-    const [users, setUsers] = useState([]);
+export default function ShowPage({ pets, usersData }) {
+    const { petId } = useParams()
 
-    useEffect(() => {
-        getUsers();
-    }, []);
+  console.log(usersData)
 
-    const getUsers = async () => {
-        await axios.get(`https://pawster.onrender.com/users`).then((res) => {
-          const data = res.data
-          console.log(data)
-          setUsers(data)
-        }).catch((c) => console.warn("catch", c));
-    }
-
+    
 
   return (
     <>
         <Stack direction='row' spacing={2}  sx={{ p: '5%', height: "100vh" }}>
       <Container >
             <Typography variant={'h3'} align="center">Pet</Typography>
-            <Pet/>
+            <Pet pets={pets} petId={petId}/>
         </Container>
 
         <Container align="center">
             <Typography variant={'h3'}>Liked Users</Typography>
-            <Stack direction='row'> 
-
-                {
-                    users? (users.map(user =>  <LikedUsers user={user}/>)) : null
-
-                }
-               
+            <Stack direction='row' spacing={1} > 
+                {/* {
+                  users? (users.map(user =>  <LikedUsers user={user}/>)) : null
+                }  */}
             </Stack>
             
         </Container>

@@ -5,7 +5,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import { CardActions, Card, Button, Collapse, CardContent, List, ListItem, ListItemText } from "@mui/material";
 
-export default function PetCards({ pet, index, id }) {
+export default function PetCards({ pet, index, id , randomIndex }) {
     const [expandedId, setExpandedId] = useState(-1);
 
     const handleExpandClick = index => {
@@ -72,13 +72,18 @@ export default function PetCards({ pet, index, id }) {
                                 padding: "0 15px 0 15px",
                                 fontSize: "12px",
                             }}>Edit</Button>
+                            {
+                                randomIndex ? 
+                                (<Button variant="contained" href={`${id}/show/${pet.id}`} style={{
+                                    margin: 3,
+                                    border: "solid",
+                                    padding: "0 15px 0 15px",
+                                    fontSize: "12px",
+                                }}>Likes</Button>)
+                                :
+                                null
+                            }
                             
-                            <Button variant="contained" href={`${id}/show/${pet.id}`} style={{
-                                margin: 3,
-                                border: "solid",
-                                padding: "0 15px 0 15px",
-                                fontSize: "12px",
-                            }}>Likes</Button>
                         </div>
                     </CardContent>
                 </Collapse>

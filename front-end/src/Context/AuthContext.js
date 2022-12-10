@@ -33,14 +33,7 @@ export const AuthContextProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-// if (user) {
-//     const {email, displayName, photoURL, uid} = user;
-//     setUser({ email, displayName, photoURL, uid });
-    
-// } else {
-//     setUser(null)
-// }
-// }, []);
+
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
       {children}

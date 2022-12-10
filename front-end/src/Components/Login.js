@@ -44,10 +44,10 @@ const {googleSignIn, user} = UserAuth();
          <h3>Log In </h3>
          
           {/* <GoogleButton onClick={handleGoogleSignIn} /> */}
-          <Button></Button>
+          {/* <Button></Button> */}
           {/* <GoogleButton /> */}
           {/* <GoogleButton onClick={signInWithGoogle} />  */}
-          <Button onClick={handleGoogleSignIn}><GoogleButton /></Button> <br></br>
+          {/* <Button onClick={handleGoogleSignIn}><GoogleButton /></Button> <br></br> */}
           <br></br>
         
         {/* commented out */}

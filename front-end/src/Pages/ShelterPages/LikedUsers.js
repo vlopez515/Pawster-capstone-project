@@ -7,7 +7,7 @@ function LikedUsers({ user }) {
         <>
             {/* Container */}
             <Grid container item xs={6} sx={{p:2}}>
-                <Grid container direction="column" alignItems="center" sx={{ height: 300, border: "solid black", justifyContent: 'center' }}>
+                <Grid container direction="column" alignItems="center" sx={{ height: 300, width: 200,border: "solid black", justifyContent: 'center' }}>
                     {/* Photo */}
                     <div >
                         <Avatar

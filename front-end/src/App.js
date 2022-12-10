@@ -2,8 +2,8 @@ import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Components/HomeScreenComponents/NavBar';
 import Footer from './Components/HomeScreenComponents/Footer';
-
-// Authentication
+import Account from './Components/HomeScreenComponents/Account';
+// import Login from './Components/HomeScreenComponents/Login';
 import { AuthContextProvider } from "./Context/AuthContext";
 
 // Home Routes 
@@ -20,8 +20,9 @@ import UserForm from './Components/Forms/UserForm';
 
 // User Route
 import UserStartingScreen from "../src/Pages/UserStartingScreen"
+import UserLikedPets from './Components/User Pages/UserLikedPets';
 import TinderCards from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
-import UserLikedPet from "../src/Components/User Pages/UserLikedPet.js"
+
 function App() {
 
 
@@ -38,8 +39,9 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/contact" element={<ContactUs />} />
-                <Route path="/login" element={"<Login />"} />
-                <Route path="/account" element={" <Account />"} />
+                
+                
+                <Route path='/account' element={<Account/>} />
 
               {/* Shelter Routes */}
                 <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
@@ -47,7 +49,8 @@ function App() {
               {/* User Routes */}
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
               <Route path="/user/:id/explore" element={ <TinderCards />} />
-              <Route path="/user/:id/pets" element={<UserLikedPet />} />
+              <Route path="/user/:id/pets" element={<UserLikedPets />} />
+
           </Routes>
         </Router>
     </AuthContextProvider>

@@ -73,11 +73,24 @@ const getAllPetsForUser = async (id) => {
   }
 };
 
+const addNewPetForUser = async (userId, petId) => {
+    try {
+      const addedPet = await db.oneOrNone(
+        `INSERT INTO users_pets (user_id, pet_id) VALUES ($1, $2) RETURNING *`,
+        [userId, petId]
+      );
+      return addedPet;
+    } catch (err) {
+      return err
+    }
+  };
+
 module.exports = { 
     getAllUsers, 
     getUser, 
     createUser, 
     deleteUser,
     updateUser,
-    getAllPetsForUser
+    getAllPetsForUser,
+    addNewPetForUser,
   };
