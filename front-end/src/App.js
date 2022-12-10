@@ -49,9 +49,8 @@ function App() {
               {/* User Routes */}
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
               <Route path="/user/:id/explore" element={ <TinderCard />} />
-
-              {/* Playground */}
-              <Route path="/playground" element={ <Playground />} />
+              <Route path="/user/:id/pets" element={<UserLikedPet />} />
+            
           </Routes>
         </Router>
     </AuthContextProvider>
