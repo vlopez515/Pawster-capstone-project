@@ -34,7 +34,7 @@ export default function NavBar() {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      alert("you are logged in")
+      alert("You will be redirected to log in")
 
     } catch (error) {
       console.log(error)
