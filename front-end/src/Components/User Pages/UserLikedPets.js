@@ -58,7 +58,9 @@ function UserLikedPets() {
                         </Container>
                     </>
                 ) :
+                <Container align="center" sx={{ p: "5%" }}>
                 <NoPetsPage />
+                </Container>
             }
         </div >
     )
