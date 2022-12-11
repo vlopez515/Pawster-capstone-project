@@ -27,8 +27,6 @@ INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level
 ('SNOOKUMS', 'Cat', 'Siberian', 'Large', 'Male', 'Baby', 'Black & White / Tuxedo', 'Mid',true, true, false, false, true, 'SNOOKUMS - Beautiful, Fluffy, Soft, Snuggly, Smart, Playful, 10-Week-Old, Siberian Tuxedo Boy!', 'adoptable', 1, false, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59102808/2/?bust=1670568245' ),
 ('SCHWEETZ', 'Cat', 'Calico', 'Medium', 'Female', 'Baby', 'Calico', 'Mid',true, true, false, false, true, 'SCHWEETZ- Beautiful, Loving, Soft, Gentle, Playful, Fun, Active, 12-Week-Old, Calico Girl!', 'adoptable', 1, false, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59102786/4/?bust=1670568099' );
 
-INSERT INTO users_pets (user_id, pet_id) VALUES
-(1,1),
-(1,2),
-(2,1),
-(2,2);
+
+
+

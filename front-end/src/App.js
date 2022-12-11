@@ -22,6 +22,7 @@ import UserForm from './Components/Forms/UserForm';
 import UserStartingScreen from "../src/Pages/UserStartingScreen"
 import UserLikedPets from './Components/User Pages/UserLikedPets';
 import TinderCards from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
+import ChatScreen from './Components/User Pages/ChatScreen';
 
 function App() {
 
@@ -50,6 +51,10 @@ function App() {
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
               <Route path="/user/:id/explore" element={ <TinderCards />} />
               <Route path="/user/:id/pets" element={<UserLikedPets />} />
+
+              {/*  */}
+              {/* <Route path="/chat" element={<ChatScreen/>} /> */}
+            
 
           </Routes>
         </Router>
