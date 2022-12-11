@@ -16,7 +16,7 @@ export default function ViewPet({ petShown }) {
             <CardMedia
                 component="img"
                 height="100"
-                image={`${petShown.image}`}
+                image={`${petShown.image_url}`}
                 alt={`${petShown.name}-picture`}
             />
             <CardContent>

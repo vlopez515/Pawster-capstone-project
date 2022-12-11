@@ -19,8 +19,8 @@ export default function LikedPet({ pet, index, setPetIndx}) {
                     <Avatar
                         sx={{ width: 56, height: 56 , m:1}}
                         alt={`${pet.name}-${index}`}
-                        src={pet.photo ?
-                            pet.photo :
+                        src={pet.image_url ?
+                            pet.image_url :
                             'https://peoplewithpets.com/wp-content/uploads/2019/06/people-with-Pet-no-floorplan-image.jpg'}
                     />
                 </div>

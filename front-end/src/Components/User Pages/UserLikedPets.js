@@ -37,7 +37,7 @@ function UserLikedPets() {
                                 <Container sx={{ minWidth: "md" }}>
                                     {
                                         // need pets array to loop through 
-                                        pets.map((pet, index) => <LikedPet pet={pet} index={index} setPetIndx={setPetIndx} />)
+                                        pets.map((pet, index) => <LikedPet key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
                                     }
                                 </Container>
 
