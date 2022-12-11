@@ -1,0 +1,13 @@
+.NoPetsPage_overall_div {
+    justify-content: center;
+    text-align: center;
+} 
+
+.NoPetsPage_button {
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.text-center {
+    font-size: 25px;
+}
