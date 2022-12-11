@@ -54,7 +54,7 @@ export default function UserForm() {
             .then(
                 () => {
                     console.log("Hi there");
-                    useNavigate(`/shelter/${id}`);
+                    // useNavigate(`/shelter/${id}`);
                     window.location.reload()
                 },
                 (error) => console.error(error)
