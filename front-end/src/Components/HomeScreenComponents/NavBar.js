@@ -26,22 +26,23 @@ export default function NavBar() {
     try {
       await logOut();
       console.log(user)
+      navigate('/')
       alert("you are logged out")
     } catch(err) {
       console.log(err);
     }
   }
   const handleGoogleSignIn = async () => {
+    alert("You will be redirected to log in");
     try {
-      await googleSignIn();
-      alert("You will be redirected to log in")
-
+      await googleSignIn()
+      console.log(user)
+      navigate("/user/1/explore")
+      
     } catch (error) {
       console.log(error)
     }
   }
-
-  console.log(pawsterHomePageVal)
 
   const loggedInTitle = () => {
     return <Link href={`/${pawsterHomePageVal}`} underline='none'><h2>Pawster</h2></Link>
@@ -71,21 +72,12 @@ export default function NavBar() {
         </IconButton>
         
         
-        {user?.displayName ? (<img width="30px" height="30px" src={user?.photoURL} /> ) : (
-          <img width="35px" height="35px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"></img>
+        {user?.displayName ? (<img width="30px" height="30px" alt="user-pic" src={user?.photoURL} /> ) : (
+          <img width="35px" height="35px" alt="default-pic" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"></img>
 
         )}
        
         {!user?.displayName ? ( null ): <Button variant='success'><Link href='/account'>Account</Link></Button>}
-       
-        {/* <Button variant='success'><Link href='/account'>Account</Link></Button> */}
-        
-        {/* {user?.displayName ? (
-          <Button><Link href="/account">Account</Link></Button>
-        ) : (
-          null
-        )} */}
-        
        
         {user?.displayName ? (
           <Button onClick={handleSignOut}>Logout</Button>
