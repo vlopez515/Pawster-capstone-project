@@ -1,6 +1,7 @@
 import { React } from "react";
 import { UserAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Form } from "../Forms/Form";
 
 
 function Account() {
@@ -19,9 +20,16 @@ function Account() {
 
   return (
     <div className="account">
-      <h2>Welcome, {user?.displayName}!</h2>
+    {/* <Form>
+      <Form.Group>
+        <Form.Label>Username</Form.Label>
+        <Form.Control>
+        </Form.Control>
+        </Form.Group> */}
+     
 
       <div>
+        <h2>Welcome, {user?.displayName}!</h2>
         <img src={user?.photoURL} className="image-container" alt="PFP"></img>
       </div>
 
@@ -31,6 +39,7 @@ function Account() {
       <button>
         <a href="/">BACK</a>
       </button>
+      {/* </Form> */}
     </div>
   );
 }

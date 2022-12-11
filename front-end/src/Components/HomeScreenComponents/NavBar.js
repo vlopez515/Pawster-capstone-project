@@ -76,9 +76,9 @@ export default function NavBar() {
 
         )}
        
-        {/* <button className='dropbtn'>{user?.displayName}</button> */}
+        {!user?.displayName ? ( null ): <Button variant='success'><Link href='/account'>Account</Link></Button>}
        
-        <Button variant='success'><Link href='/account'>Account</Link></Button>
+        {/* <Button variant='success'><Link href='/account'>Account</Link></Button> */}
         
         {/* {user?.displayName ? (
           <Button><Link href="/account">Account</Link></Button>
