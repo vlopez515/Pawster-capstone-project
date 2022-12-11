@@ -45,9 +45,9 @@ export default function PetFinderAPI() {
     <div className="PetFinderAPI_card">
       <button
         className="PetFinderAPI_userLikedPet_Button"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/user/1/pets")}
       >
-        Move to User Liked pets
+       Click here for &#10084; pets
       </button>
 
       <TinderCards animals={animals} />

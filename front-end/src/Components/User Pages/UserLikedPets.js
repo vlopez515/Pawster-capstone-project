@@ -16,7 +16,7 @@ function UserLikedPets() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:2345/pets`)
+        axios.get(`https://pawster.onrender.com/pets`)
             .then((res) => { setAllPets(res.data) })
             .catch((err) => { console.log(err) })
     }, [])
