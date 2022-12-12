@@ -37,7 +37,7 @@ function Account() {
 
       <button onClick={handleSignOut}>Logout</button>
       <button>
-        <a href="/">BACK</a>
+        <a href="/user/1/explore">BACK</a>
       </button>
       {/* </Form> */}
     </div>

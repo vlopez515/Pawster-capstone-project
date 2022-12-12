@@ -30,15 +30,11 @@
   text-align: left;
   padding-top: 20px;
   font-size: 23px;
-  /* color:white; */
-  /* color:white !important; */
 }
 
 .NavBar-sections > a {
   color: white !important;
 }
-
-/* Second half for all of the other links */
 
 .NavBar-sections2 > a {
   color: white !important;
@@ -46,54 +42,47 @@
 
 .custom-navbar2 {
   display: sticky;
-  background: #938e8e;
+  background: #6B7A8F;
   z-index: 2;
   position: fixed;
   display: flex;
   justify-content: space-between;
   text-align: right;
-  padding-right: 50vw
+  padding-right: 50vw;
 }
 
 .NavBar-user-info2 {
   right: 0;
-  /* margin-right: 20px; */
   position: fixed;
   padding-right: 20px;
   padding-top: 20px;
   font-size: 23px;
-  /* justify-content: space-between; */
-  background: #938e8e;
+  background: #6B7A8F;
   height: 15%;
-  /* padding-left: 10vw */
-  
 }
 
 .NavBar-span {
-    /* float:right; */
-    text-align: right;
-    float: right;
-    overflow: auto;
-    /* right:0; */
+  text-align: right;
+  float: right;
+  overflow: auto;
 }
 
 .NavBar-user-img {
-    text-align: right;
-    float: right;
-    overflow: auto;
-
+  text-align: right;
+  float: right;
+  overflow: auto;
 }
 
 .NavBar-signin2 {
   right: 0;
   margin-left: 20px;
-  background: #938e8e;
+  background: #6B7A8F;
 }
 
 .NavBar-logo2 {
   width: 250px;
   height: 100px;
-  background: #938e8e;
+  background: #6B7A8F;
 }
 
 .NavBar-sections2 {
@@ -101,6 +90,14 @@
   text-align: left;
   padding-top: 20px;
   font-size: 23px;
-  /* color:white; */
-  /* color:white !important; */
+}
+
+.NavBar-login-button {
+  width: 99px;
+  height: 45px;
+  border-radius: 25px;
+  font-size: 18px;
+  background: -webkit-linear-gradient(top left, #F7C331, #ddce63);
+  background: -moz-linear-gradient(top left, #F7C331, #ddce63);
+  background: linear-gradient(to bottom right, #F7C331, #ddce63);
 }

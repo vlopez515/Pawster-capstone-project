@@ -133,7 +133,6 @@ export default function TinderCards({ animals }) {
       )
       .catch((c) => console.warn("catch", c));
   };
-
   return (
     <div className="wrapper">
     <div className="tinderCard_cardContainer">
