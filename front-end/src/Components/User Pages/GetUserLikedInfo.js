@@ -44,7 +44,9 @@ export default function GetUserLikedInfo() {
         
         <div className="view-messages-container">
             <div className='only-chat-icons'>
-            <span><h2>Messages</h2></span>
+            <span>
+                <h2>Messages</h2>
+            </span>
             
                 {
                     filteredPets.map(e => <Chat pet={e} petId={e.id} setPetMsg={setPetMsg} allMessages={allMessages} />)

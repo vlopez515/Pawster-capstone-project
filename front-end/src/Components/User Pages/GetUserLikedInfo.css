@@ -3,7 +3,7 @@
     height: 90vh; 
     display: inline-flex;
     width: 100%;
-    padding: 8%; 
+    padding: 6%; 
 }
 
 .only-chat-icons {
@@ -18,13 +18,14 @@
 }
 
 .only-messages{
-    background-color: #faea54;
+    background-color: #807f7e;
     width: 70%;
     padding: 2%;
 }
 
 .chatScreen {
     overflow: auto;
+    height: auto;
 }
 
 .container-message-only{

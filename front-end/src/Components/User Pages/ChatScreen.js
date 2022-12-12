@@ -20,9 +20,16 @@ export default function ChatScreen({ onlyPetMsg, filteredPets, setPetMsg }) {
   const handleSend = (event) => {
     event.preventDefault();
     setPetMsg([...onlyPetMsg, newMessage])
+    addMessage() //added
     sendNewMessage({ ...newMessage, ['message']: "" })
   };
 
+  // Added
+  const addMessage = () => {
+    axios.post('https://pawster.onrender.com/messages', newMessage)
+      .then (() => navigate("/")) // happy path! only happens if above request worked
+      .catch((err) => console.log(err)) // bad path! happens when our request fails!
+  }
 
   return (
     <>

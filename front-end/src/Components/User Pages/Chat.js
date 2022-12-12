@@ -6,6 +6,7 @@ import "./Chat.css";
 export default function Chat({ pet, petId, allMessages, setPetMsg }) {
   
     let sorted = allMessages.filter(item => Number(item.petid) === petId)
+    console.log(sorted)
 
   return (
     <div className='chat-container-button' onClick={() => setPetMsg(sorted)}>
