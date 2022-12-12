@@ -34,41 +34,25 @@ export default function NavBar() {
   const handleSignOut = async () => {
     try {
       await logOut();
-<<<<<<< HEAD
-      console.log(user);
-      alert("you are logged out");
-    } catch (err) {
-=======
       console.log(user)
       navigate('/')
       alert("you are logged out")
     } catch(err) {
->>>>>>> d25b78e6ec3fc5c9228bf5ff2e8ffceaa6bde098
       console.log(err);
     }
   };
   const handleGoogleSignIn = async () => {
     alert("You will be redirected to log in");
     try {
-<<<<<<< HEAD
-      await googleSignIn();
-      alert("You will be redirected to log in");
-=======
       await googleSignIn()
       console.log(user)
       navigate("/user/1/explore")
       
->>>>>>> d25b78e6ec3fc5c9228bf5ff2e8ffceaa6bde098
     } catch (error) {
       console.log(error);
     }
   };
 
-<<<<<<< HEAD
-  console.log(pawsterHomePageVal);
-
-=======
->>>>>>> d25b78e6ec3fc5c9228bf5ff2e8ffceaa6bde098
   const loggedInTitle = () => {
     return (
       <Link href={`/${pawsterHomePageVal}`} underline="none">
@@ -86,7 +70,6 @@ export default function NavBar() {
 
       {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
 
-<<<<<<< HEAD
       <div className="NavBar-sections">
         {sections.map((section) => (
           <Link
@@ -135,27 +118,6 @@ export default function NavBar() {
       </>
 
       {/* </Toolbar> */}
-=======
-        </IconButton>
-        
-        
-        {user?.displayName ? (<img width="30px" height="30px" alt="user-pic" src={user?.photoURL} /> ) : (
-          <img width="35px" height="35px" alt="default-pic" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"></img>
-
-        )}
-       
-        {!user?.displayName ? ( null ): <Button variant='success'><Link href='/account'>Account</Link></Button>}
-       
-        {user?.displayName ? (
-          <Button onClick={handleSignOut}>Logout</Button>
-        ) : (
-          <Button onClick={handleGoogleSignIn}>Log In</Button>
-          
-        )}
-        
-        
-      </Toolbar>
->>>>>>> d25b78e6ec3fc5c9228bf5ff2e8ffceaa6bde098
       <Stack
         direction="row"
         spacing={2}
