@@ -12,6 +12,7 @@ import axios from "axios";
 import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
 
+
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
   const [lastDirection, setLastDirection] = useState();
@@ -165,6 +166,7 @@ export default function TinderCards({ animals }) {
       })}
 
       {/* <SwipeButtons/> */}
+
       {/* <div className="swipeButtons">
       {changeSwipe ? (<span>.</span> ) : (
          <span>,</span>
@@ -186,7 +188,6 @@ export default function TinderCards({ animals }) {
         </IconButton>
       </div> */}
     </div>
-
     // </div>
   );
 }
