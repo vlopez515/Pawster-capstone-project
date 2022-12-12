@@ -5,6 +5,8 @@ import Footer from './Components/HomeScreenComponents/Footer';
 import Account from './Components/HomeScreenComponents/Account';
 // import Login from './Components/HomeScreenComponents/Login';
 import { AuthContextProvider } from "./Context/AuthContext";
+import Login from './Components/Login';
+
 
 // Home Routes 
 import AboutPage from './Components/HomeScreenComponents/AboutPage';
@@ -39,9 +41,10 @@ function App() {
                 <Route path="/" element={<Feed />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/support" element={<Support />} />
-                <Route path="/contact" element={<ContactUs />} />
                 
                 
+                <Route path="/login" element={<Login />} />
+              
                 <Route path='/account' element={<Account/>} />
 
               {/* Shelter Routes */}

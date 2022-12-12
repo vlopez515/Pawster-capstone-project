@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconButton, Stack, Button, Typography, Toolbar, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-// import { GoogleButton } from 'react-google-button'
+import { GoogleButton } from 'react-google-button'
 import { UserAuth } from '../../Context/AuthContext';
 // import Account from '../HomeScreenComponents/Account';
 
@@ -79,12 +79,20 @@ export default function NavBar() {
        
         {!user?.displayName ? ( null ): <Button variant='success'><Link href='/account'>Account</Link></Button>}
        
-        {user?.displayName ? (
+        {/* {user?.displayName ? (
           <Button onClick={handleSignOut}>Logout</Button>
         ) : (
           <Button onClick={handleGoogleSignIn}>Log In</Button>
+         
           
-        )}
+        )} */}
+
+        {user?.displayName ? (
+        <Button onClick={handleSignOut}>Logout</Button>
+      ) : (
+        <Button><GoogleButton onClick={handleGoogleSignIn}/></Button>
+      )}
+      
         
         
       </Toolbar>
