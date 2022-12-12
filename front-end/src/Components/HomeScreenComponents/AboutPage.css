@@ -1,9 +1,15 @@
 
 .about-Us img {
-    width: 100%
+    width: 100%;
+    top:100px;
+    position: relative;
 }
 
 .listed-Values {
     margin: 2% 10% 2% 10%
     /* (top, right, bottom, left) */
+}
+
+.about-Us {
+    top: 50px;
 }
