@@ -157,13 +157,13 @@ export default function NavBar() {
             />
           ) : null}
 
-          {/* {!user?.displayName ? null : (
+          {!user?.displayName ?  null : (
             <button className="NavBar-login-button2">
               <Link className="NavBar-login-button2" href="/user/1/explore">
                 Explore
               </Link>
             </button>
-          )} */}
+          )}
           
           <div className="NavBar-signin2">
             {user?.displayName ? (
