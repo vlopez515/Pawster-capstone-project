@@ -42,7 +42,7 @@
   color: black;
   font-size: 32px;
   /* background: linear-gradient( #fcbe50,#fbcf55 , #FAEA60) */
-  background: -webkit-linear-gradient(top left, #fcf9b8, #ddce63);
-  background: -moz-linear-gradient(top left, #fcf9b8, #ddce63);
-  background: linear-gradient(to bottom right, #fcf9b8, #ddce63);
+  background: -webkit-linear-gradient(top left, #fcf9b8, #F7C331);
+  background: -moz-linear-gradient(top left, #fcf9b8, #F7C331);
+  background: linear-gradient(to bottom right, #fcf9b8, #F7C331);
 }
