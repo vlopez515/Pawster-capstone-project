@@ -1,8 +1,10 @@
 .petShown-pic-container {
     text-align: center;
+    align-items: center;
+    padding-left: 25%;
 }
 
 .petShow-pic {
-    width: 50%;
+    width: 60%;
     height: auto
 }
