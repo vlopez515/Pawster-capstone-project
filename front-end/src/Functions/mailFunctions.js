@@ -16,7 +16,7 @@ export function sendMail(event) {
   const serviceID = "service_eun4ifs";
   const templateID = "template_3ytz8si";
 
-  "emailjs function works but for some reason throws an error when the app is rendered. why?"
+  // "emailjs function works but for some reason throws an error when the app is rendered. why?"
   emailjs.send(serviceID, templateID, email)
   .then((res) => {
       event.target[0].value = "";
