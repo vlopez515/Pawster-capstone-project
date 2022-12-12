@@ -47,6 +47,11 @@ export default function AboutPage() {
 
         <Stack direction='column' align="center" >
             <Container direction='row' align="center" >
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
                 <Typography variant="h4" sx={{ color:"black" }} fontFamily={'Fraunces'} >
                     About Pawster
                 </Typography>
