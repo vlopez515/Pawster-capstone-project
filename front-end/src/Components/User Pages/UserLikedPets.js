@@ -56,7 +56,7 @@ function UserLikedPets() {
                                     <br/>
                                     {
                                         // need pets array to loop through 
-                                        pets.map((pet, index) => <LikedPet key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
+                                        pets.map((pet, index) => <LikedPet key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} setCardShow={setCardShow} />)
                                     }
                                 </div>
 
@@ -67,7 +67,7 @@ function UserLikedPets() {
                                         <ViewPet petShown={pets[petIndx]} />
                                     ) :
                                     (
-                                      <ChatScreen setCardShow={setCardShow} sorted={sorted}/> 
+                                      <ChatScreen sorted={sorted}/> 
                                     )
                                      }
                                     
