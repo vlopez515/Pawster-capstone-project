@@ -5,6 +5,7 @@ import { Typography } from '@mui/material'
 import LikedPet from './LikedPet'
 import ViewPet from './ViewPet'
 import NoPetsPage from '../../Pages/ShelterPages/NoPetsPage'
+import ChatScreen from './ChatScreen';
 
 
 function UserLikedPets() {
@@ -13,15 +14,31 @@ function UserLikedPets() {
     //so now we have an object with only this user id's pet info. 
     const [allPets, setAllPets] = useState([])
     const [petIndx, setPetIndx] = useState(0)
+    const [showPetCard, setCardShow] = useState(true);
+    const [allMessages, setAllMessages] = useState([])
+    const [onlyPetMsg, setPetMsg] = useState([])
 
 
     useEffect(() => {
+        getMessages();
+        
         axios.get(`https://pawster.onrender.com/pets`)
             .then((res) => { setAllPets(res.data) })
             .catch((err) => { console.log(err) })
     }, [])
-
+    
+        const getMessages = () => {
+        axios.get(`http://localhost:2345/messages`).then((res) => {
+            const data = res.data
+            const sortedData = data.sort((a, b) => a.petid - b.petid)
+            setAllMessages(sortedData)
+        }).catch((c) => console.warn("catch", c));
+    }
+    
+       
     let pets = allPets.filter(pet => pet.userliked === true)
+    
+    let sorted = allMessages.filter(item => Number(item.petid) === petIndx)
 
     return (
         <div >
@@ -45,7 +62,15 @@ function UserLikedPets() {
 
                                 <div>
                                     <br/>
-                                    <ViewPet petShown={pets[petIndx]} />
+                                    {
+                                    !!showPetCard ? (
+                                        <ViewPet petShown={pets[petIndx]} />
+                                    ) :
+                                    (
+                                      <ChatScreen setCardShow={setCardShow} sorted={sorted}/> 
+                                    )
+                                     }
+                                    
                                 </div>
                             </Stack>
                         </Container>
