@@ -1,4 +1,4 @@
-{
+*{
   overflow-x: hidden;
 } 
 
@@ -36,6 +36,7 @@
   height: 70vh;
   display: flex;
   justify-content: center;
+  margin-left: 50px;
   margin-top: 21vh;
 }
 
