@@ -7,7 +7,7 @@ function Feed() {
   return (
     <>
       <Stack direction="column" spacing={2} align="center">
-        <div className="Feed-homeage">
+        <div className="Feed-homepage">
           <ImageFeed />
         </div>
 
