@@ -31,9 +31,9 @@ export default function ViewPet({ petShown }) {
                 <br />
                 House Trained: {petShown.house_trained ? 'Yes' : 'No'}
                 <br />
-                Spayed / Neutered: {petShown.spayed_neutered ? 'Yes' : 'No'}
-                <br />
                 Any Special Needs: {petShown.special_needs ? 'Yes' : 'No'}
+                <br/>
+                Shelter PH#: {petShown.phone_number}
                 {/* </Typography> */}
             </CardContent>
         </Card>
