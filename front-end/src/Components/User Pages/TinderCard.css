@@ -1,5 +1,6 @@
-*{
+body {
   overflow: hidden;
+  /* color:white; */
 }
 
 .card {
@@ -14,7 +15,7 @@
   /* background-position: 0 -100px; */
   color:black;
   box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.1);
-  /* justify-content: center; */
+  justify-content: center;
   /* border: 2px solid rgba(0, 0, 0,); */
   /* object-position: bottom 10px right 20px; */
   /* object-fit: contain; */
@@ -26,6 +27,8 @@
   display: flex;
   justify-content: center;
   margin-top: 5vh;
+  text-align: center;
+  /* color:black !important; */
 }
 
 .swipe {
@@ -44,15 +47,48 @@
 .TinderCards_AnimalInfo {
   position: absolute;
   bottom: 30px;
-  color: white;
+  color: white !important;
   /* font-size: 40px; */
   margin: 10px;
 }
 
-.TinderCards_swipeButtons {
+/* .TinderCards_swipeButtons {
   position:relative;
   display: flex;;
   bottom: 10px;
   margin: 10px;
+} */
 
+
+.swipeButtons .MuiIconButton-root {
+  background-color: white;
+  box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3) !important;
+  height:50px;
+  width:50px;
+  
+}
+
+.swipeButtons_repeat {
+  padding: 3vw !important;
+  color: #f5b748 !important;
+}
+
+.swipeButtons_left {
+  padding: 3vw !important;
+  color: #ec5e6f !important;
+}
+
+.swipeButtons_star {
+  padding: 3vw !important;
+  color: #62b4f9 !important;
+}
+
+.swipeButtons_right {
+  padding: 3vw !important;
+  color: #f5b748 !important;
+}
+
+.swipeButtons_lightning {
+  padding: 3vw !important;
+  color: #915dd1 !important;
 }

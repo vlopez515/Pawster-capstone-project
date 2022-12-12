@@ -3,8 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Fraunces';
-  color: #1976d2;
-  overflow:auto;
+  /* color: #1976d2; */
+  /* overflow:hidden; */
+  /* background-color: #8a005e; */
+  /* background-image: url("https://www.transparenttextures.com/patterns/always-grey.png"); */
+  /* color: #1976d2;
+  overflow:auto; */
 }
 
 .login {
