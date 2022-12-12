@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
+import './ViewPet.css'
+
 import CardContent from '@mui/material/CardContent';
 
 
@@ -13,12 +14,13 @@ export default function ViewPet({ petShown }) {
                 title={`${petShown.name}`}
                 subheader={`Breed: ${petShown.breed} - Age: ${petShown.age}`}
             />
-            <CardMedia
-                component="img"
-                height="200"
-                image={`${petShown.image_url}`}
-                alt={`${petShown.name}-picture`}
+            <div className='petShown-pic-container'>
+            <img
+                className='petShow-pic'
+                src={`${petShown.image_url}`}
+                alt={`${petShown.name}-pic`}
             />
+            </div>
             <CardContent>
                 {/* <Typography variant="content" color="text.secondary"> */}
                 Description: {petShown.description ? petShown.description : 'none provided'}

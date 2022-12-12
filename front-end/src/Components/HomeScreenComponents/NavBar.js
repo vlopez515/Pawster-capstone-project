@@ -23,9 +23,9 @@ export default function NavBar() {
   let navigate = useNavigate();
 
   const sections = [
-    { title: "About Pawster", url: "/about" },
+    { title: "About", url: "/about" },
     { title: "Support", url: "/support" },
-    { title: "Contact Us", url: "/contact" },
+    { title: "Contact Us", url: "/contactUs" },
   ];
 
   const handleSignOut = async () => {
@@ -33,7 +33,7 @@ export default function NavBar() {
       await logOut();
       console.log(user);
       navigate("/");
-      alert("you are logged out");
+      alert("you have logged out");
     } catch (err) {
       console.log(err);
     }
