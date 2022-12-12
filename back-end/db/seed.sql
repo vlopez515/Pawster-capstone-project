@@ -30,3 +30,9 @@ INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level
 
 
 
+INSERT INTO messages (petId, userId, senderRole, date, message  ) VALUES
+('8','1','pet','2022-12-10T19:25:31.763Z','Thank you for expressing interest in Togo! We will be reviewing your application and reaching out for the next steps'),
+('11','1','pet','2022-12-10T19:25:31.763Z','Thank you for expressing interest in Costa Rica! We will be reviewing your application and reaching out for the next steps'),
+('11','1','user','2022-12-11T19:25:31.763Z','Please let me know if you need any further information from me, I''d be happy to provide any other documents.'),
+('6', '1', 'pet', '2022-12-11T19:39:40.892Z', 'Thank you for swiping right on Rookie! We will be in touch after reviewing your file!'),
+('5', '1', 'pet', '2022-12-11T19:39:40.892Z', 'ChiChi is super excited to meet you! We will be reviewing your application before reaching out to set a date for you two to meet.');

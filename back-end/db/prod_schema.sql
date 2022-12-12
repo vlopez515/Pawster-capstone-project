@@ -56,8 +56,14 @@ CREATE TABLE pets (
     image_url TEXT
 );
 
-CREATE TABLE users_pets (
-    pet_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
-    liked TIMESTAMP DEFAULT NOW()
+
+DROP TABLE IF EXISTS messages;
+
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY, 
+    petId TEXT,
+    userId TEXT,
+    senderRole TEXT,
+    date TIMESTAMP,
+    message TEXT
 );
