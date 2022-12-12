@@ -17,7 +17,7 @@ export default function TinderCards({ animals }) {
   const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
   const navigate = useNavigate();
-  const [changeSwipe, setChangeSwipe] = useState(false)
+  const [changeSwipe, setChangeSwipe] = useState(false);
 
   // const alreadyRemoved = [];
   const [currentAnimal, setCurrentAnimal] = useState({
@@ -100,19 +100,18 @@ export default function TinderCards({ animals }) {
     // console.log(currentAnimal)
   };
 
+  // useEffect (() => {
+  //   if (changeSwipe === true) {
+  //     goRight()
+  //   } else if (changeSwipe === false) {
+  //     goLeft()
+  //   }
 
-// useEffect (() => {
-//   if (changeSwipe === true) {
-//     goRight()
-//   } else if (changeSwipe === false) {
-//     goLeft()
-//   }
-
-// },[changeSwipe])
+  // },[changeSwipe])
 
   const goRight = () => {
     swipe("right");
-    setChangeSwipe(!changeSwipe)
+    // setChangeSwipe(!changeSwipe)
     // console.log(changeSwipe)
     // forceUpdate();
     // swiped("right")
@@ -133,40 +132,39 @@ export default function TinderCards({ animals }) {
       .catch((c) => console.warn("catch", c));
   };
   return (
+    // <div className="tinderCard_cardContainer">
     <div className="tinderCard_cardContainer">
-      <div className="tinderCard_cardContainer">
-        {animals.map((animal, index) => {
-          return (
-            <TinderCard
-              ref={childRefs[index]}
-              className="swipe"
-              key={animal.id}
-              preventSwipe={["up", "down"]}
-              onSwipe={(dir) => swiped(dir, animal.name, index)}
-              onCardLeftScreen={() => outOfFrame(animal.name, index)}
+      {animals.map((animal, index) => {
+        return (
+          <TinderCard
+            ref={childRefs[index]}
+            className="swipe"
+            key={animal.id}
+            preventSwipe={["up", "down"]}
+            onSwipe={(dir) => swiped(dir, animal.name, index)}
+            onCardLeftScreen={() => outOfFrame(animal.name, index)}
+          >
+            <div
+              style={{
+                backgroundImage: "url(" + `${animal.image_url}` + ")",
+              }}
+              className="card"
             >
-              <div
-                style={{
-                  backgroundImage: "url(" + `${animal.image_url}` + ")",
-                }}
-                className="card"
-              >
-                <div className="TinderCards_AnimalInfo">
-                  <h3>
-                    {animal.name} , {animal.breed}
-                  </h3>
-                  {/* <p>{animal.description}</p> */}
-                  <p>{console.log(changeSwipe)}</p>
-                </div>
+              <div className="TinderCards_AnimalInfo">
+                <h3>
+                  {animal.name} , {animal.breed}
+                </h3>
+                {/* <p>{animal.description}</p> */}
+                {/* <p>{console.log(changeSwipe)}</p> */}
               </div>
+            </div>
 
-              {/* Tinder Buttons */}
+            {/* Tinder Buttons */}
+          </TinderCard>
+        );
+      })}
 
-            
-            </TinderCard>
-          );
-        })}
-        {/* <SwipeButtons/> */}
+      {/* <SwipeButtons/> */}
       {/* <div className="swipeButtons">
       {changeSwipe ? (<span>.</span> ) : (
          <span>,</span>
@@ -187,10 +185,8 @@ export default function TinderCards({ animals }) {
           <FlashOnIcon fontSize="large" />
         </IconButton>
       </div> */}
-
-
-      </div>
-      
     </div>
+
+    // </div>
   );
 }

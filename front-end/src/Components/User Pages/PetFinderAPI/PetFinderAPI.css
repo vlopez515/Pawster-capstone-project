@@ -1,7 +1,7 @@
 .PetFinderAPI_card {
-  height: 500px;
-  width: 500px;
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  /* overflow-x: hidden; */
 }
 
 .PetFinderAPI_card > h3 {
