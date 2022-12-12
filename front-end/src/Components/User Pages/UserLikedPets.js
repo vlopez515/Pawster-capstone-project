@@ -35,7 +35,7 @@ function UserLikedPets() {
                         <Container >
                             <Stack direction='row' spacing={2} sx={{ p: '5%' }}>
                              
-                                <Container sx={{ minWidth: "md" }} >
+                                <Container style={{width: '50%' }} >
                                 <br/>
                                 <br/>  
                                 <br/>  

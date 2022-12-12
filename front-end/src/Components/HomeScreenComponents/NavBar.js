@@ -1,6 +1,6 @@
 import React from "react";
-import { Iconbutton, Typography, Toolbar, Link } from "@mui/material";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 // import { Googlebutton } from 'react-google-button'
 import { UserAuth } from "../../Context/AuthContext";
 // import Account from '../HomeScreenComponents/Account';
@@ -11,13 +11,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function NavBar() {
-  let shelterPath = window.location.pathname.includes("/shelter");
-  let userPath = window.location.pathname.includes("/user");
+  // let shelterPath = window.location.pathname.includes("/shelter");
+  // let userPath = window.location.pathname.includes("/user");
   let currentWindow = window.location.pathname;
 
-  let pawsterHomePageVal = `${window.location.pathname.split("/")[1]}/${
-    window.location.pathname.split("/")[2]
-  }`;
+  // let pawsterHomePageVal = `${window.location.pathname.split("/")[1]}/${
+  //   window.location.pathname.split("/")[2]
+  // }`;
 
   const { logOut, user, googleSignIn } = UserAuth();
   let navigate = useNavigate();
@@ -49,13 +49,13 @@ export default function NavBar() {
     }
   };
 
-  const loggedInTitle = () => {
-    return (
-      <Link href={`/${pawsterHomePageVal}`} underline="none">
-        <h2>Pawster</h2>
-      </Link>
-    );
-  };
+  // const loggedInTitle = () => {
+  //   return (
+  //     <Link href={`/${pawsterHomePageVal}`} underline="none">
+  //       <h2>Pawster</h2>
+  //     </Link>
+  //   );
+  // };
 
   // if (currentWindow = "/")
   // {console.log(currentWindow)}
@@ -66,7 +66,7 @@ export default function NavBar() {
       <div className="custom-navbar">
         {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
         <Link href="/" underline="none">
-          <img className="NavBar-logo" src={logo} />
+          <img className="NavBar-logo" src={logo} alt={'logo'}/>
         </Link>
 
         {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
@@ -93,6 +93,7 @@ export default function NavBar() {
               width="45px"
               height="45px"
               style={{ marginRight: "20px", borderRadius: "25px" }}
+              alt='user-img'
               src={user?.photoURL}
             />
           ) : null}
@@ -127,7 +128,7 @@ export default function NavBar() {
       <div className="custom-navbar2">
         {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
         <Link href="/" underline="none">
-          <img className="NavBar-logo2" src={logo} />
+          <img className="NavBar-logo2" src={logo} alt='navbar-logo-2' />
         </Link>
 
         {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
@@ -152,6 +153,7 @@ export default function NavBar() {
               height="45px"
               style={{ marginRight: "20px", borderRadius: "25px" }}
               src={user?.photoURL}
+              alt='user-img-2'
             />
           ) : null}
 

@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 
 
 export default function ViewPet({ petShown }) {
-
+    console.log(petShown)
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
