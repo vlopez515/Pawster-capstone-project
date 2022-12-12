@@ -2,6 +2,9 @@ import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import "./ImageFeed.css";
+import { useNavigate, useLocation } from "react-router-dom";
+// import { Googlebutton } from 'react-google-button'
+import { UserAuth } from "../../Context/AuthContext";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -13,9 +16,31 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 export default function QuiltedImageList() {
+
+
+  const { logOut, user, googleSignIn } = UserAuth();
+  let navigate = useNavigate();
+
+  const handleGoogleSignIn = async () => {
+    alert("You will be redirected to log in");
+    try {
+      await googleSignIn();
+      console.log(user);
+      navigate("/user/1/explore");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   return (
     <div className="outter-div" sx={{ backgroundColor: "black" }}>
-      <div className="splash-image"></div>
+      <div className="splash-image">
+        <h1>Find the right pet for you</h1>
+        <button className="Image-Feed-button" onClick={handleGoogleSignIn} >
+          Log in
+        </button>
+      </div>
     </div>
 
     // <ImageList

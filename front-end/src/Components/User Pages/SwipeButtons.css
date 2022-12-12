@@ -1,35 +1,22 @@
 .swipeButtons {
-  /* position:fixed; */
-  position:fixed;
-  /* width: 10vw; */
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
-    /* position: relative; */
-   bottom: 1vh;
-   width: 70vw !important;
-   height: 10vh !important;
-   /* top: 100%;  */
-   /* left: 10px; */
-  /* bottom: 100px; */
+  bottom: 1vh;
+  width: 70vw !important;
+  height: 10vh !important;
 }
-
-/* MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall swipeButtons_right css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root */
-
-
 
 .SwipeButton_overall_div {
   display: flex;
-  justify-content:center;
-
+  justify-content: center;
 }
-
 
 .swipeButtons .MuiIconButton-root {
   background-color: white;
   box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3) !important;
-  height:50px;
-  width:50px;
-  
+  height: 50px;
+  width: 50px;
 }
 
 .swipeButtons_repeat {
