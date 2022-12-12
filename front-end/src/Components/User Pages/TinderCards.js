@@ -132,7 +132,6 @@ export default function TinderCards({ animals }) {
       )
       .catch((c) => console.warn("catch", c));
   };
-
   return (
     <div className="tinderCard_cardContainer">
       <div className="tinderCard_cardContainer">
@@ -154,9 +153,9 @@ export default function TinderCards({ animals }) {
               >
                 <div className="TinderCards_AnimalInfo">
                   <h3>
-                    {animal.name} ({animal.age} {animal.breed})
+                    {animal.name} , {animal.breed}
                   </h3>
-                  <p>{animal.description}</p>
+                  {/* <p>{animal.description}</p> */}
                   <p>{console.log(changeSwipe)}</p>
                 </div>
               </div>
