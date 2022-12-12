@@ -67,16 +67,15 @@ export default function ContactUs() {
       <br />
       <br />
       {/* <Stack direction='row' spacing={2} align="center" sx={{ p: '5%' }}> */}
-      <Container align="center" sx={{ p: "5%" }}>
-        <h1>Contact Us</h1>
-        <br />
-        <p>
-          Got something you want to talk about? Contact us or email us and we
-          promise to get back to you as soon as we can.
-        </p>
-      </Container>
+      <br/>
+      <br/>
+      <br/>
+        <Container align="center" sx={{ p: '5%' }}>
+          <br />
+          <p>Got something you want to talk about? Contact us or email us and we promise to get back to you as soon as we can.</p>
+        </Container>
 
-      <Container align="center" sx={{ pb: "2%" }}>
+     <Container align="center" sx={{ pb: "2%" }}>
         <h3>Help / Support</h3>
         <p>
           For all things technical and app-related. Send us an email:{" "}

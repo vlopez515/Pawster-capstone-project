@@ -34,7 +34,12 @@ function UserLikedPets() {
 
                         <Container >
                             <Stack direction='row' spacing={2} sx={{ p: '5%' }}>
-                                <Container sx={{ minWidth: "md" }}>
+                             
+                                <Container sx={{ minWidth: "md" }} >
+                                <br/>
+                                <br/>  
+                                <br/>  
+                                <br/>                              
                                     {
                                         // need pets array to loop through 
                                         pets.map((pet, index) => <LikedPet key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
@@ -44,7 +49,7 @@ function UserLikedPets() {
                                 <Container
                                     hidden
                                     style={{
-                                        border: "solid",
+                                        // border: "solid",
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
