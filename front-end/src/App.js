@@ -42,6 +42,7 @@ function App() {
                 <Route path="/" element={<Feed />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/support" element={<Support />} />
+                <Route path='/contactUs' element={<ContactUs />} />
                 
                 
                 <Route path="/login" element={<Login />} />

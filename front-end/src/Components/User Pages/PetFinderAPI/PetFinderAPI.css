@@ -5,19 +5,20 @@
 }
 
 .PetFinderAPI_card > h3 {
-    position: fixed;
+    /* position: fixed; */
+    top: 70%;
     left: 42%;
     /* text-align: center; */
 }
 
 .PetFinderAPI_userLikedPet_Button {
   position: fixed;
-  /* top: 0px; */
+  margin-top: 90px;
   right: 0;
   margin-right: 3%;
-  padding: 7px;
+ /*  padding: 7px;
   margin-top: 10px;
-  border-radius: 7px;
+  border-radius: 7px; */
 }
 
 

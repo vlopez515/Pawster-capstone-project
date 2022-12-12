@@ -13,7 +13,6 @@ export default function LikedPet({ pet, index, setPetIndx}) {
     return (
         <>
             <Stack direction='row' spacing={2}  >
-
                 {/* Pet Picture */}
                 <div >
                     <Avatar
@@ -27,7 +26,6 @@ export default function LikedPet({ pet, index, setPetIndx}) {
 
                 {/* Pet Name and Message Container */}
                 <Stack direction='column' width='60%'>
-
                     {/* Name and Date generator */}
                     <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
                         <Typography variant='subtitle1' sx={{ align: "left", color: "black", width: '100$', fontFamily: 'Fraunces'}}>{pet.name}</Typography>
@@ -35,7 +33,7 @@ export default function LikedPet({ pet, index, setPetIndx}) {
 
                     {/* Thank you message */}
                     <Typography variant='caption' sx={{ fontSize: 10, color: '#A0A0A0'  }}>
-                        {thankYouMessages[Math.floor(Math.random() * thankYouMessages.length)]}
+                        {thankYouMessages[index] ? thankYouMessages[index] : "send message first!"}
                     </Typography>
                 </Stack>
 
@@ -46,8 +44,7 @@ export default function LikedPet({ pet, index, setPetIndx}) {
                     <ChatIcon />
                     <Button onClick={()=> setPetIndx(index)}>
                         <KeyboardDoubleArrowRightIcon />
-                    </Button>
-                
+                    </Button>   
                 </div>
                 
             </Stack>

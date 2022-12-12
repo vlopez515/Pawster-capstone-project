@@ -48,12 +48,12 @@ export default function QsAccordion({ item, index }) {
 
   return (
     <>
-      <Accordion expanded={expanded === `pannel${index + 1}`} onChange={handleChange(`pannel${index + 1}`)}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>{item.ques}</Typography>
+      <Accordion expanded={expanded === `pannel${index + 1}`} onChange={handleChange(`pannel${index + 1}`)} >
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" >
+          <Typography sx={{ fontFamily:'Fraunces' }}>{item.ques}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography >
+          <Typography sx={{ fontFamily:'Fraunces' }}>
             {item.answer}
           </Typography>
         </AccordionDetails>

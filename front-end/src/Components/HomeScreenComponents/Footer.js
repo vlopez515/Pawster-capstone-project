@@ -13,7 +13,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 function Copyright() {
   return (
-    <Link underline='none' href="/">
+    <Link underline='none' href="/" sx={{ color: 'black'}}>
       <Typography variant="body2" align="center" fontFamily={'Fraunces'} >
         {'Copyright © '}
         {' '}
@@ -31,7 +31,7 @@ function SocialMedia() {
         <InstagramIcon/>
       </Link>
       {' '}
-      <Link href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
+      <Link href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank"> 
         <FacebookIcon />
       </Link>
       {' '}

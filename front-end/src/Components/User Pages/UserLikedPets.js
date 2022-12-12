@@ -34,36 +34,26 @@ function UserLikedPets() {
 
                         <Container >
                             <Stack direction='row' spacing={2} sx={{ p: '5%' }}>
-                             
-                                <Container sx={{ minWidth: "md" }} >
-                                <br/>
-                                <br/>  
-                                <br/>  
-                                <br/>                              
+                                <div >
+                                    <br/>
+                                    <br/>
                                     {
                                         // need pets array to loop through 
                                         pets.map((pet, index) => <LikedPet key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
                                     }
-                                </Container>
+                                </div>
 
-                                <Container
-                                    hidden
-                                    style={{
-                                        // border: "solid",
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        height: '70vh',
-                                        width: '50%',
-                                    }}
-                                >
+                                <div>
+                                    <br/>
                                     <ViewPet petShown={pets[petIndx]} />
-                                </Container>
+                                </div>
                             </Stack>
                         </Container>
                     </>
                 ) :
                 <Container align="center" sx={{ p: "5%" }}>
+                    <br/>
+                    <br/>
                 <NoPetsPage />
                 </Container>
             }
