@@ -1,3 +1,4 @@
+
 .custom-navbar {
   background: transparent;
   z-index: 2;
@@ -36,29 +37,41 @@
   color: white !important;
 }
 
+/* for every other page NAVBAR========================= */
+
+
+
+.NavBar-overall-Div {
+width: 100vw;
+position: absolute;
+/* height: 50vh; */
+}
+
 .NavBar-sections2 > a {
   color: white !important;
 }
 
 .custom-navbar2 {
-  display: sticky;
+  display: relative;
   background: #6B7A8F;
   z-index: 2;
   position: fixed;
   display: flex;
-  justify-content: space-between;
-  text-align: right;
-  padding-right: 50vw;
+  text-align: left;
+  float:left;
+  width: 100vw;
 }
 
 .NavBar-user-info2 {
   right: 0;
-  position: fixed;
+  display:flex;
+  position: absolute;
   padding-right: 20px;
   padding-top: 20px;
   font-size: 23px;
   background: #6B7A8F;
-  height: 15%;
+  height:auto;
+  width:max-content;
 }
 
 .NavBar-span {
