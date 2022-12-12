@@ -1,0 +1,33 @@
+.custom-navbar {
+  background: transparent;
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBar-user-info {
+  right: 0;
+  margin-right: 20px;
+  padding-top: 20px;
+  font-size: 23px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+}
+.NavBar-signin {
+  right: 0;
+  margin-left: 20px;
+}
+
+.NavBar-logo {
+  width: 250px;
+  height: 100px;
+}
+
+.NavBar-sections {
+  display: flex;
+  text-align: left;
+  padding-top: 20px;
+  font-size: 23px;
+}

@@ -17,6 +17,8 @@ export default function TinderCards({ animals }) {
   const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
   const navigate = useNavigate();
+  const [changeSwipe, setChangeSwipe] = useState(false)
+
   // const alreadyRemoved = [];
   const [currentAnimal, setCurrentAnimal] = useState({
     name: "",
@@ -98,9 +100,24 @@ export default function TinderCards({ animals }) {
     // console.log(currentAnimal)
   };
 
+
+// useEffect (() => {
+//   if (changeSwipe === true) {
+//     goRight()
+//   } else if (changeSwipe === false) {
+//     goLeft()
+//   }
+
+// },[changeSwipe])
+
   const goRight = () => {
     swipe("right");
+    setChangeSwipe(!changeSwipe)
+    // console.log(changeSwipe)
+    // forceUpdate();
+    // swiped("right")
     // console.log(currentAnimal)
+    // this.forceUpdate();
   };
 
   const updateAnimal = (newLikedAnimal, id) => {
@@ -126,13 +143,13 @@ export default function TinderCards({ animals }) {
               className="swipe"
               key={animal.id}
               preventSwipe={["up", "down"]}
-              onSwipe={(dir) => swiped(dir, animal.name, index)} //maybe this function??
+              onSwipe={(dir) => swiped(dir, animal.name, index)}
               onCardLeftScreen={() => outOfFrame(animal.name, index)}
             >
               <div
-                style={
-                  { backgroundImage: "url(" + `${animal.image_url}` + ")" }
-                }
+                style={{
+                  backgroundImage: "url(" + `${animal.image_url}` + ")",
+                }}
                 className="card"
               >
                 <div className="TinderCards_AnimalInfo">
@@ -140,13 +157,41 @@ export default function TinderCards({ animals }) {
                     {animal.name} ({animal.age} {animal.breed})
                   </h3>
                   <p>{animal.description}</p>
+                  <p>{console.log(changeSwipe)}</p>
                 </div>
               </div>
+
+              {/* Tinder Buttons */}
+
+            
             </TinderCard>
           );
         })}
+        {/* <SwipeButtons/> */}
+      {/* <div className="swipeButtons">
+      {changeSwipe ? (<span>.</span> ) : (
+         <span>,</span>
+        )}
+      <IconButton className="swipeButtons_left" size="medium">
+          <CloseIcon fontSize="large" />
+        </IconButton>
+        <IconButton className="swipeButtons_repeat" size="large" >
+          <ReplayIcon fontSize="large"  />
+        </IconButton>
+        <IconButton className="swipeButtons_star" size="small">
+          <StarRateIcon fontSize="large" />
+        </IconButton>
+        <IconButton className="swipeButtons_right" size="small" onClick={goRight}>
+          <FavoriteIcon fontSize="large" />
+        </IconButton>
+        <IconButton className="swipeButtons_lightning" size="small">
+          <FlashOnIcon fontSize="large" />
+        </IconButton>
+      </div> */}
+
 
       </div>
+      
     </div>
   );
 }
