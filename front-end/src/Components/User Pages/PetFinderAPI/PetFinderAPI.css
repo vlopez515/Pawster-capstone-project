@@ -1,6 +1,11 @@
 .PetFinderAPI_card {
   height: 100vh;
   width: 100vw;
+/* Created with https://www.css-gradient.com */
+background: #9E9E9E;
+background: -webkit-linear-gradient(top left, #9E9E9E, #EDEDED);
+background: -moz-linear-gradient(top left, #9E9E9E, #EDEDED);
+background: linear-gradient(to bottom right, #9E9E9E, #EDEDED);
   /* overflow-x: hidden; */
 }
 
