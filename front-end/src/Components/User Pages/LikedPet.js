@@ -5,10 +5,14 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 
 
 
-export default function LikedPet({ pet, index, setPetIndx}) {
+export default function LikedPet({ pet, index, setPetIndx , setCardShow}) {
 
     const thankYouMessages = [`Thank you for expressing interest in ${pet.name}! We will be reviewing your application and reaching out for the next steps...`, `${pet.name} is super excited to meet you! We will be reviewing your application before setting a date for you two to meet..`, `We appreciate your interest in ${pet.name}, but we're excited to share he's found his forever home.`, `Thank you for swiping right on ${pet.name}!`, `We look forward to meeting you for an in person interview to make sure you're ready to be a foster parent to your fur pal.`]
 
+    const handleDivOnClick = () => {
+        setPetIndx(index);
+        setCardShow(!showPetCard)
+    }
 
     return (
         <>
@@ -42,7 +46,7 @@ export default function LikedPet({ pet, index, setPetIndx}) {
                 {/* Icons on the right! */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-evenly' , width: '20%'}}>
                     <ChatIcon />
-                    <Button onClick={()=> setPetIndx(index)}>
+                    <Button onClick={()=> handleDivOnClick()}>
                         <KeyboardDoubleArrowRightIcon />
                     </Button>   
                 </div>
