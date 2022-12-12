@@ -2,10 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    height: 70px;
-    border-bottom: 1px solid #fafafa;
+    padding: 5px;
+    height: 60px;
+    border-bottom: 1px solid rgba(17, 14, 14, 0.083);  
 }
+
+
 
 a {
     text-decoration: none;
@@ -15,6 +17,10 @@ a {
 
 .chat_details {
     flex:1;
+}
+
+.chat_details p {
+    opacity: 50%;
 }
 
 .chat_details > p {

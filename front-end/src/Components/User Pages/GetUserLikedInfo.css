@@ -1,0 +1,33 @@
+.view-messages-container {
+    margin-top: 10%;
+    height: 90vh; 
+    display: inline-flex;
+    width: 100%;
+    padding: 8%; 
+}
+
+.only-chat-icons {
+    /* background-color: red; */
+    padding: 2%;
+    width: 100%;
+    border: solid rgba(17, 14, 14, 0.083);
+}
+
+.only-chat-icons span {
+    text-align: center;
+}
+
+.only-messages{
+    background-color: #faea54;
+    width: 70%;
+    padding: 2%;
+}
+
+.chatScreen {
+    overflow: auto;
+}
+
+.container-message-only{
+    height: 60vh;
+    overflow: auto;
+}

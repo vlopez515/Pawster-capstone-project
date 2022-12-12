@@ -26,17 +26,15 @@ export default function LikedPet({ pet, index, setPetIndx}) {
                 </div>
 
                 {/* Pet Name and Message Container */}
-                <Stack direction='column' width='60%'>
+                <Stack direction='column' width='40%'>
 
                     {/* Name and Date generator */}
                     <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
                         <Typography variant='subtitle1' sx={{ align: "left", color: "black", width: '100$', fontFamily: 'Fraunces'}}>{pet.name}</Typography>
                     </Stack>
 
-                    {/* Thank you message */}
-                    <Typography variant='caption' sx={{ fontSize: 10, color: '#A0A0A0'  }}>
-                        {thankYouMessages[Math.floor(Math.random() * thankYouMessages.length)]}
-                    </Typography>
+                            {/* last message to be shown here */}
+                        <h2>Hi</h2>
                 </Stack>
 
                 <Divider orientation="vertical" flexItem />
