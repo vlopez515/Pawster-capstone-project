@@ -6,6 +6,9 @@ import { UserAuth } from "../../Context/AuthContext";
 // import Account from '../HomeScreenComponents/Account';
 import logo from "../../assets/transparent_logo.png";
 import "./NavBar.css";
+import Dropdown from "react-bootstrap/Dropdown";
+import "bootstrap/dist/css/bootstrap.min.css";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function NavBar() {
   let shelterPath = window.location.pathname.includes("/shelter");
@@ -60,137 +63,122 @@ export default function NavBar() {
   if (currentWindow === "/") {
     return (
       // <div className="NavBar-overall-Div">
-        <div className="custom-navbar">
-          {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
-          <Link href="/" underline="none">
-            <img className="NavBar-logo" src={logo} />
-          </Link>
+      <div className="custom-navbar">
+        {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
+        <Link href="/" underline="none">
+          <img className="NavBar-logo" src={logo} />
+        </Link>
 
-          {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
-          <div className="NavBar-sections">
-            {sections.map((section) => (
-              <Link
-                underline="none"
-                noWrap
-                key={section.title}
-                href={section.url}
-                sx={{ p: 1, flexShrink: 0 }}
-              >
-                {section.title}
-              </Link>
-            ))}
-          </div>
-
-          <>
-            <div className="NavBar-user-info">
-              {" "}
-              {user?.displayName ? (
-                <img width="30px" height="30px" src={user?.photoURL} />
-              ) : null}
-              {!user?.displayName ? null : (
-                <button variant="success">
-                  <Link href="/account">Account</Link>
-                </button>
-              )}
-              {/* <Button variant='success'><Link href='/account'>Account</Link></Button> */}
-              {/* {user?.displayName ? (
-          <Button><Link href="/account">Account</Link></Button>
-        ) : (
-          null
-        )} */}
-              <div className="NavBar-signin">
-                {user?.displayName ? (
-                  <button
-                    className="NavBar-login-button"
-                    onClick={handleSignOut}
-                  >
-                    Logout
-                  </button>
-                ) : (
-                  <button
-                    className="NavBar-login-button"
-                    onClick={handleGoogleSignIn}
-                  >
-                    Log In
-                  </button>
-                )}
-              </div>
-            </div>
-          </>
-
-          {/* </Toolbar> */}
+        {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
+        <div className="NavBar-sections">
+          {sections.map((section) => (
+            <Link
+              underline="none"
+              noWrap
+              key={section.title}
+              href={section.url}
+              sx={{ p: 1, flexShrink: 0 }}
+            >
+              {section.title}
+            </Link>
+          ))}
         </div>
+
+        <div className="NavBar-user-info">
+          {" "}
+          {/* start of the dropdown menus */}
+          {/* ======end of the new dropdown */}
+          {user?.displayName ? (
+            <img
+              width="45px"
+              height="45px"
+              style={{ marginRight: "20px", borderRadius: "25px" }}
+              src={user?.photoURL}
+            />
+          ) : null}
+          {!user?.displayName ? null : (
+            <button className="NavBar-login-button2">
+              <Link className="NavBar-login-button2" href="/user/1/explore">
+                Explore
+              </Link>
+            </button>
+          )}
+          <div className="NavBar-signin">
+            {user?.displayName ? (
+              <button className="NavBar-login-button2" onClick={handleSignOut}>
+                Logout
+              </button>
+            ) : (
+              <button
+                className="NavBar-login-button2"
+                onClick={handleGoogleSignIn}
+              >
+                Log In
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
       // </div>
     );
   } else {
     return (
-      <div className="NavBar-overall-Div">
-        <div className="custom-navbar2">
-          {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
-          <Link href="/" underline="none">
-            <img className="NavBar-logo2" src={logo} />
-          </Link>
+      // <div className="NavBar-overall-Div">
+      <div className="custom-navbar2">
+        {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
+        <Link href="/" underline="none">
+          <img className="NavBar-logo2" src={logo} />
+        </Link>
 
-          {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
-          <div className="NavBar-sections2">
-            {sections.map((section) => (
-              <Link
-                underline="none"
-                noWrap
-                key={section.title}
-                href={section.url}
-                sx={{ p: 1, flexShrink: 0 }}
-              >
-                {section.title}
-              </Link>
-            ))}
-          </div>
-
-          <>
-            <div className="NavBar-user-info2">
-              {" "}
-              <span className="NavBar-span">
-                {user?.displayName ? (
-                  <img
-                    className="NavBar-user-img"
-                    width="35px"
-                    height="35px"
-                    src={user?.photoURL}
-                  />
-                ) : null}
-              </span>
-              {!user?.displayName ? null : (
-                <button variant="success">
-                  <Link href="/account">Account</Link>
-                </button>
-              )}
-              {/* <button variant='success'><Link href='/account'>Account</Link></button> */}
-              {/* {user?.displayName ? (
-          <button><Link href="/account">Account</Link></button>
-        ) : (
-          null
-        )} */}
-              <div className="NavBar-signin2">
-                {user?.displayName ? (
-                  <button
-                    className="NavBar-login-button"
-                    onClick={handleSignOut}
-                  >
-                    Logout
-                  </button>
-                ) : (
-                  <button
-                    className="NavBar-login-button"
-                    onClick={handleGoogleSignIn}
-                  >
-                    Log in
-                  </button>
-                )}
-              </div>
-            </div>
-          </>
+        {/* Logic to hide bottom navBar when we are on other pages that aren't 'Home', such as '/user' or 'shelter'*/}
+        <div className="NavBar-sections2">
+          {sections.map((section) => (
+            <Link
+              underline="none"
+              noWrap
+              key={section.title}
+              href={section.url}
+              sx={{ p: 1, flexShrink: 0 }}
+            >
+              {section.title}
+            </Link>
+          ))}
         </div>
-    </div> 
+
+        <div className="NavBar-user-info2">
+          {user?.displayName ? (
+            <img
+              width="45px"
+              height="45px"
+              style={{ marginRight: "20px", borderRadius: "25px" }}
+              src={user?.photoURL}
+            />
+          ) : null}
+
+          {!user?.displayName ? null : (
+            <button className="NavBar-login-button2">
+              <Link className="NavBar-login-button2" href="/user/1/explore">
+                Explore
+              </Link>
+            </button>
+          )}
+
+          <div className="NavBar-signin2">
+            {user?.displayName ? (
+              <button className="NavBar-login-button2" onClick={handleSignOut}>
+                Logout
+              </button>
+            ) : (
+              <button
+                className="NavBar-login-button2"
+                onClick={handleGoogleSignIn}
+              >
+                Log in
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
     );
   }
 }

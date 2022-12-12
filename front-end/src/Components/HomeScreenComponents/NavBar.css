@@ -15,11 +15,17 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 .NavBar-signin {
   right: 0;
   margin-left: 20px;
+  color:black !important;
 }
+
+.NavBar-signin-button > p {
+    color:black !important;
+  }
 
 .NavBar-logo {
   width: 250px;
@@ -36,6 +42,22 @@
 .NavBar-sections > a {
   color: white !important;
 }
+
+
+.NavBar-dropdown1 {
+z-index: 23333;
+}
+
+.NavBar-login-button {
+    width: 99px;
+    height: 45px;
+    border-radius: 25px;
+    font-size: 18px;
+    background: -webkit-linear-gradient(top left, #F7C331, #ddce63);
+    background: -moz-linear-gradient(top left, #F7C331, #ddce63);
+    background: linear-gradient(to bottom right, #F7C331, #ddce63);
+      color: black !important;
+  }
 
 /* for every other page NAVBAR========================= */
 
@@ -54,7 +76,7 @@ position: absolute;
 .custom-navbar2 {
   display: relative;
   background: #6B7A8F;
-  z-index: 2;
+  z-index:2;
   position: fixed;
   display: flex;
   text-align: left;
@@ -63,15 +85,15 @@ position: absolute;
 }
 
 .NavBar-user-info2 {
-  right: 0;
-  display:flex;
-  position: absolute;
-  padding-right: 20px;
-  padding-top: 20px;
-  font-size: 23px;
-  background: #6B7A8F;
-  height:auto;
-  width:max-content;
+    right: 0;
+    margin-right: 20px;
+    margin-top:20px;
+    padding-top: 30px;
+    font-size: 23px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .NavBar-span {
@@ -87,10 +109,14 @@ position: absolute;
 }
 
 .NavBar-signin2 {
-  right: 0;
-  margin-left: 20px;
-  background: #6B7A8F;
+    right: 0;
+    margin-left: 20px;
+    color:black !important;
 }
+
+.NavBar-signin-button > p {
+    color:black !important;
+  }
 
 .NavBar-logo2 {
   width: 250px;
@@ -105,7 +131,7 @@ position: absolute;
   font-size: 23px;
 }
 
-.NavBar-login-button {
+.NavBar-login-button2 {
   width: 99px;
   height: 45px;
   border-radius: 25px;
@@ -113,4 +139,10 @@ position: absolute;
   background: -webkit-linear-gradient(top left, #F7C331, #ddce63);
   background: -moz-linear-gradient(top left, #F7C331, #ddce63);
   background: linear-gradient(to bottom right, #F7C331, #ddce63);
+    color: black !important;
+}
+
+
+.Image-Feed-button > a {
+    color: black;
 }
