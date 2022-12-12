@@ -58,7 +58,8 @@ CREATE TABLE pets (
     status TEXT,
     shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
     userLiked BOOLEAN,
-    image_url TEXT
+    image_url TEXT,
+    phone_number VARCHAR(40)
 );
 
 
