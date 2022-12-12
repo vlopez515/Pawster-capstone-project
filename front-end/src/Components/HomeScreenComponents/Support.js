@@ -27,9 +27,15 @@ export default function Support() {
   ]
   return (
     <>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
       <Container align="center" sx={{ padding: "2%" }}>
         <div >
-          <h2>Pet-Fostering FAQs</h2>
+          <h1>Pet-Fostering FAQs</h1>
         </div>
       </Container>
       <Container direction="row" >

@@ -86,11 +86,7 @@ export default function NavBar() {
             {user?.displayName ? (
               <img width="30px" height="30px" src={user?.photoURL} />
             ) : (
-              <img
-                width="35px"
-                height="35px"
-                src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"
-              ></img>
+             null
             )}
             {!user?.displayName ? null : (
               <button variant="success">
@@ -105,9 +101,9 @@ export default function NavBar() {
         )} */}
             <div className="NavBar-signin">
               {user?.displayName ? (
-                <button onClick={handleSignOut}>Logout</button>
+                <button className="NavBar-login-button" onClick={handleSignOut}>Logout</button>
               ) : (
-                <button onClick={handleGoogleSignIn}>Log In</button>
+                <button className="NavBar-login-button" onClick={handleGoogleSignIn}>Log In</button>
               )}
             </div>
           </div>
@@ -151,12 +147,7 @@ export default function NavBar() {
                   src={user?.photoURL}
                 />
               ) : (
-                <img
-                  className="NavBar-user-img"
-                  width="35px"
-                  height="35px"
-                  src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_568656.png&f=1&nofb=1&ipt=0b7501c5cee0570f798ceffd572515faa6728c4d3095a6a7566b5c8da43013b2&ipo=images"
-                ></img>
+              null
               )}
             </span>
             {!user?.displayName ? null : (
@@ -172,9 +163,9 @@ export default function NavBar() {
         )} */}
             <div className="NavBar-signin2">
               {user?.displayName ? (
-                <button onClick={handleSignOut}>Logout</button>
+                <button className="NavBar-login-button" onClick={handleSignOut}>Logout</button>
               ) : (
-                <button onClick={handleGoogleSignIn}>Log In</button>
+                <button className="NavBar-login-button" onClick={handleGoogleSignIn}>Log in</button>
               )}
             </div>
           </div>

@@ -51,7 +51,6 @@ export default function AboutPage() {
             <br/>
             <br/>
             <br/>
-
                 <Typography variant="h4" sx={{ color:"black" }} fontFamily={'Fraunces'} >
                     About Pawster
                 </Typography>
