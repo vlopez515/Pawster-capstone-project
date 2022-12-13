@@ -97,13 +97,13 @@ export default function NavBar() {
               src={user?.photoURL}
             />
           ) : null}
-          {!user?.displayName ? null : (
+          {/* {!user?.displayName ? null : (
             <button className="NavBar-login-button2">
               <Link className="NavBar-login-button2" href="/user/1/explore">
                 Explore
               </Link>
             </button>
-          )}
+          )} */}
           <div className="NavBar-signin">
             {user?.displayName ? (
               <button className="NavBar-login-button2" onClick={handleSignOut}>
@@ -157,14 +157,14 @@ export default function NavBar() {
             />
           ) : null}
 
-          {!user?.displayName ? null : (
+          {!user?.displayName ?  null : (
             <button className="NavBar-login-button2">
               <Link className="NavBar-login-button2" href="/user/1/explore">
                 Explore
               </Link>
             </button>
           )}
-
+          
           <div className="NavBar-signin2">
             {user?.displayName ? (
               <button className="NavBar-login-button2" onClick={handleSignOut}>
