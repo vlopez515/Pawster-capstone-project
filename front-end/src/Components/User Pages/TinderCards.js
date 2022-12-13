@@ -69,9 +69,9 @@ export default function TinderCards({ animals }) {
     if (direction === "right") {
       //new code - for swiping right, needs to change the userLiked part to true... since its liked now
       // console.log(currentAnimal)
-      updateAnimal({ ...animals[index], userLiked: true }, index + 1);
+      updateAnimal({ ...animals[index], userLiked: true }, animals[index].id);
     } else if (direction === "left") {
-      updateAnimal({ ...animals[index], userLiked: false }, index + 1);
+      updateAnimal({ ...animals[index], userLiked: false }, animals[index].id);
     }
   };
 
