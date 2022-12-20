@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { UserAuth } from "../../Context/AuthContext";
 // import Account from '../HomeScreenComponents/Account';
 import logo from "../../assets/transparent_logo.png";
+
 import "./NavBar.css";
 
 export default function NavBar() {
@@ -83,32 +84,40 @@ export default function NavBar() {
         <>
           <div className="NavBar-user-info">
             {" "}
+            
             {user?.displayName ? (
               <img width="30px" height="30px" src={user?.photoURL} />
             ) : (
              null
             )}
+          
+              
             {!user?.displayName ? null : (
-              <button variant="success">
+             
+              
+             
                 <Link href="/account">Account</Link>
-              </button>
+                
             )}
-            {/* <Button variant='success'><Link href='/account'>Account</Link></Button> */}
-            {/* {user?.displayName ? (
-          <Button><Link href="/account">Account</Link></Button>
-        ) : (
-          null
-        )} */}
+            
             <div className="NavBar-signin">
               {user?.displayName ? (
-                <button className="NavBar-login-button" onClick={handleSignOut}>Logout</button>
+                
+                <button className="NavBar-login-button" onClick={handleSignOut}>Logout</button> 
               ) : (
+                
                 <button className="NavBar-login-button" onClick={handleGoogleSignIn}>Log In</button>
+                
               )}
+            
+
             </div>
+            
+            
+       
           </div>
         </>
-
+        
         {/* </Toolbar> */}
       </div>
     );
@@ -138,6 +147,7 @@ export default function NavBar() {
         <>
           <div className="NavBar-user-info2">
             {" "}
+
             <span className="NavBar-span">
               {user?.displayName ? (
                 <img
@@ -150,11 +160,12 @@ export default function NavBar() {
               null
               )}
             </span>
-            {!user?.displayName ? null : (
+            
+            {/* {!user?.displayName ? null : (
               <button variant="success">
                 <Link href="/account">Account</Link>
               </button>
-            )}
+            )} */}
             {/* <button variant='success'><Link href='/account'>Account</Link></button> */}
             {/* {user?.displayName ? (
           <button><Link href="/account">Account</Link></button>
