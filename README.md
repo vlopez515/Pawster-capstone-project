@@ -17,6 +17,17 @@ https://pawsterapp.netlify.app/
 
 - `cd back-end`
 - `npm install`
+- `touch .env` 
+
+PORT=3333
+PG_HOST=localhost
+PG_PORT=5432
+PG_DATABASE=postgres
+PG_USER=postgres
+PG_PASSWORD=""
+
+- `npm run db:init`
+- `npm run db:seed`
 
 **/front-end**
 
