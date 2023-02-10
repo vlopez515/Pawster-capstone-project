@@ -4,9 +4,6 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// const { REACT_APP_API_KEY, REACT_APP_API_AUTH_DOMAIN, REACT_APP_PROJECT_ID, REACT_APP_STORAGE_BUCKET, REACT_APP_MESSAGING_SENDER_ID, REACT_APP_APP_ID, REACT_APP_MEASUREMENT_ID } =
-//   process.env;
-
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
