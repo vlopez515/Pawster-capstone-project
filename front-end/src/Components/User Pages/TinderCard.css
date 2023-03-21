@@ -71,3 +71,28 @@
   bottom: 10px;
   margin: 10px;
 }
+
+.tinderCard_slider {
+  width: 50%;
+}
+
+.tinderCard_reject, .tinderCard_accept {
+  width: 25%;
+  text-align: center;
+  margin-top: 25%;
+  
+}
+
+
+.tinderCard_reject .MuiSvgIcon-root, .tinderCard_accept .MuiSvgIcon-root {
+  font-size: 8em;
+
+}
+
+.tinderCard_reject .MuiSvgIcon-root {
+  color: red
+}
+
+.tinderCard_accept .MuiSvgIcon-root {
+  color: green
+}

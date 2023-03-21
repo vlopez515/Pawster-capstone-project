@@ -12,34 +12,14 @@ const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 export default function PetFinderAPI() {
   const [animals, setAnimals] = useState([]);
   const navigate = useNavigate();
-  // const [token, setToken] = useState(accessToken);
 
   useEffect(() => {
     axios
       .get("http://localhost:3333/pets")
       .then((response) => setAnimals(response.data))
-      // .then(response => console.log(response.data))
-
-      // .then(console.log(snacks))
       .catch((c) => console.warn("catch", c));
   }, []);
 
-  // useEffect(() => {
-  //   console.log(token)
-  //   axios
-  //     .get("https://api.petfinder.com/v2/animals?location=ny", {
-  //       headers: {
-  //         Authorization:
-  //           `Bearer `,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setAnimals(response.data.animals);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [token]);
 
   return (
     <div className="PetFinderAPI_card">

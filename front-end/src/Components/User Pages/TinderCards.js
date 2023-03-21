@@ -11,6 +11,8 @@ import FlashOnIcon from "@mui/icons-material/FlashOn";
 import axios from "axios";
 import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
 
 export default function TinderCards({ animals }) {
@@ -135,6 +137,10 @@ export default function TinderCards({ animals }) {
   return (
     // <div className="tinderCard_cardContainer">
     <div className="tinderCard_cardContainer">
+      <div className="tinderCard_reject">
+        <KeyboardDoubleArrowLeftIcon  sx={{ fontSize: 30 }}/>
+      </div>
+      <div className="tinderCard_slider">
       {animals.map((animal, index) => {
         return (
           <TinderCard
@@ -164,6 +170,11 @@ export default function TinderCards({ animals }) {
           </TinderCard>
         );
       })}
+      </div>
+      <div className="tinderCard_accept">
+      <KeyboardDoubleArrowRightIcon />
+      </div>
+
 
       {/* <SwipeButtons/> */}
 
