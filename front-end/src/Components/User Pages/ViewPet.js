@@ -22,8 +22,7 @@ export default function ViewPet({ petShown }) {
             />
             </div>
             <CardContent>
-                {/* <Typography variant="content" color="text.secondary"> */}
-                Description: {petShown.description ? petShown.description : 'none provided'}
+                Description: {petShown.description ? petShown.description : 'None P  rovided'}
                 <br />
                 Gender: {petShown.gender}
                 <br />

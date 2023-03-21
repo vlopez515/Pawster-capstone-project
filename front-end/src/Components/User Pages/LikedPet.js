@@ -2,6 +2,7 @@ import React from 'react';
 import { Avatar, Stack, Typography, Divider, Button } from "@mui/material";
 import ChatIcon from '@mui/icons-material/Chat';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import "./LikedPet.css"
 
 
 
@@ -12,9 +13,9 @@ export default function LikedPet({ pet, index, setPetIndx}) {
 
     return (
         <>
-            <Stack direction='row' spacing={2}  >
+            <Stack className="liked_pet" direction='row' spacing={2}  >
                 {/* Pet Picture */}
-                <div >
+                <div>
                     <Avatar
                         sx={{ width: 56, height: 56 , m:1}}
                         alt={`${pet.name}-${index}`}

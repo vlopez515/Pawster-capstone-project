@@ -16,7 +16,7 @@ export default function PetFinderAPI() {
 
   useEffect(() => {
     axios
-      .get("https://pawster.onrender.com/pets")
+      .get("http://localhost:3333/pets")
       .then((response) => setAnimals(response.data))
       // .then(response => console.log(response.data))
 

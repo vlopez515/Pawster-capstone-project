@@ -7,6 +7,7 @@ import ViewPet from './ViewPet'
 import NoPetsPage from '../../Pages/ShelterPages/NoPetsPage'
 
 
+
 function UserLikedPets() {
     //aixos get? from our data base - getting pets data. by userlikedby 
     // save that to a state... then filter with user id? 
@@ -16,7 +17,7 @@ function UserLikedPets() {
 
 
     useEffect(() => {
-        axios.get(`https://pawster.onrender.com/pets`)
+        axios.get(`http://localhost:3333/pets`)
             .then((res) => { setAllPets(res.data) })
             .catch((err) => { console.log(err) })
     }, [])
@@ -32,14 +33,14 @@ function UserLikedPets() {
                             Your Liked Pets
                         </Typography>
 
-                        <Container >
-                            <Stack direction='row' spacing={2} sx={{ p: '5%' }}>
+                        <Container>
+                            <Stack  direction='row' spacing={2} sx={{ p: '5%' }}>
                                 <div >
                                     <br/>
                                     <br/>
                                     {
                                         // need pets array to loop through 
-                                        pets.map((pet, index) => <LikedPet key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
+                                        pets.map((pet, index) => <LikedPet  key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
                                     }
                                 </div>
 

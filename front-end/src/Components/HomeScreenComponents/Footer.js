@@ -53,7 +53,7 @@ function SocialMedia() {
 
 function Footer() {
   return (
-    <Box component="footer" sx={{ py: 5 }} >
+    <Box component="footer" sx={{ py: 4 }} >
       <Container maxWidth="lg" >
         <Typography variant="h6" align="center" fontFamily={'Fraunces'} gutterBottom>
           Pawster
