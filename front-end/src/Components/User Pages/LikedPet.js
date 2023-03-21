@@ -33,7 +33,7 @@ export default function LikedPet({ pet, index, setPetIndx}) {
                     </Stack>
 
                     {/* Thank you message */}
-                    <Typography variant='caption' sx={{ fontSize: 10, color: '#A0A0A0'  }}>
+                    <Typography variant='caption' sx={{ fontSize: 10, color: 'black'  }}>
                         {thankYouMessages[index] ? thankYouMessages[index] : "send message first!"}
                     </Typography>
                 </Stack>
@@ -42,7 +42,6 @@ export default function LikedPet({ pet, index, setPetIndx}) {
 
                 {/* Icons on the right! */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-evenly' , width: '20%'}}>
-                    <ChatIcon />
                     <Button onClick={()=> setPetIndx(index)}>
                         <KeyboardDoubleArrowRightIcon />
                     </Button>   
