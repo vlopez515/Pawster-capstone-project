@@ -6,16 +6,18 @@
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .splash-image > h1 {
   text-align: center;
-  /* margin-top: 55vh; */
   z-index: 8;
   color: White;
   font-size: 60px;
-  /* margin-top:50%; */
   padding-top:50vh;
+  padding-bottom: 30px;
 }
 
 .splash-image > p {
@@ -33,6 +35,7 @@
   border-radius: 40px;
   color: black;
   font-size: 32px;
+  margin: 0 auto;
   /* background: linear-gradient( #fcbe50,#fbcf55 , #FAEA60) */
   background: -webkit-linear-gradient(top left, #fcf9b8, #F7C331);
   background: -moz-linear-gradient(top left, #fcf9b8, #F7C331);
