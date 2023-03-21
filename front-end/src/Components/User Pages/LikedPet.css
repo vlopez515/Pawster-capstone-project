@@ -1,3 +1,20 @@
-.liked_pet:hover {
+
+.likedPet {
+    padding: 10px;
+    font-family: ;
+}
+
+.likedPet:hover {
     background-color: rgb(171, 171, 171);
 }
+
+
+.likedPet--selected {
+    background-color: #6b7a8f !important;
+    color:white !important;
+}
+
+
+.likedPet--selected .likedPet__title, .likedPet--selected .likedPet__text{
+    color: white;
+} 

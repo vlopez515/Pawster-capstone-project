@@ -27,11 +27,13 @@ import TinderCards from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
 import Chats from "../src/Components/User Pages/Chats"
 import ChatScreen from './Components/User Pages/ChatScreen';
 
+import "./App.css"
+
 function App() {
 
 
     return (
-      <div className="App">
+      <div className="app">
       <AuthContextProvider>
         <Router>
           {/* Keep NavBar so each diff page keeps it */}

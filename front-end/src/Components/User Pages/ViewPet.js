@@ -22,7 +22,7 @@ export default function ViewPet({ petShown }) {
             />
             </div>
             <CardContent>
-                Description: {petShown.description ? petShown.description : 'None P  rovided'}
+                Description: {petShown.description ? petShown.description : 'None Provided'}
                 <br />
                 Gender: {petShown.gender}
                 <br />

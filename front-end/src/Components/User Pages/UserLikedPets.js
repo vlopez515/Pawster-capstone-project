@@ -6,6 +6,8 @@ import LikedPet from './LikedPet'
 import ViewPet from './ViewPet'
 import NoPetsPage from '../../Pages/ShelterPages/NoPetsPage'
 
+import './UserLikedPets.css';
+
 
 
 function UserLikedPets() {
@@ -25,7 +27,7 @@ function UserLikedPets() {
     let pets = allPets.filter(pet => pet.userliked === true)
 
     return (
-        <div >
+        <div className="userLikedPets" >
             {pets.length ?
                 (
                     <>
@@ -34,13 +36,13 @@ function UserLikedPets() {
                         </Typography>
 
                         <Container>
-                            <Stack  direction='row' spacing={2} sx={{ p: '5%' }}>
+                            <Stack  direction='row' spacing={2}>
                                 <div >
                                     <br/>
                                     <br/>
                                     {
                                         // need pets array to loop through 
-                                        pets.map((pet, index) => <LikedPet  key={pet.id} pet={pet} index={index} setPetIndx={setPetIndx} />)
+                                        pets.map((pet, index) => <LikedPet  key={pet.id} pet={pet} index={index}  petIndx={petIndx} setPetIndx={setPetIndx} />)
                                     }
                                 </div>
 
