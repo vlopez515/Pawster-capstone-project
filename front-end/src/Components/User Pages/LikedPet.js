@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Stack, Typography, Divider, Button } from "@mui/material";
 import ChatIcon from '@mui/icons-material/Chat';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import "./LikedPet.css"
 
 
@@ -47,7 +47,7 @@ export default function LikedPet({ pet, index, setPetIndx, petIndx}) {
                 {/* Icons on the right! */}
                 <div style={{ display: 'flex', justifyContent:'end' , width: '20%'}}>
                     <Button sx={{color: isSelected  ? 'white': "#6b7a8f"}} >
-                        <KeyboardDoubleArrowRightIcon fontSize="large" />
+                        <MessageOutlinedIcon fontSize="large" />
                     </Button>   
                 </div>
                 

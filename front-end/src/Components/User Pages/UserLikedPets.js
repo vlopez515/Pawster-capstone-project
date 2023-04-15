@@ -31,10 +31,6 @@ function UserLikedPets() {
             {pets.length ?
                 (
                     <>
-                        <Typography variant="h3" textAlign='center'>
-                            Your Liked Pets
-                        </Typography>
-
                         <Container>
                             <Stack  direction='row' spacing={2}>
                                 <div >
@@ -48,7 +44,7 @@ function UserLikedPets() {
 
                                 <div>
                                     <br/>
-                                    <ViewPet petShown={pets[petIndx]} />
+                                    {/* <ViewPet petShown={pets[petIndx]} /> */}
                                 </div>
                             </Stack>
                         </Container>

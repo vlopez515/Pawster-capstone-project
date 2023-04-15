@@ -1,10 +1,121 @@
-.petShown-pic-container {
-    text-align: center;
-    align-items: center;
-    padding-left: 25%;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
-.petShow-pic {
+
+
+.petShown {
+  height: 70vh !important;
+	display: grid;
+	place-items: center;
+	/* padding: 50px; */
+  padding-bottom: 60px;
+	background-color:antiquewhite;
+	font-family: 'Martel Sans', sans-serif;
+}
+
+.petShown-pic-container {
+  /* display: flex; */
+  margin-bottom: 125px;
+  border-color: black;
+  height: 400px;
+  background-color: lightblue;
+}
+
+.petShow-pic{
+  width: 800px;
+  height:400px;
+  /* margin-left: 60px; */
+  }
+
+    /* height: auto; */
+    
+    /* background-color: white;
+    color:#d33a2c;
+    width:150px;
+    font-family: Elena,-apple-system,BlinkMacSystemFont,Roboto,roboto slab,droid serif,segoe ui,system-ui,Arial,sans-serif;
+    text-align: center;
+    font-weight:bold;
+    border-radius: 8px;
+    padding:10px;
+    margin: 0 auto; */
+   
+  
+
+  .petInfo{
+    margin-top: -110px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  
+/* .css-w4z10b-MuiStack-root {
+    display: flex;
+   
+} */
+  
+   /* &_button{
+      background-color:#0168b8;
+     color: white;
+     cursor: pointer;
+     font-weight: 600;
+     border: none;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+     padding: 13px 13px;
+     width: 25%;
+    }
+  
+  &_bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0px;
+  }
+  
+  &_input{
+    border:none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 13px 13px;
+    width: 45%;
+    font-style: italic;
+  }
+  
+  &_header{
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  &_text{
+    text-align:center;
+    font-size: 16px;
+    line-height: 1.5em;
+    &_link{
+      color:#2479CA;
+    }
+  }
+  
+  &_footer{
+    text-align: center;
+    font-style: italic;
+    font-size: small;
+    color: gray;
+   padding-bottom: 35px;
+    &_link{
+      color:gray;
+    }
+    
+  } */
+
+
+
+
+/* .petShow-pic {
     width: 60%;
     height: auto
-}
+}  */

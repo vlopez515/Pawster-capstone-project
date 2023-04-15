@@ -6,14 +6,17 @@ import { IconButton } from "@mui/material";
 import ReplayIcon from "@mui/icons-material/Replay";
 import CloseIcon from "@mui/icons-material/Close";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import NextPlanOutlinedIcon from "@mui/icons-material/NextPlanOutlined";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import axios from "axios";
 import { async } from "@firebase/util";
 import { useNavigate } from "react-router-dom";
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import ViewPet from "./ViewPet";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
 
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
@@ -21,6 +24,8 @@ export default function TinderCards({ animals }) {
   const currentIndexRef = useRef(currentIndex);
   const navigate = useNavigate();
   const [changeSwipe, setChangeSwipe] = useState(false);
+  const [flip, setFlip] = useState("");
+  const [display, setDisplay] = useState(false);
 
   // const alreadyRemoved = [];
   const [currentAnimal, setCurrentAnimal] = useState({
@@ -100,26 +105,10 @@ export default function TinderCards({ animals }) {
 
   const goLeft = () => {
     swipe("left");
-    // console.log(currentAnimal)
   };
-
-  // useEffect (() => {
-  //   if (changeSwipe === true) {
-  //     goRight()
-  //   } else if (changeSwipe === false) {
-  //     goLeft()
-  //   }
-
-  // },[changeSwipe])
 
   const goRight = () => {
     swipe("right");
-    // setChangeSwipe(!changeSwipe)
-    // console.log(changeSwipe)
-    // forceUpdate();
-    // swiped("right")
-    // console.log(currentAnimal)
-    // this.forceUpdate();
   };
 
   const updateAnimal = (newLikedAnimal, id) => {
@@ -134,47 +123,67 @@ export default function TinderCards({ animals }) {
       )
       .catch((c) => console.warn("catch", c));
   };
+
   return (
-    // <div className="tinderCard_cardContainer">
     <div className="tinderCard_cardContainer">
+        
       <div className="tinderCard_reject">
-        <KeyboardDoubleArrowLeftIcon  sx={{ fontSize: 30 }}/>
+        <NextPlanOutlinedIcon
+          className="favoriteButton"
+          size="large"
+          onClick={(dir) => swiped("left", [...animals].name, [animals].index)}
+        />
+        <h4>Click button or swipe left to see next pet !</h4>
       </div>
       <div className="tinderCard_slider">
-      {animals.map((animal, index) => {
-        return (
-          <TinderCard
-            ref={childRefs[index]}
-            className="swipe"
-            key={animal.id}
-            preventSwipe={["up", "down"]}
-            onSwipe={(dir) => swiped(dir, animal.name, index)}
-            onCardLeftScreen={() => outOfFrame(animal.name, index)}
-          >
-            <div
-              style={{
-                backgroundImage: "url(" + `${animal.image_url}` + ")",
-              }}
-              className="card"
+        {animals.map((animal, index) => {
+          return (
+            <TinderCard
+              ref={childRefs[index]}
+              className="swipe"
+              key={animal.id}
+              preventSwipe={["up", "down"]}
+              onSwipe={(dir) => swiped(dir, animal.name, index)}
+              onCardLeftScreen={() => outOfFrame(animal.name, index)}
+              onClick={() => setFlip(!flip)}
             >
-              <div className="TinderCards_AnimalInfo">
-                <h3>
-                  {animal.name} , {animal.breed}
-                </h3>
-                {/* <p>{animal.description}</p> */}
-                {/* <p>{console.log(changeSwipe)}</p> */}
+              <div
+                style={{
+                  backgroundImage: "url(" + `${animal.image_url}` + ")",
+                }}
+                className={`card ${flip ? "flip" : ""}`}
+              >
+                {!flip ? (
+                  <div className="front">
+                    <h3 className="text">
+                      {animal.name}, {animal.breed}
+                    </h3>
+                    <div className="info">
+                      <InfoOutlinedIcon onClick={() => setFlip(!flip)} />
+                    </div>
+                    {/* <p>{console.log(changeSwipe)}</p> */}
+                  </div>
+                ) : (
+                  <div className="back">
+                    <ViewPet petShown={animal} />
+                    <KeyboardBackspaceOutlinedIcon
+                      className="backButton"
+                      size="large"
+                      onClick={() => setFlip(!flip)}
+                    />
+                    {/* </h3> */}
+                  </div>
+                )}
               </div>
-            </div>
-
-            {/* Tinder Buttons */}
-          </TinderCard>
-        );
-      })}
+              {/* Tinder Buttons */}
+            </TinderCard>
+          );
+        })}
       </div>
       <div className="tinderCard_accept">
-      <KeyboardDoubleArrowRightIcon />
+        <FavoriteBorderIcon fontSize="large" />
+        <h4>Click button or swipe right to like pet !</h4>
       </div>
-
 
       {/* <SwipeButtons/> */}
 

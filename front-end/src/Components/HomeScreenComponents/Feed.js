@@ -11,7 +11,7 @@ function Feed() {
         <div className="pageContent">
           <div className="twoColumns">
             <div className="infoCard">
-              <h2>Who are we ?</h2>
+              <h2>Who are we?</h2>
               <p>
                 We are a group of dedicated individuals, who are passionate about
                 helping pets currently placed in overpopulated shelters find a
