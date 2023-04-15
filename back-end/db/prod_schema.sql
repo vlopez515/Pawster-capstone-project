@@ -57,6 +57,8 @@ CREATE TABLE pets (
      phone_number VARCHAR(40)
 );
 
+DROP TABLE IF EXISTS users_pets;
+
 CREATE TABLE users_pets (
     pet_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
