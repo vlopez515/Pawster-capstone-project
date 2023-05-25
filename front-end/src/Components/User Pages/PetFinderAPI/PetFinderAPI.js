@@ -15,7 +15,7 @@ export default function PetFinderAPI() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3333/pets")
+      .get(`${API}/pets`)
       .then((response) => setAnimals(response.data))
       .catch((c) => console.warn("catch", c));
   }, []);
