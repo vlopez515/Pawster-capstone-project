@@ -12,6 +12,7 @@
 .pageContent {
     max-width: 1100px;
     margin: 0 auto;
+    font-size: larger;
 }
 
 .twoColumns {
@@ -24,3 +25,7 @@
 .infoCard h2 {
     padding-bottom: 15px;
 }
+
+/* .text {
+    font-size: larger;
+} */
