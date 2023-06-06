@@ -69,7 +69,7 @@ function App() {
         </Router>
     </AuthContextProvider>
         {/* Keep Footer for all other screens? */}
-        <Footer />
+        <Footer className="footer" />
       </div>
     )
   }

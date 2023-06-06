@@ -132,7 +132,8 @@
 }
 
 .tinderCard_reject .MuiSvgIcon-root {
-  color: red
+  color: red;
+  transform: rotate(180deg);
 }
 
 .tinderCard_accept .MuiSvgIcon-root {
