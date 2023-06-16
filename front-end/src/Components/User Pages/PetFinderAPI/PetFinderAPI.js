@@ -23,7 +23,6 @@ export default function PetFinderAPI() {
 
   return (
     <div className="PetFinderAPI_card">
-      <h3>Swipe Right to like &#10084;</h3>
       <button
         className="PetFinderAPI_userLikedPet_Button"
         onClick={() => navigate("/user/1/pets")}

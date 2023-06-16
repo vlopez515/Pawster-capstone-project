@@ -160,6 +160,14 @@ h4 {
   -webkit-text-stroke: 1.3px black;
 }
 
+.swipePageContainer {
+  display:flex;
+}
+
+.buttons {
+  display: flex;
+  gap: 50px;
+}
 
 
 

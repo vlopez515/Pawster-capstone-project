@@ -125,16 +125,17 @@ export default function TinderCards({ animals }) {
   };
 
   return (
+    <div className="swipePageContainer">
     <div className="tinderCard_cardContainer">
         
-      <div className="tinderCard_reject">
+      {/* <div className="tinderCard_reject">
         <NextPlanOutlinedIcon
           className="favoriteButton"
           size="large"
           onClick={(dir) => swiped("left", [...animals].name, [animals].index)}
-        />
-        <h4>Click button or swipe left to see next pet !</h4>
-      </div>
+        /> */}
+        {/* <h4>Click button or swipe left to see next pet !</h4>
+      </div> */}
       <div className="tinderCard_slider">
         {animals.map((animal, index) => {
           return (
@@ -180,10 +181,12 @@ export default function TinderCards({ animals }) {
           );
         })}
       </div>
-      <div className="tinderCard_accept">
+      {/* <div className="tinderCard_accept">
         <FavoriteBorderIcon fontSize="large" />
         <h4>Click button or swipe right to like pet !</h4>
-      </div>
+      </div> */}
+
+
 
       {/* <SwipeButtons/> */}
 
@@ -208,6 +211,20 @@ export default function TinderCards({ animals }) {
         </IconButton>
       </div> */}
     </div>
-    // </div>
+    <div className='buttons'>
+    <div className="tinderCard_reject">
+        <NextPlanOutlinedIcon
+          className="favoriteButton"
+          size="large"
+          onClick={(dir) => swiped("left", [...animals].name, [animals].index)}
+        />
+        <h4>Click button or swipe left to see next pet !</h4>
+    </div>
+    <div className="tinderCard_accept">
+        <FavoriteBorderIcon fontSize="large" />
+        <h4>Click button or swipe right to like pet !</h4>
+      </div>
+      </div>
+    </div>
   );
 }
