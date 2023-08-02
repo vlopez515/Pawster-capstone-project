@@ -22,6 +22,7 @@ export default function ChatScreen() {
       message: "what's up",
     },
   ]);
+  
 
   const handleSend = (e) => {
     e.preventDefault();

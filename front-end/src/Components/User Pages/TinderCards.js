@@ -20,14 +20,13 @@ import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspace
 
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
-  const [lastDirection, setLastDirection] = useState();
+  // const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
-  const navigate = useNavigate();
-  const [changeSwipe, setChangeSwipe] = useState(false);
+  // const navigate = useNavigate();
+  // const [changeSwipe, setChangeSwipe] = useState(false);
   const [flip, setFlip] = useState("");
-  const [display, setDisplay] = useState(false);
+  // const [display, setDisplay] = useState(false);
 
-  // const alreadyRemoved = [];
   const [currentAnimal, setCurrentAnimal] = useState({
     name: "",
     breed: "",
@@ -49,67 +48,55 @@ export default function TinderCards({ animals }) {
     image_url: null,
   });
 
-  const [likedAnimals, setLikedAnimals] = useState([]);
 
   const childRefs = useMemo(
     () =>
       Array(animals.length)
         .fill(0)
-        .map((i) => React.createRef()),
-    []
+        .map(() => React.createRef()),
+    [animals.length]
   );
+
+  const canGoBack = currentIndex < animals.length - 1
+  const canSwipe = currentIndex >= 0
 
   const updateCurrentIndex = (val) => {
     setCurrentIndex(val);
     currentIndexRef.current = val;
   };
 
-  const canGoBack = currentIndex < animals.length - 1;
-
-  const canSwipe = currentIndex >= 0;
-
-  const swiped = async (direction, nameToDelete, index) => {
-    setLastDirection(direction);
-    updateCurrentIndex(index - 1);
+  const swiped = async (direction, index) => {
+    setCurrentIndex(index - 1)
     console.log(direction, index);
 
     if (direction === "right") {
-      //new code - for swiping right, needs to change the userLiked part to true... since its liked now
-      // console.log(currentAnimal)
       updateAnimal({ ...animals[index], userLiked: true }, animals[index].id);
     } else if (direction === "left") {
       updateAnimal({ ...animals[index], userLiked: false }, animals[index].id);
     }
   };
-
+  
+  const swipe = async (dir) => {
+    if (canSwipe && currentIndex < animals.length) {
+      await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
+    }
+  }
+  
+  
   const outOfFrame = (name, idx) => {
     console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current);
-    // console.log(currentAnimal);
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
   };
 
-  const swipe = async (dir, index) => {
-    // console.log(index)
-    if (canSwipe && currentIndex <= animals.length) {
-      //  await swipe(dir)
-      await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
-    }
-  };
 
   const goBack = async () => {
     if (!canGoBack) return;
     const newIndex = currentIndex + 1;
-    updateCurrentIndex(newIndex);
+    setCurrentIndex(newIndex);
     await childRefs[newIndex].current.restoreCard();
   };
 
-  const goLeft = () => {
-    swipe("left");
-  };
-
-  const goRight = () => {
-    swipe("right");
-  };
+  
 
   const updateAnimal = (newLikedAnimal, id) => {
     axios
@@ -117,7 +104,6 @@ export default function TinderCards({ animals }) {
       .then(
         (response) => {
           console.log(response);
-          // navigate(`/snacks`);
         },
         (error) => console.error(error)
       )
@@ -125,26 +111,15 @@ export default function TinderCards({ animals }) {
   };
 
   return (
-    <div className="swipePageContainer">
     <div className="tinderCard_cardContainer">
-        
-      {/* <div className="tinderCard_reject">
-        <NextPlanOutlinedIcon
-          className="favoriteButton"
-          size="large"
-          onClick={(dir) => swiped("left", [...animals].name, [animals].index)}
-        /> */}
-        {/* <h4>Click button or swipe left to see next pet !</h4>
-      </div> */}
       <div className="tinderCard_slider">
-        {animals.map((animal, index) => {
-          return (
+        {animals.map((animal, index) => (
             <TinderCard
               ref={childRefs[index]}
               className="swipe"
               key={animal.id}
               preventSwipe={["up", "down"]}
-              onSwipe={(dir) => swiped(dir, animal.name, index)}
+              onSwipe={(dir) => swiped(dir, index)}
               onCardLeftScreen={() => outOfFrame(animal.name, index)}
               onClick={() => setFlip(!flip)}
             >
@@ -176,55 +151,14 @@ export default function TinderCards({ animals }) {
                   </div>
                 )}
               </div>
-              {/* Tinder Buttons */}
             </TinderCard>
-          );
-        })}
+        ))}
       </div>
-      {/* <div className="tinderCard_accept">
-        <FavoriteBorderIcon fontSize="large" />
-        <h4>Click button or swipe right to like pet !</h4>
-      </div> */}
-
-
-
-      {/* <SwipeButtons/> */}
-
-      {/* <div className="swipeButtons">
-      {changeSwipe ? (<span>.</span> ) : (
-         <span>,</span>
-        )}
-      <IconButton className="swipeButtons_left" size="medium">
-          <CloseIcon fontSize="large" />
-        </IconButton>
-        <IconButton className="swipeButtons_repeat" size="large" >
-          <ReplayIcon fontSize="large"  />
-        </IconButton>
-        <IconButton className="swipeButtons_star" size="small">
-          <StarRateIcon fontSize="large" />
-        </IconButton>
-        <IconButton className="swipeButtons_right" size="small" onClick={goRight}>
-          <FavoriteIcon fontSize="large" />
-        </IconButton>
-        <IconButton className="swipeButtons_lightning" size="small">
-          <FlashOnIcon fontSize="large" />
-        </IconButton>
-      </div> */}
+      <div className='buttons'>
+      <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe("left")}>Swipe left!</button>
+      <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
+      <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe("right")}>Swipe right!</button>
     </div>
-    <div className='buttons'>
-    <div className="tinderCard_reject">
-        <NextPlanOutlinedIcon
-          className="favoriteButton"
-          size="large"
-          onClick={(dir) => swiped("left", [...animals].name, [animals].index)}
-        />
-        <h4>Click button or swipe left to see next pet !</h4>
-    </div>
-    <div className="tinderCard_accept">
-        <FavoriteBorderIcon fontSize="large" />
-        <h4>Click button or swipe right to like pet !</h4>
-      </div>
-      </div>
-    </div>
+  </div>
   );
 }
