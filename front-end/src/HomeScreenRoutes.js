@@ -7,7 +7,6 @@ import Support from './Components/HomeScreenComponents/Support';
 import Login from './Components/Login';
 import Account from './Components/HomeScreenComponents/Account';
 
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";

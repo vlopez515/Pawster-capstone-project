@@ -9,7 +9,6 @@ import Chats from "../Components/User Pages/Chats";
 import ChatScreen from "../Components/User Pages/ChatScreen.js";
 import PetFinderAPI from "../Components/User Pages/PetFinderAPI/PetFinderAPI.js";
 
-import Auth_Token from "../Components/User Pages/PetFinderAPI/Auth_Token";
 
 function UserStartingScreen() {
 
@@ -50,7 +49,7 @@ function UserStartingScreen() {
           path="/petfinderapi" element={
             <div>
               <Header />
-              <PetFinderAPI accessToken={Auth_Token()}/>
+              <PetFinderAPI />
             </div>
           }
         />

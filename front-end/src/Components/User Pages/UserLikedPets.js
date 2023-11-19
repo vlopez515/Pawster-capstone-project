@@ -9,6 +9,7 @@ import NoPetsPage from '../../Pages/ShelterPages/NoPetsPage'
 import './UserLikedPets.css';
 
 
+const API = process.env.REACT_APP_API_URL
 
 function UserLikedPets() {
     //aixos get? from our data base - getting pets data. by userlikedby 
@@ -19,7 +20,7 @@ function UserLikedPets() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:3333/pets`)
+        axios.get(`${API}`)
             .then((res) => { setAllPets(res.data) })
             .catch((err) => { console.log(err) })
     }, [])

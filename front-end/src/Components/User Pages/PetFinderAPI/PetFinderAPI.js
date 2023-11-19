@@ -1,24 +1,56 @@
-import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
-import Auth_Token from "./Auth_Token";
+import React, { useState, useEffect } from "react";
+
 import TinderCards from "../TinderCards";
-import "./PetFinderAPI.css";
+
 import { useNavigate } from "react-router-dom";
 
-const API = process.env.REACT_APP_API_URL;
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 export default function PetFinderAPI() {
   const [animals, setAnimals] = useState([]);
+
   const navigate = useNavigate();
 
+  let key = process.env.REACT_APP_PETFINDER_KEY;
+  let secret = process.env.REACT_APP_PETFINDER_SECRET;
+  let token;
+
   useEffect(() => {
-    axios
-      .get(`${API}/pets`)
-      .then((response) => setAnimals(response.data))
-      .catch((c) => console.warn("catch", c));
-  }, []);
+  fetch("https://api.petfinder.com/v2/oauth2/token", {
+    method: "POST",
+    body:
+      "grant_type=client_credentials&client_id=" +
+      key +
+      "&client_secret=" +
+      secret,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      token = data.access_token;
+    })
+    .then(() => {
+      // use token to fetch animals
+      fetch(
+        `https://api.petfinder.com/v2/animals?type=dog&location=90210`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => setAnimals(data.animals));
+    })
+    .catch((err) => console.error(err));
+}, []);
+
+// console.log(animals)
+
 
 
   return (

@@ -1,53 +1,24 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCard.css";
-import SwipeButtons from "./SwipeButtons";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import "./SwipeButtons.css";
 import { IconButton } from "@mui/material";
 import ReplayIcon from "@mui/icons-material/Replay";
 import CloseIcon from "@mui/icons-material/Close";
-import StarRateIcon from "@mui/icons-material/StarRate";
-import NextPlanOutlinedIcon from "@mui/icons-material/NextPlanOutlined";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FlashOnIcon from "@mui/icons-material/FlashOn";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import axios from "axios";
-import { async } from "@firebase/util";
-import { useNavigate } from "react-router-dom";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import ViewPet from "./ViewPet";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
 
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
-  // const [lastDirection, setLastDirection] = useState();
   const currentIndexRef = useRef(currentIndex);
-  // const navigate = useNavigate();
-  // const [changeSwipe, setChangeSwipe] = useState(false);
-  const [flip, setFlip] = useState("");
-  // const [display, setDisplay] = useState(false);
-
-  const [currentAnimal, setCurrentAnimal] = useState({
-    name: "",
-    breed: "",
-    gender: "",
-    age: "",
-    color: "",
-    size: "",
-    type: "",
-    maintenance_level: "",
-    spayed_neutered: null,
-    house_trained: null,
-    description: null,
-    declawed: null,
-    special_needs: null,
-    shots_current: null,
-    status: null,
-    shelter_id: 2,
-    userLiked: false,
-    image_url: null,
-  });
-
 
   const childRefs = useMemo(
     () =>
@@ -57,16 +28,11 @@ export default function TinderCards({ animals }) {
     [animals.length]
   );
 
-  const canGoBack = currentIndex < animals.length - 1
-  const canSwipe = currentIndex >= 0
-
-  const updateCurrentIndex = (val) => {
-    setCurrentIndex(val);
-    currentIndexRef.current = val;
-  };
+  const canGoBack = currentIndex < animals.length - 1;
+  const canSwipe = currentIndex >= 0;
 
   const swiped = async (direction, index) => {
-    setCurrentIndex(index - 1)
+    setCurrentIndex(index - 1);
     console.log(direction, index);
 
     if (direction === "right") {
@@ -75,19 +41,17 @@ export default function TinderCards({ animals }) {
       updateAnimal({ ...animals[index], userLiked: false }, animals[index].id);
     }
   };
-  
+
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < animals.length) {
-      await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
+      await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
     }
-  }
-  
-  
+  };
+
   const outOfFrame = (name, idx) => {
     console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current);
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
   };
-
 
   const goBack = async () => {
     if (!canGoBack) return;
@@ -95,8 +59,6 @@ export default function TinderCards({ animals }) {
     setCurrentIndex(newIndex);
     await childRefs[newIndex].current.restoreCard();
   };
-
-  
 
   const updateAnimal = (newLikedAnimal, id) => {
     axios
@@ -110,55 +72,81 @@ export default function TinderCards({ animals }) {
       .catch((c) => console.warn("catch", c));
   };
 
+  const handleAccordionToggle = (index) => {
+    childRefs[index].current.toggleAccordion();
+  };
+
   return (
     <div className="tinderCard_cardContainer">
       <div className="tinderCard_slider">
         {animals.map((animal, index) => (
-            <TinderCard
-              ref={childRefs[index]}
-              className="swipe"
-              key={animal.id}
-              preventSwipe={["up", "down"]}
-              onSwipe={(dir) => swiped(dir, index)}
-              onCardLeftScreen={() => outOfFrame(animal.name, index)}
-              onClick={() => setFlip(!flip)}
+          <TinderCard
+            ref={childRefs[index]}
+            className="swipe"
+            key={animal.id}
+            preventSwipe={["up", "down"]}
+            onSwipe={(dir) => swiped(dir, index)}
+            onCardLeftScreen={() => outOfFrame(animal.name, index)}
+          >
+            <div
+              style={{
+                backgroundImage: "url(" + `${animal.image_url}` + ")",
+              }}
+              className="card"
             >
-              <div
-                style={{
-                  backgroundImage: "url(" + `${animal.image_url}` + ")",
-                }}
-                className={`card ${flip ? "flip" : ""}`}
-              >
-                {!flip ? (
-                  <div className="front">
-                    <h3 className="text">
-                      {animal.name}, {animal.breed}
-                    </h3>
-                    <div className="info">
-                      <InfoOutlinedIcon onClick={() => setFlip(!flip)} />
-                    </div>
-                    {/* <p>{console.log(changeSwipe)}</p> */}
-                  </div>
-                ) : (
-                  <div className="back">
+              <div className="front">
+                <h3 className="text">
+                  {animal.name}, {animal.breed}
+                </h3>
+                <Accordion className="accordion">
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls={`panel${index + 1}bh-content`}
+                    id={`panel${index + 1}bh-header`}
+                  >
+                    <Typography>
+                      See Details
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
                     <ViewPet petShown={animal} />
-                    <KeyboardBackspaceOutlinedIcon
-                      className="backButton"
-                      size="large"
-                      onClick={() => setFlip(!flip)}
-                    />
-                    {/* </h3> */}
-                  </div>
-                )}
+                  </AccordionDetails>
+                </Accordion>
               </div>
-            </TinderCard>
+            </div>
+          </TinderCard>
         ))}
       </div>
-      <div className='buttons'>
-      <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe("left")}>Swipe left!</button>
-      <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
-      <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe("right")}>Swipe right!</button>
+      {/* <div className="buttons">
+        <SwipeButtons />
+          Swipe left!
+        
+        <button
+          style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
+          onClick={() => goBack()}
+        >
+          Undo swipe!
+        </button>
+        <button
+          style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
+          onClick={() => swipe("right")}
+        >
+          Swipe right!
+        </button>
+      </div> */}
+       <div className="SwipeButton_overall_div">
+      <div className="swipeButtons">
+        <IconButton className="swipeButtons_repeat" size="large" >
+          <ReplayIcon fontSize="large" onClick={() => goBack()} />
+        </IconButton>
+        <IconButton className="swipeButtons_left" size="medium">
+          <CloseIcon fontSize="large" />
+        </IconButton>
+        <IconButton className="swipeButtons_right" size="small">
+          <FavoriteIcon fontSize="large"  onClick={() => swipe("right")}/>
+        </IconButton>
+      </div>
+     </div>
     </div>
-  </div>
   );
 }
