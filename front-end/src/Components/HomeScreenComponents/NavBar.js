@@ -86,24 +86,15 @@ export default function NavBar() {
 
         <div className="NavBar-user-info">
           {" "}
-          {/* start of the dropdown menus */}
-          {/* ======end of the new dropdown */}
           {user?.displayName ? (
             <img
               width="45px"
               height="45px"
               style={{ marginRight: "20px", borderRadius: "25px" }}
               alt='user-img'
-              src={user?.photoURL}
+              src={user.photoURL}
             />
           ) : null}
-          {/* {!user?.displayName ? null : (
-            <button className="NavBar-login-button2">
-              <Link className="NavBar-login-button2" href="/user/1/explore">
-                Explore
-              </Link>
-            </button>
-          )} */}
           <div className="NavBar-signin">
             {user?.displayName ? (
               <button className="NavBar-login-button2" onClick={handleSignOut}>
@@ -124,7 +115,7 @@ export default function NavBar() {
     );
   } else {
     return (
-      // <div className="NavBar-overall-Div">
+      <div className="NavBar-overall-Div">
       <div className="custom-navbar2">
         {/* Logic to return to the proper home path, whether it is '/user' or 'shelter'*/}
         <Link href="/" underline="none">
@@ -181,6 +172,7 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }

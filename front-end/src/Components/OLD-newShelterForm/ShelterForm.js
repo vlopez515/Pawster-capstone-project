@@ -94,8 +94,6 @@ function ShelterForm() {
                         value={shelterInfo.email}
                         onChange={handleTextChange}
                     />
-
-
                 </Form.Group>
                 <Button variant="primary" type="submit" id="userForm-btn">
                     Submit

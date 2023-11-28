@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCard.css";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./SwipeButtons.css";
 import { IconButton } from "@mui/material";
 import ReplayIcon from "@mui/icons-material/Replay";
@@ -19,6 +19,8 @@ import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspace
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
   const currentIndexRef = useRef(currentIndex);
+
+  console.log(animals);
 
   const childRefs = useMemo(
     () =>
@@ -90,7 +92,10 @@ export default function TinderCards({ animals }) {
           >
             <div
               style={{
-                backgroundImage: "url(" + `${animal.image_url}` + ")",
+                backgroundImage: `url(${animal.photos[0].medium})`,
+                backgroundSize: 'contain', 
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
               }}
               className="card"
             >
@@ -104,9 +109,7 @@ export default function TinderCards({ animals }) {
                     aria-controls={`panel${index + 1}bh-content`}
                     id={`panel${index + 1}bh-header`}
                   >
-                    <Typography>
-                      See Details
-                    </Typography>
+                    <Typography>See Details</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <ViewPet petShown={animal} />
@@ -134,19 +137,19 @@ export default function TinderCards({ animals }) {
           Swipe right!
         </button>
       </div> */}
-       <div className="SwipeButton_overall_div">
-      <div className="swipeButtons">
-        <IconButton className="swipeButtons_repeat" size="large" >
-          <ReplayIcon fontSize="large" onClick={() => goBack()} />
-        </IconButton>
+      <div className="SwipeButton_overall_div">
+        <div className="swipeButtons">
         <IconButton className="swipeButtons_left" size="medium">
-          <CloseIcon fontSize="large" />
-        </IconButton>
-        <IconButton className="swipeButtons_right" size="small">
-          <FavoriteIcon fontSize="large"  onClick={() => swipe("right")}/>
-        </IconButton>
+            <CloseIcon fontSize="large" />
+          </IconButton>
+          <IconButton className="swipeButtons_repeat" size="large">
+            <ReplayIcon fontSize="large" onClick={() => goBack()} />
+          </IconButton>
+          <IconButton className="swipeButtons_right" size="small">
+            <FavoriteIcon fontSize="large" onClick={() => swipe("right")} />
+          </IconButton>
+        </div>
       </div>
-     </div>
     </div>
   );
 }

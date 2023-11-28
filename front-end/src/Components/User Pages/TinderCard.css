@@ -2,8 +2,8 @@
   overflow-x: hidden;
 } 
 
+
 .card {
-  position: relative;
   /* padding-top:px; */
   width: 500px;
   /* padding: 20px; */
@@ -36,17 +36,26 @@
   padding-bottom: 40px;
 }
 .tinderCard_cardContainer {
-  width: 90vw;
-  height: 70vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-left: 50px;
-  margin-top: 21vh;
+  /* margin-left: 50px;
+  margin-top: 0; */
 }
 
-.swipe{
+/* .swipe{
   position: absolute;
+} */
+
+.swipe {
+  position: absolute;
+  top: 15%;
+  right: 35%;
+  transform: translate(-50%, -50%); 
 }
+
 
 .front .text {
   color: white;
@@ -108,24 +117,18 @@
 }
 
 
-.TinderCards_swipeButtons {
-  position: relative;
+.swipeButtons {
   display: flex;
-  bottom: 10px;
-  margin: 10px;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center; /* Centers the buttons vertically (if needed) */
+  left: 13%;
 }
+
 
 .tinderCard_slider {
   width: 50%;
 }
 
-
-.tinderCard_reject, .tinderCard_accept {
-  width: 25%;
-  text-align: center;
-  margin-top: 19%;
-  
-}
 
 .tinderCard_reject .MuiSvgIcon-root, .tinderCard_accept .MuiSvgIcon-root {
   font-size: 8em;
@@ -164,10 +167,10 @@ h4 {
   display:flex;
 }
 
-.buttons {
+/* .buttons {
   display: flex;
   gap: 50px;
-}
+} */
 
 
 
