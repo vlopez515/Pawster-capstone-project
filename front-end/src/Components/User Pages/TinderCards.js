@@ -73,11 +73,7 @@ export default function TinderCards({ animals }) {
       )
       .catch((c) => console.warn("catch", c));
   };
-
-  const handleAccordionToggle = (index) => {
-    childRefs[index].current.toggleAccordion();
-  };
-
+  
   return (
     <div className="tinderCard_cardContainer">
       <div className="tinderCard_slider">
@@ -93,62 +89,18 @@ export default function TinderCards({ animals }) {
             <div
               style={{
                 backgroundImage: `url(${animal.photos[0].medium})`,
-                backgroundSize: 'contain', 
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
               }}
               className="card"
             >
-              <div className="front">
-                <h3 className="text">
-                  {animal.name}, {animal.breed}
-                </h3>
-                <Accordion className="accordion">
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls={`panel${index + 1}bh-content`}
-                    id={`panel${index + 1}bh-header`}
-                  >
-                    <Typography>See Details</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <ViewPet petShown={animal} />
-                  </AccordionDetails>
-                </Accordion>
-              </div>
+              <h3 className="text">
+                {animal.name}, {animal.breeds.primary}
+              </h3>
             </div>
           </TinderCard>
         ))}
-      </div>
-      {/* <div className="buttons">
-        <SwipeButtons />
-          Swipe left!
-        
-        <button
-          style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
-          onClick={() => goBack()}
-        >
-          Undo swipe!
-        </button>
-        <button
-          style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
-          onClick={() => swipe("right")}
-        >
-          Swipe right!
-        </button>
-      </div> */}
-      <div className="SwipeButton_overall_div">
-        <div className="swipeButtons">
-        <IconButton className="swipeButtons_left" size="medium">
-            <CloseIcon fontSize="large" />
-          </IconButton>
-          <IconButton className="swipeButtons_repeat" size="large">
-            <ReplayIcon fontSize="large" onClick={() => goBack()} />
-          </IconButton>
-          <IconButton className="swipeButtons_right" size="small">
-            <FavoriteIcon fontSize="large" onClick={() => swipe("right")} />
-          </IconButton>
-        </div>
       </div>
     </div>
   );
