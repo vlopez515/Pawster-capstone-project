@@ -1,26 +1,16 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCard.css";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./SwipeButtons.css";
-import { IconButton } from "@mui/material";
-import ReplayIcon from "@mui/icons-material/Replay";
-import CloseIcon from "@mui/icons-material/Close";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import axios from "axios";
-import ViewPet from "./ViewPet";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
+
 
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
   const currentIndexRef = useRef(currentIndex);
+  const [allPets, setAllPets] = useState([])
 
-  console.log(animals);
+  const API = process.env.REACT_APP_API_URL
 
   const childRefs = useMemo(
     () =>
@@ -33,14 +23,13 @@ export default function TinderCards({ animals }) {
   const canGoBack = currentIndex < animals.length - 1;
   const canSwipe = currentIndex >= 0;
 
+
   const swiped = async (direction, index) => {
     setCurrentIndex(index - 1);
-    console.log(direction, index);
-
     if (direction === "right") {
-      updateAnimal({ ...animals[index], userLiked: true }, animals[index].id);
+      addNewPet(animals[index]);
     } else if (direction === "left") {
-      updateAnimal({ ...animals[index], userLiked: false }, animals[index].id);
+      // Handle swipe left if needed
     }
   };
 
@@ -51,7 +40,6 @@ export default function TinderCards({ animals }) {
   };
 
   const outOfFrame = (name, idx) => {
-    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current);
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
   };
 
@@ -62,20 +50,26 @@ export default function TinderCards({ animals }) {
     await childRefs[newIndex].current.restoreCard();
   };
 
-  const updateAnimal = (newLikedAnimal, id) => {
+
+  const addNewPet = (animal) => {
+    const newPet = { ...animal, userLiked: true };
     axios
-      .put(`http://localhost:3333/pets/${id}`, newLikedAnimal)
-      .then(
-        (response) => {
-          console.log(response);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+      .post(`${API}/pets`, newPet)
+      .then((response) => {
+        console.log("New pet added successfully:", response.data);
+        // You can optionally update the local state or perform any other necessary actions
+      })
+      .catch((error) => {
+        console.error("Error adding new pet:", error);
+      });
   };
+
+  let pets = allPets.filter(pet => pet.userliked === true)
   
+  console.log(pets,'one')
+
   return (
-    <div className="tinderCard_cardContainer">
+    <div className="tinderCard_cardContainer" src="https://previews.123rf.com/images/paulgrecaud/paulgrecaud1701/paulgrecaud170100005/69950272-summer-landscape-with-green-grass-at-sunny-day-nature-background.jpg" width= "1000">
       <div className="tinderCard_slider">
         {animals.map((animal, index) => (
           <TinderCard

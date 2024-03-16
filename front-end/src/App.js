@@ -7,21 +7,13 @@ import Account from './Components/HomeScreenComponents/Account';
 import { AuthContextProvider } from "./Context/AuthContext";
 import Login from './Components/Login';
 
-
 // Home Routes 
 import AboutPage from './Components/HomeScreenComponents/AboutPage';
 import ContactUs from './Components/HomeScreenComponents/ContactUs';
 import Feed from './Components/HomeScreenComponents/Feed';
 import Support from './Components/HomeScreenComponents/Support';
 
-// Shelter Route
-import ShelterStartingScreen from './Pages/ShelterStartingScreen';
-
-import UserForm from './Components/Forms/UserForm';
-
-
 // User Route
-import UserStartingScreen from "../src/Pages/UserStartingScreen"
 import UserLikedPets from './Components/User Pages/UserLikedPets';
 import TinderCards from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
 import Chats from "../src/Components/User Pages/Chats"
@@ -50,9 +42,6 @@ function App() {
                 <Route path="/login" element={<Login />} />
               
                 <Route path='/account' element={<Account/>} />
-
-              {/* Shelter Routes */}
-                <Route path="/shelter/*" element={ <ShelterStartingScreen />} />
 
               {/* User Routes */}
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}

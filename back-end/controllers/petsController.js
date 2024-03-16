@@ -3,9 +3,8 @@ const pets = express.Router();
 const {
   getAllPets,
   getPet,
-  createPet,
+  addNewPet,
   deletePet,
-  updatePet
 } = require("../queries/pets.js");
 
 pets.get("/", async (req, res) => {
@@ -29,7 +28,7 @@ pets.get("/:id", async (req, res) => {
 
 pets.post("/", async (req, res) => {
   if(req.body) { 
-     const createdPet = await createPet(req.body)
+     const createdPet = await addNewPet(req.body)
       res.status(200).send(createdPet);
     } else{
       res.status(404).send('Error');

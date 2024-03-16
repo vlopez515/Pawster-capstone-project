@@ -17,13 +17,15 @@
 
 .twoColumns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    direction: column;
     margin-top: 40px;
-    gap: 40px;;
+    gap: 40px;
+    padding: 50px;
 }
 
 .infoCard h2 {
     padding-bottom: 15px;
+    text-align: center;
 }
 
 /* .text {

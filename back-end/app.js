@@ -28,15 +28,5 @@ app.get("*", (req, res) => {
   res.status(404).send("page not found")
 })
 
-// const db = require("./db/dbConfig.js");
-
-// app.get("/data", async (req, res) => {
-//   try {
-//     const allDays = await db.any("SELECT * FROM data");
-//     res.json(allDays);
-//   } catch (err) {
-//     res.json(err);
-//   }
-// });
 
 module.exports = app;

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import TinderCards from "../TinderCards";
-import { useNavigate } from "react-router-dom";
+
 
 
 export default function PetFinderAPI() {
   const [animals, setAnimals] = useState([]);
 
-  const navigate = useNavigate();
 
   let key = process.env.REACT_APP_PETFINDER_KEY;
   let secret = process.env.REACT_APP_PETFINDER_SECRET;
@@ -49,6 +48,8 @@ export default function PetFinderAPI() {
 
 
 let animalsWithPics = animals.filter((animal) => animal.photos.length > 0)
+
+console.log(animalsWithPics[0], 'pic')
 
 
   return (

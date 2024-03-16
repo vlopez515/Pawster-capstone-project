@@ -31,6 +31,15 @@
   border-radius: 20px;
 }
 
+.card > h3 {
+  position: absolute;
+  bottom: 10px;
+  color: black;
+  font-size: 25px;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
 .info{
   color: white;
   padding-bottom: 40px;
@@ -41,13 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-left: 50px;
-  margin-top: 0; */
+  background-image: url("https://img.freepik.com/free-vector/cute-playful-footprint-pattern-background-fauna-fun_1017-44713.jpg?w=1480&t=st=1702549607~exp=1702550207~hmac=7c3a264919487d6ec056d9e09af89f1be3645bf902fe705e1835b47326ebcbd9");
 }
-
-/* .swipe{
-  position: absolute;
-} */
 
 .swipe {
   position: absolute;
@@ -84,23 +88,6 @@
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 } */
 
-.card.front {
-  left: 0;
-}
-
-.card.front 
-.card.back {
-  position: absolute;
-  bottom: 30px;
-  color: white;
-  font-size: 30px;
-  font-family: "Gotham Rounded";
-  margin: 10px;
-  color: #fff;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  padding: 1rem; 
-  /* backface-visibility: hidden;  */
-}
 
 /* .back.text {
   position:  relative;
