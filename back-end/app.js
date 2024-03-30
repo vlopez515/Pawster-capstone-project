@@ -12,6 +12,7 @@ const messageController = require("./controllers/messageController");
 app.use(cors());
 app.use(express.json()); 
 
+
 app.use("/users", usersController);
 app.use("/pets", petsController);
 app.use("/shelters", sheltersController);
@@ -19,9 +20,8 @@ app.use("/messages", messageController);
 
 
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.send("Hello,!");
 });
-
 
 //404
 app.get("*", (req, res) => {

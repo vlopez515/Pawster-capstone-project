@@ -18,7 +18,7 @@ const getPet = async (id) => {
   }
 };
 
-const addNewPet = (animal) => {
+const addNewPet = async (animal) => {
   const {
     name,
     breed,
@@ -41,37 +41,58 @@ const addNewPet = (animal) => {
   } = animal;
 
   const newPet = {
-    name: name || '' ,
-    breed: breed || '', // Replace null with an empty string or a default value
+    name: name || '',
+    breed: breed || '',
     gender,
     age,
-    color: color || '', // Replace null with an empty string or a default value
+    color: color || '',
     size,
     type,
-    maintenance_level: maintenance_level || '', // Replace null with an empty string or a default value
-    spayed_neutered: spayed_neutered || false, // Replace null with a default value
-    house_trained: house_trained || false, // Replace null with a default value
+    maintenance_level: maintenance_level || '',
+    spayed_neutered: spayed_neutered || false,
+    house_trained: house_trained || false,
     description,
-    declawed: declawed || false, // Replace null with a default value
-    special_needs: special_needs || false, // Replace null with a default value
-    shots_current: shots_current || false, // Replace null with a default value
+    declawed: declawed || false,
+    special_needs: special_needs || false,
+    shots_current: shots_current || false,
     status,
-    shelter_id: shelter_id || '', // Replace null with an empty string or a default value
+    shelter_id: shelter_id || '',
     userLiked: true,
     image_url,
     phone_number: phone_number || '',
   };
 
-  axios
-    .post(`${API}/pets`, newPet)
-    .then((response) => {
-      console.log("New pet added successfully:", response.data);
-      // You can optionally update the local state or perform any other necessary actions
-    })
-    .catch((error) => {
-      console.error("Error adding new pet:", error);
-    });
+  try {
+    const values = [
+      newPet.name,
+      newPet.breed,
+      newPet.gender,
+      newPet.age,
+      newPet.color,
+      newPet.size,
+      newPet.type,
+      newPet.maintenance_level,
+      newPet.spayed_neutered,
+      newPet.house_trained,
+      newPet.description,
+      newPet.declawed,
+      newPet.special_needs,
+      newPet.shots_current,
+      newPet.status,
+      newPet.shelter_id,
+      newPet.userLiked,
+      newPet.image_url,
+      newPet.phone_number,
+    ];
+
+    const addedPet = await db.one(`INSERT INTO pets (name, breed, gender, age, color, size, type, maintenance_level, spayed_neutered, house_trained, description, declawed, special_needs, shots_current, status, shelter_id, userLiked, image_url, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING *`, values);
+    return addedPet;
+  } catch (error) {
+    return 'query didnt work';
+  }
 };
+
+
 
 const deletePet = async (id) => {
   try {

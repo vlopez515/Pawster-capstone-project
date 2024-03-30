@@ -44,6 +44,7 @@ export default function TinderCards({ animals }) {
   };
 
   const goBack = async () => {
+    
     if (!canGoBack) return;
     const newIndex = currentIndex + 1;
     setCurrentIndex(newIndex);
@@ -51,8 +52,8 @@ export default function TinderCards({ animals }) {
   };
 
 
-  const addNewPet = (animal) => {
-    const newPet = { ...animal, userLiked: true };
+  const addNewPet = (animals) => {
+    const newPet = { ...animals, userLiked: true };
     axios
       .post(`${API}/pets`, newPet)
       .then((response) => {
@@ -66,7 +67,7 @@ export default function TinderCards({ animals }) {
 
   let pets = allPets.filter(pet => pet.userliked === true)
   
-  console.log(pets,'one')
+  // console.log(pets,'one')
 
   return (
     <div className="tinderCard_cardContainer" src="https://previews.123rf.com/images/paulgrecaud/paulgrecaud1701/paulgrecaud170100005/69950272-summer-landscape-with-green-grass-at-sunny-day-nature-background.jpg" width= "1000">

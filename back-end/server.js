@@ -1,12 +1,26 @@
-// DEPENDENCIES
-// const app = require("./app.js");
+var pg = require('pg');
+const app = require("./app.js");
 
-// // CONFIGURATION
-// require("dotenv").config();
+require("dotenv").config();
 
-// const PORT = process.env.PORT;
+const DATABASE_URL = process.env.DATABASE_URL;
+const PORT = process.env.PORT;
 
-// // LISTEN
-// app.listen(PORT, () => {
-//   console.log(`🎧 Listening on port ${PORT} 🎧 `);
-// });
+var conString = `${DATABASE_URL}` 
+var client = new pg.Client(conString);
+client.connect(function(err) {
+  if(err) {
+    return console.error('could not connect to postgres', err);
+  }
+  client.query('SELECT NOW() AS "theTime"', function(err, result) {
+    if(err) {
+      return console.error('error running query', err);
+    }
+    console.log(result.rows[0].theTime, 'it works');
+    client.end();
+  });
+});
+
+app.listen(PORT, () => {
+    console.log(`🎧 Listening on port ${PORT} 🎧 `);
+  });

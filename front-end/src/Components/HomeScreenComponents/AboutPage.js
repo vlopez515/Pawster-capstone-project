@@ -7,7 +7,6 @@ import PetsIcon from '@mui/icons-material/Pets';
 import "./AboutPage.css"
 
 
-
 export default function AboutPage() {
 
     const bulletPoints = [
