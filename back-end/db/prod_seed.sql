@@ -3,13 +3,6 @@ VALUES
 ('Chad', 30000, 25, 'male', 5, 'apartment', '1-2', 'low', 'cat', '234 Oaks Drive, Apt. 1W, New York, NY 11308', 'lease1', 'https://visualpharm.com/assets/387/Person-595b40b75ba036ed117da139.svg', 'https://legaltemplates.net/wp-content/uploads/documents/pet-addendum/Sample-Pet-Addendum.png', '1234569877', 'emailSample@gmail.com'),
 ('Maddy', 100000 , 22, 'female', 1, 'house', '5-10', null, null , '123 Cedar street, New York, NY 10271', 'lease2','https://cdn.icon-icons.com/icons2/3150/PNG/512/user_profile_female_icon_192701.png', 'https://legaltemplates.net/wp-content/uploads/documents/pet-addendum/Sample-Pet-Addendum.png', '1234569877', 'emailSample22@gmail.com');
 
-INSERT INTO shelters (name, address, business_hours, phone_number, email) VALUES 
-('Tuff Tails Animal Rescue', 'P.O. Box 117, Levittown, NY 11756', null, null,'info@tufftails.org'),
-('P.A.N.T.', 'P.O. Box 143, Salt Point, NY 12578','845-486-7075 ext.1',null, 'adoption@PANT.org'),
-('Husky Savers, Inc.', 'Honeoye Falls, NY 14472', null,'585-576-1724', 'hskysavr1@gmail.com'),
-('P.L.U.T.O. (Pet Lovers United Together as One)','PO Box 140889, Staten Island, NY 10314',null,null,'plutorescue@aol.com'),
-('Estherville Animal Shelter','100 Russell Road, Greenfield Center, NY 12833', null, '518-893-7451', 'Esthervilleanimalshelter54@gmail.com'),
-('A Purr-fect Fit Animal Rescue and Adoption Center', '2231 Wehrle Drive, Williamsville, NY 14221', 'M-F 12pm-6pm, Sat 12pm-4pm, Sun CLOSED (Visits by Appt Only)', '716-633-6600', 'apurrfectfit@gmail.com');
 
 INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level, spayed_neutered, house_trained, declawed, special_needs, shots_current, description, status, shelter_id, userLiked, image_url, phone_number ) VALUES
 ('Paisley', 'Dog', 'Mixed Breed', 'Medium', 'Female', 'Young', 'White / Cream', 'Low', true, true, false, false, true, 'Look who’s made her way out of the kill shelter and into a wonderful foster home, it’s gorgeous Paisley!', 'adoptable', 1, true, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70030759/3/?bust=1702533472&width=300', '348-173-3923'),
@@ -34,8 +27,6 @@ INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level
 ('Ruffles', 'Dog', 'Border Collie', 'Large', 'Female', 'Young', 'Black / White', 'Mid',true, true, false, false, true, null, 'adoptable', 1, false, 'https://s.yimg.com/ny/api/res/1.2/J_72tMbgMJunWcCtkqJbpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en-US/nbc_news_122/b59245698a35c58548796e16cba250c1', '860-421-3755'),
 ('Nanook', 'Dog', 'Shiba Inu', 'Small', 'Male', 'Adult', 'Red / Chestnut / Orange', 'Mid', true, true, null, false, true, 'Nanook is a 5-year-old, 22lb male shiba inu.', 'adoptable', 1, false, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59135338/1/?bust=1670873426', '271-173-3193'),
 ('Buddy the Elf', 'Cat', 'Tabby', 'Medium', 'Male', 'Young', 'Orange', 'Mid', false, false, false, false, false, 'I know him! Meet Buddy the Elf happily named for those giant ears you see! He was found by a', 'adoptable', 2, false, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59140794/1/?bust=1670911215', '348-153-3923');
-
-
 
 INSERT INTO users_pets (user_id, pet_id) VALUES
 (1,1),

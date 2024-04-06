@@ -8,7 +8,7 @@ import axios from "axios";
 export default function TinderCards({ animals }) {
   const [currentIndex, setCurrentIndex] = useState(animals.length - 1);
   const currentIndexRef = useRef(currentIndex);
-  const [allPets, setAllPets] = useState([])
+  const [allPets, setAllPets] = useState([]);
 
   const API = process.env.REACT_APP_API_URL
 
@@ -27,9 +27,10 @@ export default function TinderCards({ animals }) {
   const swiped = async (direction, index) => {
     setCurrentIndex(index - 1);
     if (direction === "right") {
-      addNewPet(animals[index]);
+      const swipedPet = animals[index];
+      addNewPet(swipedPet);
     } else if (direction === "left") {
-      // Handle swipe left if needed
+    //something after swiping left
     }
   };
 
@@ -50,24 +51,46 @@ export default function TinderCards({ animals }) {
     setCurrentIndex(newIndex);
     await childRefs[newIndex].current.restoreCard();
   };
+ 
+  const addNewPet = async (swipedPet) => {
+    try {
+      const newPet = {
+        name: swipedPet.name,
+        age: swipedPet.age,
+        type: swipedPet.type,
+        attributes: {
+          house_trained: swipedPet.attributes.house_trained,
+          shots_current: swipedPet.attributes.shots_current,
+          sprayed_neutered: swipedPet.attributes.sprayed_neutered,
+          special_needs: swipedPet.attributes.special_needs,
+        },
+        breeds: {
+          primary: swipedPet.breeds.primary,
+          mixed: swipedPet.breeds.mixed,
+        },
+        contact: {
+          email: swipedPet.contact.email,
+          phone: swipedPet.contact.phone,
+        },
+        // address: {
+        //   // address1: swipedPet.address.address1,
+        //   // city: swipedPet.address.city,
+        //   // postcode: swipedPet.address.postcode,
+        // },
+        size: swipedPet.size,
+        gender: swipedPet.gender,
+        description: swipedPet.description,
+      };
+  
+      const response = await axios.post(`${API}/pets`, newPet);
+      console.log("New pet added successfully:", response.data);
 
-
-  const addNewPet = (animals) => {
-    const newPet = { ...animals, userLiked: true };
-    axios
-      .post(`${API}/pets`, newPet)
-      .then((response) => {
-        console.log("New pet added successfully:", response.data);
-        // You can optionally update the local state or perform any other necessary actions
-      })
-      .catch((error) => {
-        console.error("Error adding new pet:", error);
-      });
+    } catch (error) {
+      console.error("Error adding new pet:", error);
+    }
   };
 
   let pets = allPets.filter(pet => pet.userliked === true)
-  
-  // console.log(pets,'one')
 
   return (
     <div className="tinderCard_cardContainer" src="https://previews.123rf.com/images/paulgrecaud/paulgrecaud1701/paulgrecaud170100005/69950272-summer-landscape-with-green-grass-at-sunny-day-nature-background.jpg" width= "1000">

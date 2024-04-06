@@ -18,81 +18,35 @@ const getPet = async (id) => {
   }
 };
 
-const addNewPet = async (animal) => {
-  const {
-    name,
-    breed,
-    gender,
-    age,
-    color,
-    size,
-    type,
-    maintenance_level,
-    spayed_neutered,
-    house_trained,
-    description,
-    declawed,
-    special_needs,
-    shots_current,
-    status,
-    shelter_id,
-    image_url,
-    phone_number,
-  } = animal;
-
-  const newPet = {
-    name: name || '',
-    breed: breed || '',
-    gender,
-    age,
-    color: color || '',
-    size,
-    type,
-    maintenance_level: maintenance_level || '',
-    spayed_neutered: spayed_neutered || false,
-    house_trained: house_trained || false,
-    description,
-    declawed: declawed || false,
-    special_needs: special_needs || false,
-    shots_current: shots_current || false,
-    status,
-    shelter_id: shelter_id || '',
-    userLiked: true,
-    image_url,
-    phone_number: phone_number || '',
-  };
-
+const addNewPet = async (pet) => {
   try {
-    const values = [
-      newPet.name,
-      newPet.breed,
-      newPet.gender,
-      newPet.age,
-      newPet.color,
-      newPet.size,
-      newPet.type,
-      newPet.maintenance_level,
-      newPet.spayed_neutered,
-      newPet.house_trained,
-      newPet.description,
-      newPet.declawed,
-      newPet.special_needs,
-      newPet.shots_current,
-      newPet.status,
-      newPet.shelter_id,
-      newPet.userLiked,
-      newPet.image_url,
-      newPet.phone_number,
-    ];
-
-    const addedPet = await db.one(`INSERT INTO pets (name, breed, gender, age, color, size, type, maintenance_level, spayed_neutered, house_trained, description, declawed, special_needs, shots_current, status, shelter_id, userLiked, image_url, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING *`, values);
-    return addedPet;
+    const newPet = await db.one(
+      'INSERT INTO pets (name, age, type, house_trained, shots_current, sprayed_neutered, special_needs, primary_breed, mixed, contact_email, contact_phone, address1, city, postcode, size, gender, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING *',
+    [
+      pet.name,
+      pet.age,
+      pet.type,
+      pet.attributes.house_trained,
+      pet.attributes.shots_current,
+      pet.attributes.sprayed_neutered,
+      pet.attributes.special_needs,
+      pet.breeds.primary,
+      pet.breeds.mixed,
+      pet.contact.email,
+      pet.contact.phone,
+      pet.address.address1,
+      pet.address.city,
+      pet.address.postcode,
+      pet.size,
+      pet.gender,
+      pet.description,
+    ]
+  );
+  return newPet
   } catch (error) {
     return 'query didnt work';
   }
 };
-
-
 
 const deletePet = async (id) => {
   try {

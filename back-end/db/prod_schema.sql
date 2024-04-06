@@ -1,66 +1,38 @@
 DROP TABLE IF EXISTS users ;
 
 CREATE TABLE users (
-    id SERIAL, 
-    name TEXT,
-    income INT,
-    age INT,
-    sex TEXT,
-    household_size INT,
-    residence_type TEXT, 
-    free_time TEXT, 
-    preferences TEXT, 
-    pet_type TEXT, 
-    address TEXT,
-    proof_of_residence TEXT, 
-    photo_id TEXT, 
-    proof_pets_allowed TEXT, 
-    phone_number TEXT, 
-    email TEXT, 
-    PRIMARY KEY(id)
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
 );
 
-DROP TABLE IF EXISTS shelters;
-
-CREATE TABLE shelters (
-    id SERIAL , 
-    name TEXT, 
-    address TEXT, 
-    business_hours TEXT,
-    phone_number VARCHAR(40), 
-    email TEXT, 
-    PRIMARY KEY(id)
-);
-
-DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS pets ;
 
 CREATE TABLE pets (
-   id SERIAL PRIMARY KEY, 
-    name TEXT, 
-    type TEXT,
-    breed TEXT,
-    size TEXT, 
-    gender TEXT,
-    age TEXT,
-    color TEXT, 
-    maintenance_level TEXT,
-    spayed_neutered BOOLEAN, 
-    house_trained BOOLEAN,
-    declawed BOOLEAN, 
-    special_needs BOOLEAN, 
-    shots_current BOOLEAN,
-    description TEXT, 
-    status TEXT,
-    shelter_id INT REFERENCES shelters(id) ON DELETE CASCADE,
-    userLiked BOOLEAN,
-    image_url TEXT,
-     phone_number VARCHAR(40)
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  age INTEGER NOT NULL,
+  type VARCHAR(255) NOT NULL,
+  house_trained BOOLEAN DEFAULT FALSE,
+  shots_current BOOLEAN DEFAULT FALSE,
+  sprayed_neutered BOOLEAN DEFAULT FALSE,
+  special_needs BOOLEAN DEFAULT FALSE,
+  primary_breed VARCHAR(255),
+  mixed BOOLEAN DEFAULT FALSE,
+  contact_email VARCHAR(255),
+  contact_phone VARCHAR(20),
+  address1 VARCHAR(255),
+  city VARCHAR(255),
+  postcode VARCHAR(20),
+  size VARCHAR(255),
+  gender VARCHAR(255),
+  description TEXT,
+  owner_id INTEGER REFERENCES users(id)
 );
 
-DROP TABLE IF EXISTS users_pets;
-
 CREATE TABLE users_pets (
-    pet_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
-    liked TIMESTAMP DEFAULT NOW()
+  user_id INTEGER REFERENCES users(id),
+  pet_id INTEGER REFERENCES pets(id),
+  PRIMARY KEY (user_id, pet_id)
 );
