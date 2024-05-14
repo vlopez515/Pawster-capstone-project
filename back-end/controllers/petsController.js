@@ -46,15 +46,6 @@ pets.delete("/:id", async (req, res) => {
   }
 });
 
-pets.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const updatedPet = await updatePet(req.body, id);
-  console.log(updatedPet)
-  if (updatedPet.id) {
-    res.status(200).json(updatedPet);
-  } else {
-    res.status(404).json({error: "Pet not updated!"});
-  }
-});
+
 
 module.exports = pets;

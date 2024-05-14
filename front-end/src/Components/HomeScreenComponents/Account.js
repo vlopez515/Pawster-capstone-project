@@ -1,8 +1,6 @@
 import { React } from "react";
 import { UserAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Form } from "../Forms/Form";
-
 
 function Account() {
   const { logOut, user } = UserAuth();

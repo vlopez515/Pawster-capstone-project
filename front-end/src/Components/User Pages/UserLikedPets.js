@@ -12,9 +12,6 @@ import './UserLikedPets.css';
 const API = process.env.REACT_APP_API_URL
 
 function UserLikedPets() {
-    //aixos get? from our data base - getting pets data. by userlikedby 
-    // save that to a state... then filter with user id? 
-    //so now we have an object with only this user id's pet info. 
     const [allPets, setAllPets] = useState([])
     const [petIndx, setPetIndx] = useState(0)
 
@@ -25,7 +22,7 @@ function UserLikedPets() {
             .catch((err) => { console.log(err) })
     }, [])
 
-    let pets = allPets.filter(pet => pet.userliked === true)
+    // let pets = allPets.filter(pet => pet.userliked === true)
 
     return (
         <div className="userLikedPets" >
@@ -38,7 +35,7 @@ function UserLikedPets() {
                                     <br/>
                                     <br/>
                                     {
-                                        // need pets array to loop through 
+                                        
                                         pets.map((pet, index) => <LikedPet  key={pet.id} pet={pet} index={index}  petIndx={petIndx} setPetIndx={setPetIndx} />)
                                     }
                                 </div>

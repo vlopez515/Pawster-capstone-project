@@ -14,10 +14,7 @@ import Feed from './Components/HomeScreenComponents/Feed';
 import Support from './Components/HomeScreenComponents/Support';
 
 // User Route
-import UserLikedPets from './Components/User Pages/UserLikedPets';
 import TinderCards from "../src/Components/User Pages/PetFinderAPI/PetFinderAPI"
-import Chats from "../src/Components/User Pages/Chats"
-import ChatScreen from './Components/User Pages/ChatScreen';
 
 import "./App.css"
 
@@ -46,12 +43,12 @@ function App() {
               {/* User Routes */}
               {/* <Route path="/userForm/:id" element={ <UserForm />} /> */}
               <Route path="/user/:id/explore" element={ <TinderCards />} />
-              <Route path="/user/:id/pets" element={<UserLikedPets />} />
-              <Route path="/chats" element={<Chats />} />
+              
+              
             
 
               {/*  */}
-              <Route path="/chat" element={<ChatScreen/>} />
+            
             
 
           </Routes>

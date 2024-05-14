@@ -19,12 +19,13 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import ViewPet from "./ViewPet";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
+import UserLikedPets from "./UserLikedPets";
 
 function Dashboard({ animals }) {
 
   return (
     <div className="dashboard">
-      <ChatContainer />
+      <UserLikedPets />
       <div className="swiper-container">
         <div className="card-container">
           {animals.map((animal, index) => {

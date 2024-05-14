@@ -1,9 +1,3 @@
-INSERT INTO users (name, income, age, sex, household_size, residence_type, free_time, preferences, pet_type, address, proof_of_residence, photo_id, proof_pets_allowed, phone_number, email ) 
-VALUES
-('Chad', 30000, 25, 'male', 5, 'apartment', '1-2', 'low', 'cat', '234 Oaks Drive, Apt. 1W, New York, NY 11308', 'lease1', 'https://visualpharm.com/assets/387/Person-595b40b75ba036ed117da139.svg', 'https://legaltemplates.net/wp-content/uploads/documents/pet-addendum/Sample-Pet-Addendum.png', '1234569877', 'emailSample@gmail.com'),
-('Maddy', 100000 , 22, 'female', 1, 'house', '5-10', null, null , '123 Cedar street, New York, NY 10271', 'lease2','https://cdn.icon-icons.com/icons2/3150/PNG/512/user_profile_female_icon_192701.png', 'https://legaltemplates.net/wp-content/uploads/documents/pet-addendum/Sample-Pet-Addendum.png', '1234569877', 'emailSample22@gmail.com');
-
-
 INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level, spayed_neutered, house_trained, declawed, special_needs, shots_current, description, status, shelter_id, userLiked, image_url, phone_number ) VALUES
 ('Paisley', 'Dog', 'Mixed Breed', 'Medium', 'Female', 'Young', 'White / Cream', 'Low', true, true, false, false, true, 'Look who’s made her way out of the kill shelter and into a wonderful foster home, it’s gorgeous Paisley!', 'adoptable', 1, true, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70030759/3/?bust=1702533472&width=300', '348-173-3923'),
 ('Princess Leia', 'Dog', 'Belgian Shepherd', 'Medium', 'Female', 'Baby', 'Brown / Chocolate', 'Mid', true, false, null, false, true, 'My name is Princess Leia and I was born on October 16, 2023. I am part of the Star Wars...', 'adoptable', 2, true, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/70030266/1/?bust=1702525784&width=100', '348-173-3123'), 
@@ -28,8 +22,3 @@ INSERT INTO pets (name, type, breed, size, gender, age, color, maintenance_level
 ('Nanook', 'Dog', 'Shiba Inu', 'Small', 'Male', 'Adult', 'Red / Chestnut / Orange', 'Mid', true, true, null, false, true, 'Nanook is a 5-year-old, 22lb male shiba inu.', 'adoptable', 1, false, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59135338/1/?bust=1670873426', '271-173-3193'),
 ('Buddy the Elf', 'Cat', 'Tabby', 'Medium', 'Male', 'Young', 'Orange', 'Mid', false, false, false, false, false, 'I know him! Meet Buddy the Elf happily named for those giant ears you see! He was found by a', 'adoptable', 2, false, 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59140794/1/?bust=1670911215', '348-153-3923');
 
-INSERT INTO users_pets (user_id, pet_id) VALUES
-(1,1),
-(1,2),
-(2,1),
-(2,2);

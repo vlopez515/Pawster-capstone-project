@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCard.css";
 import "./SwipeButtons.css";
@@ -26,11 +26,13 @@ export default function TinderCards({ animals }) {
 
   const swiped = async (direction, index) => {
     setCurrentIndex(index - 1);
+  
     if (direction === "right") {
       const swipedPet = animals[index];
+      // console.log("Swiped Pet:", swipedPet); 
       addNewPet(swipedPet);
     } else if (direction === "left") {
-    //something after swiping left
+      // Handle swipe left if needed
     }
   };
 
@@ -55,42 +57,40 @@ export default function TinderCards({ animals }) {
   const addNewPet = async (swipedPet) => {
     try {
       const newPet = {
-        name: swipedPet.name,
-        age: swipedPet.age,
-        type: swipedPet.type,
+        name: swipedPet.name || null,
+        age: swipedPet.age || null,
+        type: swipedPet.type || null,
         attributes: {
-          house_trained: swipedPet.attributes.house_trained,
-          shots_current: swipedPet.attributes.shots_current,
-          sprayed_neutered: swipedPet.attributes.sprayed_neutered,
-          special_needs: swipedPet.attributes.special_needs,
+          house_trained: swipedPet.attributes.house_trained || null,
+          shots_current: swipedPet.attributes.shots_current || null,
+          sprayed_neutered: swipedPet.attributes.sprayed_neutered || null,
+          special_needs: swipedPet.attributes.special_needs || null,
         },
         breeds: {
-          primary: swipedPet.breeds.primary,
-          mixed: swipedPet.breeds.mixed,
+          primary: swipedPet.breeds.primary || null,
+          mixed: swipedPet.breeds.mixed || null,
         },
         contact: {
-          email: swipedPet.contact.email,
-          phone: swipedPet.contact.phone,
+          email: swipedPet.contact.email || null,
+          phone: swipedPet.contact.phone || null,
         },
-        // address: {
-        //   // address1: swipedPet.address.address1,
-        //   // city: swipedPet.address.city,
-        //   // postcode: swipedPet.address.postcode,
-        // },
-        size: swipedPet.size,
-        gender: swipedPet.gender,
-        description: swipedPet.description,
+        address: {
+          address1: swipedPet.contact.address.address1 || null,
+          city: swipedPet.contact.address.city || null,
+          postcode: swipedPet.contact.address.postcode || null,
+        },
+        size: swipedPet.size || null,
+        gender: swipedPet.gender || null,
+        description: swipedPet.description || null,
       };
   
       const response = await axios.post(`${API}/pets`, newPet);
+      console.log("NPAS", newPet )
       console.log("New pet added successfully:", response.data);
-
     } catch (error) {
       console.error("Error adding new pet:", error);
     }
   };
-
-  let pets = allPets.filter(pet => pet.userliked === true)
 
   return (
     <div className="tinderCard_cardContainer" src="https://previews.123rf.com/images/paulgrecaud/paulgrecaud1701/paulgrecaud170100005/69950272-summer-landscape-with-green-grass-at-sunny-day-nature-background.jpg" width= "1000">
